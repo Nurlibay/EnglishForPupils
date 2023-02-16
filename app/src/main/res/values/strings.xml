@@ -3,4 +3,7 @@
     <string name="english_for_pupils">English For Pupils</string>
     <string name="units">Units</string>
     <string name="profile">Profile</string>
+    <string name="looks">Looks</string>
+    <string name="age">Age</string>
+    <string name="hair">Hair</string>
 </resources>
