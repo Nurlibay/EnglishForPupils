@@ -109,5 +109,5 @@ dependencies {
     // swipe refresh layout
     implementation 'androidx.swiperefreshlayout:swiperefreshlayout:1.1.0'
 
-    implementation 'com.jakewharton:butterknife:7.0.1'
+    implementation("com.google.android.flexbox:flexbox:3.0.0")
 }

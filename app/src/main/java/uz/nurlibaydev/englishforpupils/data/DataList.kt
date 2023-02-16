@@ -1,13 +1,10 @@
 package uz.nurlibaydev.englishforpupils.data
 
-import uz.nurlibaydev.englishforpupils.data.models.UnitData
-
 object DataList {
-
-    fun getAllUnits(): List<UnitData> {
-        val units = mutableListOf<UnitData>()
+    fun getAllUnits(): List<String> {
+        val units = mutableListOf<String>()
         repeat(30) {
-            units.add(UnitData("Unit ${it + 1}"))
+            units.add("Unit ${it + 1}")
         }
         return units
     }
