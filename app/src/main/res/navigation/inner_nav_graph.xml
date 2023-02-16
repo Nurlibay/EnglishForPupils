@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/unitsScreen">
+
+    <fragment
+        android:id="@+id/unitsScreen"
+        android:name="uz.nurlibaydev.englishforpupils.presentation.unit.UnitsScreen"
+        android:label="UnitsScreen"
+        tools:layout="@layout/screen_units" >
+        <action
+            android:id="@+id/action_unitsScreen_to_exerciseScreen"
+            app:destination="@id/exerciseScreen" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/profileScreen"
+        android:name="uz.nurlibaydev.englishforpupils.presentation.profile.ProfileScreen"
+        android:label="ProfileScreen"
+        tools:layout="@layout/screen_profile" />
+
+    <fragment
+        android:id="@+id/exerciseScreen"
+        android:name="uz.nurlibaydev.englishforpupils.presentation.exercise.ExerciseScreen"
+        android:label="ExerciseScreen"
+        tools:layout="@layout/screen_exercise" >
+        <argument
+            android:name="unit_name"
+            app:argType="string"
+            android:defaultValue='""' />
+    </fragment>
+
+</navigation>
