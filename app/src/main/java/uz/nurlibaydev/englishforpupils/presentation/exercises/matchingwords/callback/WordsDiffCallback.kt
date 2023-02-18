@@ -1,4 +1,4 @@
-package uz.nurlibaydev.englishforpupils.presentation.exercise.callback
+package uz.nurlibaydev.englishforpupils.presentation.exercises.matchingwords.callback
 
 import androidx.recyclerview.widget.DiffUtil
 

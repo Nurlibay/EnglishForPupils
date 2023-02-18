@@ -31,9 +31,10 @@ class UnitsScreen : Fragment(R.layout.screen_units) {
 
     private fun navigateTo() {
         adapter.setOnUnitItemClickListener {
-            navController.navigate(UnitsScreenDirections.actionUnitsScreenToExerciseScreen(it))
+            navController.navigate(UnitsScreenDirections.actionUnitsScreenToMainContainer(it))
         }
     }
+
     private fun ScreenUnitsBinding.setupAdapter() {
         rvUnits.adapter = adapter
         adapter.submitList(DataList.getAllUnits())

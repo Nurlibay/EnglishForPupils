@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_exercises"
+    app:startDestination="@id/matchingWordsScreen">
+    <fragment
+        android:id="@+id/matchingWordsScreen"
+        android:name="uz.nurlibaydev.englishforpupils.presentation.exercises.matchingwords.MatchingWordsScreen"
+        android:label="MatchingWordsScreen"
+        tools:layout="@layout/screen_match_words">
+        <action
+            android:id="@+id/action_matchingWordsScreen_to_matchingAntonyms"
+            app:destination="@id/matchingAntonyms" />
+    </fragment>
+    <fragment
+        android:id="@+id/matchingAntonyms"
+        android:name="uz.nurlibaydev.englishforpupils.presentation.exercises.antonyms.MatchingAntonyms"
+        android:label="MatchingAntonyms"
+        tools:layout="@layout/screen_match_antonyms">
+        <action
+            android:id="@+id/action_matchingAntonyms_to_fillingScreen"
+            app:destination="@id/fillingScreen" />
+    </fragment>
+    <fragment
+        android:id="@+id/fillingScreen"
+        android:name="uz.nurlibaydev.englishforpupils.presentation.exercises.filling.FillingScreen"
+        android:label="FillingScreen"
+        tools:layout="@layout/screen_filling">
+        <action
+            android:id="@+id/action_fillingScreen_to_wordOrderScreen"
+            app:destination="@id/wordOrderScreen" />
+    </fragment>
+    <fragment
+        android:id="@+id/wordOrderScreen"
+        android:name="uz.nurlibaydev.englishforpupils.presentation.exercises.wordorder.WordOrderScreen"
+        android:label="WordOrderScreen"
+        tools:layout="@layout/screen_word_order">
+        <action
+            android:id="@+id/action_wordOrderScreen_to_pictureGameScreen"
+            app:destination="@id/pictureGameScreen" />
+    </fragment>
+    <fragment
+        android:id="@+id/pictureGameScreen"
+        android:name="uz.nurlibaydev.englishforpupils.presentation.exercises.picturegame.PictureGameScreen"
+        android:label="PictureGameScreen"
+        tools:layout="@layout/screen_picture_game" />
+</navigation>

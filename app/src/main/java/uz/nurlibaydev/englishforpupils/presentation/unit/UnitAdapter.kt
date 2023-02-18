@@ -6,7 +6,7 @@ import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
 import uz.nurlibaydev.englishforpupils.R
 import uz.nurlibaydev.englishforpupils.databinding.ItemUnitBinding
-import uz.nurlibaydev.englishforpupils.presentation.exercise.callback.WordsDiffCallback
+import uz.nurlibaydev.englishforpupils.presentation.exercises.matchingwords.callback.WordsDiffCallback
 import uz.nurlibaydev.englishforpupils.utils.extensions.onClick
 
 /**

@@ -1,4 +1,4 @@
-package uz.nurlibaydev.englishforpupils.presentation.exercise.callback
+package uz.nurlibaydev.englishforpupils.presentation.exercises.matchingwords.callback
 
 import android.animation.ValueAnimator
 import android.graphics.Color

@@ -3,12 +3,34 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/nav_graph"
-    app:startDestination="@id/mainScreen">
+    app:startDestination="@id/unitsScreen">
 
     <fragment
-        android:id="@+id/mainScreen"
-        android:name="uz.nurlibaydev.englishforpupils.presentation.main.MainScreen"
-        android:label="MainScreen"
-        tools:layout="@layout/screen_main" />
+        android:id="@+id/unitsScreen"
+        android:name="uz.nurlibaydev.englishforpupils.presentation.unit.UnitsScreen"
+        android:label="UnitsScreen"
+        tools:layout="@layout/screen_units">
+        <action
+            android:id="@+id/action_unitsScreen_to_profileScreen"
+            app:destination="@id/profileScreen" />
+        <action
+            android:id="@+id/action_unitsScreen_to_mainContainer"
+            app:destination="@id/mainContainer" />
+    </fragment>
+    <fragment
+        android:id="@+id/profileScreen"
+        android:name="uz.nurlibaydev.englishforpupils.presentation.profile.ProfileScreen"
+        android:label="ProfileScreen"
+        tools:layout="@layout/screen_profile" />
+    <fragment
+        android:id="@+id/mainContainer"
+        android:name="uz.nurlibaydev.englishforpupils.presentation.exercises.MainContainer"
+        android:label="MainContainer"
+        tools:layout="@layout/container_tasks">
+        <argument
+            android:name="unit_name"
+            android:defaultValue='""'
+            app:argType="string" />
+    </fragment>
 
 </navigation>

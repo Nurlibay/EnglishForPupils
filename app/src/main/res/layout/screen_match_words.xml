@@ -9,7 +9,7 @@
         android:id="@+id/lay_example_words"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_margin="@dimen/margin_standard"
+        android:layout_margin="@dimen/margin_middle"
         android:gravity="center"
         android:orientation="horizontal"
         app:layout_constraintEnd_toEndOf="parent"
@@ -23,7 +23,7 @@
             android:layout_weight="1"
             android:backgroundTint="@color/main_color"
             app:cardCornerRadius="@dimen/margin_middle"
-            app:contentPadding="@dimen/margin_standard">
+            app:contentPadding="12dp">
 
             <androidx.constraintlayout.widget.ConstraintLayout
                 android:layout_width="match_parent"
@@ -52,7 +52,7 @@
             android:layout_weight="1"
             android:backgroundTint="@color/main_color"
             app:cardCornerRadius="@dimen/margin_middle"
-            app:contentPadding="@dimen/margin_standard">
+            app:contentPadding="12dp">
 
             <androidx.constraintlayout.widget.ConstraintLayout
                 android:layout_width="match_parent"
@@ -80,7 +80,7 @@
             android:layout_weight="1"
             android:backgroundTint="@color/main_color"
             app:cardCornerRadius="@dimen/margin_middle"
-            app:contentPadding="@dimen/margin_standard">
+            app:contentPadding="12dp">
 
             <androidx.constraintlayout.widget.ConstraintLayout
                 android:layout_width="match_parent"
@@ -106,10 +106,9 @@
     <androidx.appcompat.widget.LinearLayoutCompat
         android:id="@+id/container_words"
         android:layout_width="match_parent"
-        android:layout_height="0dp"
+        android:layout_height="wrap_content"
         android:layout_margin="@dimen/margin_middle"
         android:orientation="horizontal"
-        app:layout_constraintBottom_toTopOf="@id/rvWords"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/lay_example_words">
@@ -130,7 +129,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:background="@drawable/container_shape"
-                android:minHeight="300dp"
+                android:minHeight="250dp"
                 android:overScrollMode="never"
                 app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager" />
 
@@ -152,7 +151,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:background="@drawable/container_shape"
-                android:minHeight="300dp"
+                android:minHeight="250dp"
                 android:overScrollMode="never" />
 
         </com.google.android.material.card.MaterialCardView>
@@ -172,7 +171,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:background="@drawable/container_shape"
-                android:minHeight="300dp"
+                android:minHeight="250dp"
                 android:overScrollMode="never" />
 
         </com.google.android.material.card.MaterialCardView>
@@ -187,10 +186,24 @@
         android:minHeight="100dp"
         android:overScrollMode="never"
         android:padding="16dp"
-        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintBottom_toTopOf="@id/btn_next"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHeight_percent="0.5"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/container_words" />
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/btn_next"
+        android:layout_width="0dp"
+        android:layout_height="54dp"
+        android:layout_margin="@dimen/margin_standard"
+        android:backgroundTint="@color/main_color"
+        android:paddingHorizontal="@dimen/margin_middle"
+        android:text="@string/next"
+        android:textColor="@color/white"
+        app:cornerRadius="@dimen/margin_middle"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

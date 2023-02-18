@@ -1,38 +1,40 @@
-package uz.nurlibaydev.englishforpupils.presentation.exercise
+package uz.nurlibaydev.englishforpupils.presentation.exercises.matchingwords
 
 import android.os.Bundle
 import android.view.View
 import androidx.fragment.app.Fragment
-import androidx.navigation.fragment.navArgs
+import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import by.kirich1409.viewbindingdelegate.viewBinding
 import com.google.android.flexbox.*
 import dagger.hilt.android.AndroidEntryPoint
 import uz.nurlibaydev.englishforpupils.R
-import uz.nurlibaydev.englishforpupils.databinding.ScreenExerciseBinding
-import uz.nurlibaydev.englishforpupils.presentation.exercise.adapter.SortedWordsAdapter
-import uz.nurlibaydev.englishforpupils.presentation.exercise.adapter.WordsAdapter
-import uz.nurlibaydev.englishforpupils.presentation.exercise.callback.DropListener
+import uz.nurlibaydev.englishforpupils.databinding.ScreenMatchWordsBinding
+import uz.nurlibaydev.englishforpupils.presentation.exercises.matchingwords.adapter.SortedWordsAdapter
+import uz.nurlibaydev.englishforpupils.presentation.exercises.matchingwords.adapter.WordsAdapter
+import uz.nurlibaydev.englishforpupils.presentation.exercises.matchingwords.callback.DropListener
+import uz.nurlibaydev.englishforpupils.utils.extensions.onClick
 
 /**
  *  Created by Nurlibay Koshkinbaev on 16/02/2023 16:54
  */
 
 @AndroidEntryPoint
-class ExerciseScreen : Fragment(R.layout.screen_exercise) {
+class MatchingWordsScreen : Fragment(R.layout.screen_match_words) {
 
-    private val binding: ScreenExerciseBinding by viewBinding()
-    private val navArgs by navArgs<ExerciseScreenArgs>()
-
+    private val binding: ScreenMatchWordsBinding by viewBinding()
     private val words = mutableListOf(
         "Bald", "attractive", "blonde", "curly", "dark",
         "elderly", "fair", "good-looking", "handsome",
-        "middle-aged", "pretty", "straight", "teenage", "twenties"
+        "middle-aged", "pretty", "straight", "teenage", "in", "his/her", "twenties"
     )
     private var selectedWord = ""
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        binding.btnNext.onClick {
+            findNavController().navigate(MatchingWordsScreenDirections.actionMatchingWordsScreenToMatchingAntonyms())
+        }
 
         val ageWordsAdapter = SortedWordsAdapter {
             selectedWord = it
