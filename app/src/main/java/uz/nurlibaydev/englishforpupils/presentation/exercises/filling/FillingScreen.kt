@@ -8,7 +8,6 @@ import by.kirich1409.viewbindingdelegate.viewBinding
 import dagger.hilt.android.AndroidEntryPoint
 import uz.nurlibaydev.englishforpupils.R
 import uz.nurlibaydev.englishforpupils.databinding.ScreenFillingBinding
-import uz.nurlibaydev.englishforpupils.presentation.exercises.matchingwords.MatchingWordsScreenDirections
 import uz.nurlibaydev.englishforpupils.utils.extensions.onClick
 
 /**

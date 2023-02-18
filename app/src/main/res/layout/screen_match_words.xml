@@ -119,7 +119,7 @@
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:backgroundTint="@color/white"
-            app:layout_constraintBottom_toTopOf="@id/rvWords"
+            app:layout_constraintBottom_toTopOf="@id/rv_words"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/lay_example_words">
@@ -141,7 +141,7 @@
             android:layout_height="wrap_content"
             android:layout_marginHorizontal="@dimen/margin_small"
             android:layout_weight="1"
-            app:layout_constraintBottom_toTopOf="@id/rvWords"
+            app:layout_constraintBottom_toTopOf="@id/rv_words"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/lay_example_words">
@@ -161,7 +161,7 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            app:layout_constraintBottom_toTopOf="@id/rvWords"
+            app:layout_constraintBottom_toTopOf="@id/rv_words"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/lay_example_words">
@@ -179,15 +179,15 @@
     </androidx.appcompat.widget.LinearLayoutCompat>
 
     <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/rvWords"
+        android:id="@+id/rv_words"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:clipToPadding="false"
         android:minHeight="100dp"
-        android:overScrollMode="never"
         android:padding="16dp"
         app:layout_constraintBottom_toTopOf="@id/btn_next"
         app:layout_constraintEnd_toEndOf="parent"
+        android:clipToPadding="false"
+        android:overScrollMode="never"
         app:layout_constraintHeight_percent="0.5"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/container_words" />
