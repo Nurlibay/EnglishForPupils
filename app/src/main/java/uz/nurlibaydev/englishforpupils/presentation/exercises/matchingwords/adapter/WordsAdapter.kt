@@ -1,15 +1,17 @@
 package uz.nurlibaydev.englishforpupils.presentation.exercises.matchingwords.adapter
 
 import android.content.ClipData
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
+import uz.nurlibaydev.englishforpupils.R
 import uz.nurlibaydev.englishforpupils.presentation.exercises.matchingwords.callback.DragListener
 import uz.nurlibaydev.englishforpupils.presentation.exercises.matchingwords.callback.WordsDiffCallback
-import uz.nurlibaydev.englishforpupils.R
+import uz.nurlibaydev.englishforpupils.utils.Observer
 
 class WordsAdapter(private val onDragStarted: (String) -> Unit) : ListAdapter<String, WordsAdapter.WordsViewHolder>(WordsDiffCallback()) {
 
@@ -25,13 +27,16 @@ class WordsAdapter(private val onDragStarted: (String) -> Unit) : ListAdapter<St
     fun removeItem(selectedWord: String) {
         val list = ArrayList(currentList)
         list.remove(selectedWord)
-        submitList(list)
+        submitList(list.toSet().toList())
+        if (currentList.size == 1) {
+            Observer.emptyDataObserver.value = true
+        }
     }
 
     fun addItem(selectedWord: String) {
         val list = ArrayList(currentList)
         list.add(selectedWord)
-        submitList(list)
+        submitList(list.toSet().toList())
     }
 
     inner class WordsViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {

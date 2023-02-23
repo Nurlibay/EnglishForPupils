@@ -1,60 +1,53 @@
 package uz.nurlibaydev.englishforpupils.presentation.exercises.antonyms
 
 import android.view.LayoutInflater
+import android.view.View
 import android.view.ViewGroup
-import androidx.recyclerview.widget.AsyncListDiffer
-import androidx.recyclerview.widget.DiffUtil
+import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
 import uz.nurlibaydev.englishforpupils.R
 import uz.nurlibaydev.englishforpupils.databinding.ItemSortedWordBinding
-import uz.nurlibaydev.englishforpupils.databinding.ItemWordBinding
+import uz.nurlibaydev.englishforpupils.presentation.exercises.matchingwords.callback.WordsDiffCallback
 
 /**
  *  Created by Nurlibay Koshkinbaev on 18/02/2023 19:43
  */
 
-class AntonymsAdapter : RecyclerView.Adapter<AntonymsAdapter.MoviesViewHolder>() {
+class AntonymsAdapter : ListAdapter<String, AntonymsAdapter.MoviesViewHolder>(WordsDiffCallback()) {
 
     inner class MoviesViewHolder(private val binding: ItemSortedWordBinding) : RecyclerView.ViewHolder(binding.root) {
 
-        fun bindView(movieItem: String) {
+        fun bindView(position: Int) {
             binding.apply {
-                tvWord.text = movieItem
+                val item = getItem(absoluteAdapterPosition)
+                tvWord.text = item
             }
 
             binding.root.setOnClickListener {
                 onItemClickListener?.let {
-                    it(movieItem)
-
+                    it(getItem(absoluteAdapterPosition))
                 }
             }
+            changeBg.invoke(binding.item, position)
         }
     }
 
-    private val differCallBack = object : DiffUtil.ItemCallback<String>() {
-
-        override fun areItemsTheSame(oldItem: String, newItem: String): Boolean {
-            return oldItem.contentEquals(newItem)
-        }
-
-        override fun areContentsTheSame(oldItem: String, newItem: String): Boolean {
-            return oldItem.contentEquals(newItem)
-        }
+    var changeBg: (view: View, position: Int) -> Unit = {_, _ ->}
+    fun changeBg(block: (view: View, position: Int) -> Unit) {
+        changeBg = block
     }
 
-    val differ = AsyncListDiffer(this, differCallBack)
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MoviesViewHolder {
         return MoviesViewHolder(ItemSortedWordBinding.bind(LayoutInflater.from(parent.context).inflate(R.layout.item_sorted_word, parent, false)))
     }
 
     private var onItemClickListener: ((String) -> Unit)? = null
     override fun onBindViewHolder(holder: MoviesViewHolder, position: Int) {
-        val movieItem = differ.currentList[position]
-        holder.bindView(movieItem)
+        holder.bindView(position)
     }
 
     fun moveItem(from: Int, to: Int) {
-        val list = differ.currentList.toMutableList()
+        val list = currentList.toMutableList()
         val fromLocation = list[from]
         list.removeAt(from)
         if (to < from) {
@@ -62,15 +55,14 @@ class AntonymsAdapter : RecyclerView.Adapter<AntonymsAdapter.MoviesViewHolder>()
         } else {
             list.add(to - 1, fromLocation)
         }
-        differ.submitList(list)
+        this.submitList(list)
     }
 
     override fun getItemCount(): Int {
-        return differ.currentList.size
+        return currentList.size
     }
 
     fun setOnItemClickListener(listener: (String) -> Unit) {
         onItemClickListener = listener
-
     }
 }

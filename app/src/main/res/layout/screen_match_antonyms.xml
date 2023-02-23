@@ -64,7 +64,7 @@
         android:layout_margin="@dimen/margin_standard"
         android:backgroundTint="@color/main_color"
         android:paddingHorizontal="@dimen/margin_middle"
-        android:text="@string/next"
+        android:text="@string/check"
         android:textColor="@color/white"
         app:cornerRadius="@dimen/margin_middle"
         app:layout_constraintBottom_toBottomOf="parent"

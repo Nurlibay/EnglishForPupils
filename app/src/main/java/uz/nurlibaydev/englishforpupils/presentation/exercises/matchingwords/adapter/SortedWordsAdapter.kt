@@ -1,6 +1,8 @@
 package uz.nurlibaydev.englishforpupils.presentation.exercises.matchingwords.adapter
 
 import android.content.ClipData
+import android.graphics.Color
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -11,7 +13,7 @@ import uz.nurlibaydev.englishforpupils.R
 import uz.nurlibaydev.englishforpupils.presentation.exercises.matchingwords.callback.DragListener
 import uz.nurlibaydev.englishforpupils.presentation.exercises.matchingwords.callback.WordsDiffCallback
 
-class SortedWordsAdapter(private val onDragStarted: (String) -> Unit) : ListAdapter<String, SortedWordsAdapter.WordsViewHolder>(WordsDiffCallback()) {
+class SortedWordsAdapter(private val list: List<String>, private val onDragStarted: (String) -> Unit) : ListAdapter<String, SortedWordsAdapter.WordsViewHolder>(WordsDiffCallback()) {
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): WordsViewHolder {
         val view = LayoutInflater.from(parent.context).inflate(R.layout.item_sorted_word, parent, false)
         return WordsViewHolder(view)
@@ -24,18 +26,32 @@ class SortedWordsAdapter(private val onDragStarted: (String) -> Unit) : ListAdap
     fun addItem(selectedWord: String) {
         val list = ArrayList(currentList)
         list.add(selectedWord)
-        submitList(list)
+        if(list.contains(selectedWord)){
+            notifyItemChanged(currentList.indexOf(selectedWord))
+        }
+        submitList(list.toSet().toList())
     }
 
     fun removeItem(selectedWord: String) {
         val list = ArrayList(currentList)
         list.remove(selectedWord)
-        submitList(list)
+        submitList(list.toSet().toList())
+    }
+
+    var changeBg: (view: View) -> Unit = { }
+    fun changeBg(block: (view: View) -> Unit) {
+        changeBg = block
     }
 
     inner class WordsViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         fun bind(word: String) = itemView.run {
             itemView.findViewById<TextView>(R.id.tv_word).text = word
+
+            if(list.contains(itemView.findViewById<TextView>(R.id.tv_word).text)){
+                itemView.setBackgroundColor(Color.parseColor("#0BE814"))
+            } else {
+                itemView.setBackgroundColor(Color.parseColor("#F44336"))
+            }
 
             setOnLongClickListener { view ->
                 // when user is long clicking on a view, drag process will start

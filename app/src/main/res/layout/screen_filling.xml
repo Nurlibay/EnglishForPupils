@@ -23,30 +23,47 @@
                 android:id="@+id/tv_first_question"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Young man------[wear] smart suits and skinny ties in 1960th "
+                android:text=""
                 android:textSize="20sp" />
 
-            <com.google.android.material.textfield.TextInputLayout
-                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
-                android:layout_width="200dp"
+            <androidx.appcompat.widget.LinearLayoutCompat
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginVertical="@dimen/margin_middle"
-                android:background="@color/white"
-                android:hint="Answer"
-                android:padding="0dp"
-                android:textColorHint="@color/black"
-                app:boxStrokeColor="@color/main_color"
-                app:hintTextColor="@color/black">
+                android:orientation="horizontal">
 
-                <com.google.android.material.textfield.TextInputEditText
-                    android:id="@+id/et_first_question"
-                    android:layout_width="match_parent"
+                <com.google.android.material.textfield.TextInputLayout
+                    style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                    android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    android:inputType="text"
-                    android:singleLine="true"
-                    android:textCursorDrawable="@null" />
+                    android:layout_weight="2"
+                    android:background="@color/white"
+                    android:hint="Answer"
+                    android:padding="0dp"
+                    android:textColorHint="@color/black"
+                    app:boxStrokeColor="@color/main_color"
+                    app:hintTextColor="@color/black">
 
-            </com.google.android.material.textfield.TextInputLayout>
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/et_first_question"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:inputType="text"
+                        android:singleLine="true"
+                        android:textCursorDrawable="@null" />
+
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <com.google.android.material.textview.MaterialTextView
+                    android:id="@+id/tv_first_question_state"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="3"
+                    android:gravity="center"
+                    android:text=""
+                    android:textSize="22sp" />
+
+            </androidx.appcompat.widget.LinearLayoutCompat>
 
         </androidx.appcompat.widget.LinearLayoutCompat>
 
@@ -60,30 +77,47 @@
                 android:id="@+id/tv_second_question"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Clothing trends-----[match] the music"
+                android:text=""
                 android:textSize="20sp" />
 
-            <com.google.android.material.textfield.TextInputLayout
-                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
-                android:layout_width="200dp"
+            <androidx.appcompat.widget.LinearLayoutCompat
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginVertical="@dimen/margin_middle"
-                android:background="@color/white"
-                android:hint="Answer"
-                android:padding="0dp"
-                android:textColorHint="@color/black"
-                app:boxStrokeColor="@color/main_color"
-                app:hintTextColor="@color/black">
+                android:orientation="horizontal">
 
-                <com.google.android.material.textfield.TextInputEditText
-                    android:id="@+id/et_second_question"
-                    android:layout_width="match_parent"
+                <com.google.android.material.textfield.TextInputLayout
+                    style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                    android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    android:inputType="text"
-                    android:singleLine="true"
-                    android:textCursorDrawable="@null" />
+                    android:layout_weight="2"
+                    android:background="@color/white"
+                    android:hint="Answer"
+                    android:padding="0dp"
+                    android:textColorHint="@color/black"
+                    app:boxStrokeColor="@color/main_color"
+                    app:hintTextColor="@color/black">
 
-            </com.google.android.material.textfield.TextInputLayout>
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/et_second_question"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:inputType="text"
+                        android:singleLine="true"
+                        android:textCursorDrawable="@null" />
+
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <com.google.android.material.textview.MaterialTextView
+                    android:id="@+id/tv_second_question_state"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="3"
+                    android:gravity="center"
+                    android:text=""
+                    android:textSize="22sp" />
+
+            </androidx.appcompat.widget.LinearLayoutCompat>
 
         </androidx.appcompat.widget.LinearLayoutCompat>
 
@@ -97,30 +131,46 @@
                 android:id="@+id/tv_third_question"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="People----[dress] second-hand clothes"
+                android:text=""
                 android:textSize="20sp" />
 
-            <com.google.android.material.textfield.TextInputLayout
-                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
-                android:layout_width="200dp"
-                android:layout_height="wrap_content"
-                android:layout_marginVertical="@dimen/margin_middle"
-                android:background="@color/white"
-                android:hint="Answer"
-                android:padding="0dp"
-                android:textColorHint="@color/black"
-                app:boxStrokeColor="@color/main_color"
-                app:hintTextColor="@color/black">
+            <androidx.appcompat.widget.LinearLayoutCompat
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
 
-                <com.google.android.material.textfield.TextInputEditText
-                    android:id="@+id/et_third_question"
-                    android:layout_width="match_parent"
+                <com.google.android.material.textfield.TextInputLayout
+                    style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                    android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    android:inputType="text"
-                    android:singleLine="true"
-                    android:textCursorDrawable="@null" />
+                    android:layout_marginVertical="@dimen/margin_middle"
+                    android:layout_weight="2"
+                    android:background="@color/white"
+                    android:hint="Answer"
+                    android:padding="0dp"
+                    android:textColorHint="@color/black"
+                    app:boxStrokeColor="@color/main_color"
+                    app:hintTextColor="@color/black">
 
-            </com.google.android.material.textfield.TextInputLayout>
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/et_third_question"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:inputType="text"
+                        android:singleLine="true"
+                        android:textCursorDrawable="@null" />
+
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <com.google.android.material.textview.MaterialTextView
+                    android:id="@+id/tv_third_question_state"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="3"
+                    android:gravity="center"
+                    android:text=""
+                    android:textSize="22sp" />
+
+            </androidx.appcompat.widget.LinearLayoutCompat>
 
         </androidx.appcompat.widget.LinearLayoutCompat>
 
@@ -133,7 +183,7 @@
         android:layout_margin="@dimen/margin_standard"
         android:backgroundTint="@color/main_color"
         android:paddingHorizontal="@dimen/margin_middle"
-        android:text="@string/next"
+        android:text="@string/check"
         android:textColor="@color/white"
         app:cornerRadius="@dimen/margin_middle"
         app:layout_constraintBottom_toBottomOf="parent"

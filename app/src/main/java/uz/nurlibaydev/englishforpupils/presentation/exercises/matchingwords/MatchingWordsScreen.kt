@@ -2,6 +2,7 @@ package uz.nurlibaydev.englishforpupils.presentation.exercises.matchingwords
 
 import android.os.Bundle
 import android.view.View
+import androidx.core.view.isVisible
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -13,6 +14,7 @@ import uz.nurlibaydev.englishforpupils.databinding.ScreenMatchWordsBinding
 import uz.nurlibaydev.englishforpupils.presentation.exercises.matchingwords.adapter.SortedWordsAdapter
 import uz.nurlibaydev.englishforpupils.presentation.exercises.matchingwords.adapter.WordsAdapter
 import uz.nurlibaydev.englishforpupils.presentation.exercises.matchingwords.callback.DropListener
+import uz.nurlibaydev.englishforpupils.utils.Observer
 import uz.nurlibaydev.englishforpupils.utils.extensions.onClick
 
 /**
@@ -24,11 +26,14 @@ class MatchingWordsScreen : Fragment(R.layout.screen_match_words) {
 
     private val binding: ScreenMatchWordsBinding by viewBinding()
     private val words = mutableListOf(
-        "Bald", "attractive", "blonde", "curly", "dark",
+        "bald", "attractive", "blonde", "curly", "dark",
         "elderly", "fair", "good-looking", "handsome",
         "middle-aged", "pretty", "straight", "teenage", "in", "his/her", "twenties"
     )
     private var selectedWord = ""
+    private val correctAgeWords = mutableListOf("elderly", "middle-aged", "teenage", "in", "his/her", "twenties")
+    private val correctLooksWords = mutableListOf("attractive", "good-looking", "handsome", "pretty")
+    private val correctHairWords = mutableListOf("bald", "blonde", "curly", "dark", "fair", "straight")
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
@@ -36,13 +41,13 @@ class MatchingWordsScreen : Fragment(R.layout.screen_match_words) {
             findNavController().navigate(MatchingWordsScreenDirections.actionMatchingWordsScreenToMatchingAntonyms())
         }
 
-        val ageWordsAdapter = SortedWordsAdapter {
+        val ageWordsAdapter = SortedWordsAdapter(correctAgeWords) {
             selectedWord = it
         }
-        val looksWordsAdapter = SortedWordsAdapter {
+        val looksWordsAdapter = SortedWordsAdapter(correctLooksWords) {
             selectedWord = it
         }
-        val hairWordsAdapter = SortedWordsAdapter {
+        val hairWordsAdapter = SortedWordsAdapter(correctHairWords) {
             selectedWord = it
         }
 
@@ -83,6 +88,9 @@ class MatchingWordsScreen : Fragment(R.layout.screen_match_words) {
                 looksWordsAdapter.removeItem(selectedWord)
                 hairWordsAdapter.removeItem(selectedWord)
                 ageWordsAdapter.addItem(selectedWord)
+                if (Observer.emptyDataObserver.value == true) {
+                    binding.btnNext.isVisible = true
+                }
             }
         )
 
@@ -96,6 +104,9 @@ class MatchingWordsScreen : Fragment(R.layout.screen_match_words) {
                 ageWordsAdapter.removeItem(selectedWord)
                 hairWordsAdapter.removeItem(selectedWord)
                 looksWordsAdapter.addItem(selectedWord)
+                if (Observer.emptyDataObserver.value == true) {
+                    binding.btnNext.isVisible = true
+                }
             }
         )
 
@@ -109,6 +120,9 @@ class MatchingWordsScreen : Fragment(R.layout.screen_match_words) {
                 looksWordsAdapter.removeItem(selectedWord)
                 ageWordsAdapter.removeItem(selectedWord)
                 hairWordsAdapter.addItem(selectedWord)
+                if (Observer.emptyDataObserver.value == true) {
+                    binding.btnNext.isVisible = true
+                }
             }
         )
 

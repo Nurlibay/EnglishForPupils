@@ -1,6 +1,8 @@
 package uz.nurlibaydev.englishforpupils.presentation.exercises.antonyms
 
+import android.graphics.Color
 import android.os.Bundle
+import android.util.Log
 import android.view.View
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
@@ -21,14 +23,18 @@ import uz.nurlibaydev.englishforpupils.utils.extensions.onClick
 class MatchingAntonyms : Fragment(R.layout.screen_match_antonyms) {
 
     private val binding by viewBinding<ScreenMatchAntonymsBinding>()
-    private val leftWords = mutableListOf("polite", "careful", "funny", "miserable", "friendly", "confident", "naughty", "honest", "hard-working", "patient", "cruel")
-    private val rightWords = mutableListOf("rude", "careless ", "serious", "cheerful", "unfriendly ", "shy", "well-behaved", "dishonest", "lazy", "impatient", "kind")
+    private val leftWords =
+        mutableListOf("polite", "careful", "funny", "miserable", "friendly", "confident", "naughty", "honest", "hard-working", "patient", "cruel")
+    private val rightWords =
+        mutableListOf("rude", "careless ", "serious", "cheerful", "unfriendly ", "shy", "well-behaved", "dishonest", "lazy", "impatient", "kind")
 
     private val itemTouchHelperLeftRV by lazy {
         val simpleItemTouchCallback = object : ItemTouchHelper.SimpleCallback(UP or DOWN or START or END, 0) {
-            override fun onMove(recyclerView: RecyclerView,
-                                viewHolder: RecyclerView.ViewHolder,
-                                target: RecyclerView.ViewHolder): Boolean {
+            override fun onMove(
+                recyclerView: RecyclerView,
+                viewHolder: RecyclerView.ViewHolder,
+                target: RecyclerView.ViewHolder,
+            ): Boolean {
                 val adapter = recyclerView.adapter as AntonymsAdapter
                 val from = viewHolder.adapterPosition
                 val to = target.adapterPosition
@@ -58,14 +64,17 @@ class MatchingAntonyms : Fragment(R.layout.screen_match_antonyms) {
     }
     private val itemTouchHelperRightRV by lazy {
         val simpleItemTouchCallback = object : ItemTouchHelper.SimpleCallback(UP or DOWN or START or END, 0) {
-            override fun onMove(recyclerView: RecyclerView,
-                                viewHolder: RecyclerView.ViewHolder,
-                                target: RecyclerView.ViewHolder): Boolean {
+            override fun onMove(
+                recyclerView: RecyclerView,
+                viewHolder: RecyclerView.ViewHolder,
+                target: RecyclerView.ViewHolder,
+            ): Boolean {
                 val adapter = recyclerView.adapter as AntonymsAdapter
                 val from = viewHolder.adapterPosition
                 val to = target.adapterPosition
                 adapter.moveItem(from, to)
                 adapter.notifyItemMoved(from, to)
+                Log.d("TTT", adapter.currentList[0])
                 return true
             }
 
@@ -96,15 +105,27 @@ class MatchingAntonyms : Fragment(R.layout.screen_match_antonyms) {
         }
 
         itemTouchHelperLeftRV.attachToRecyclerView(binding.rvLeftWords)
-        val  adapterLeft = AntonymsAdapter()
+        val adapterLeft = AntonymsAdapter()
         leftWords.shuffle()
-        adapterLeft.differ.submitList(leftWords)
+        adapterLeft.submitList(leftWords)
         binding.rvLeftWords.adapter = adapterLeft
 
         itemTouchHelperRightRV.attachToRecyclerView(binding.rvRightWords)
-        val  adapterRight = AntonymsAdapter()
+        val adapterRight = AntonymsAdapter()
         rightWords.shuffle()
-        adapterRight.differ.submitList(rightWords)
+        adapterRight.submitList(rightWords)
         binding.rvRightWords.adapter = adapterRight
+
+        binding.btnNext.onClick {
+            for (i in 0 until adapterRight.currentList.size) {
+                if (adapterLeft.currentList[i] == adapterRight.currentList[i]) {
+                    adapterLeft.changeBg { view, position ->
+                        if (position == i) {
+                            view.setBackgroundColor(Color.parseColor("#0BE814"))
+                        }
+                    }
+                }
+            }
+        }
     }
 }

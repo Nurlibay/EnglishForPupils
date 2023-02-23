@@ -129,7 +129,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:background="@drawable/container_shape"
-                android:minHeight="250dp"
+                android:minHeight="280dp"
                 android:overScrollMode="never"
                 app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager" />
 
@@ -151,7 +151,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:background="@drawable/container_shape"
-                android:minHeight="250dp"
+                android:minHeight="280dp"
                 android:overScrollMode="never" />
 
         </com.google.android.material.card.MaterialCardView>
@@ -171,7 +171,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:background="@drawable/container_shape"
-                android:minHeight="250dp"
+                android:minHeight="280dp"
                 android:overScrollMode="never" />
 
         </com.google.android.material.card.MaterialCardView>
@@ -182,12 +182,12 @@
         android:id="@+id/rv_words"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
+        android:clipToPadding="false"
         android:minHeight="100dp"
+        android:overScrollMode="never"
         android:padding="16dp"
         app:layout_constraintBottom_toTopOf="@id/btn_next"
         app:layout_constraintEnd_toEndOf="parent"
-        android:clipToPadding="false"
-        android:overScrollMode="never"
         app:layout_constraintHeight_percent="0.5"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/container_words" />
@@ -199,8 +199,9 @@
         android:layout_margin="@dimen/margin_standard"
         android:backgroundTint="@color/main_color"
         android:paddingHorizontal="@dimen/margin_middle"
-        android:text="@string/next"
+        android:text="@string/check"
         android:textColor="@color/white"
+        android:visibility="invisible"
         app:cornerRadius="@dimen/margin_middle"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
