@@ -199,7 +199,7 @@
         android:layout_margin="@dimen/margin_standard"
         android:backgroundTint="@color/main_color"
         android:paddingHorizontal="@dimen/margin_middle"
-        android:text="@string/check"
+        android:text="@string/next"
         android:textColor="@color/white"
         android:visibility="invisible"
         app:cornerRadius="@dimen/margin_middle"

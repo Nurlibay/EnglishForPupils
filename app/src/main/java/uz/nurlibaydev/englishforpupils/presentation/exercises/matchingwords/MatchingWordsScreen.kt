@@ -57,26 +57,27 @@ class MatchingWordsScreen : Fragment(R.layout.screen_match_words) {
             submitList(words)
         }
 
+        /**
         binding.rvWords.setOnDragListener(
-            DropListener {
-                wordsAdapter.addItem(selectedWord)
-                ageWordsAdapter.currentList.forEach {
-                    if (selectedWord == it) {
-                        ageWordsAdapter.removeItem(selectedWord)
-                    }
-                }
-                looksWordsAdapter.currentList.forEach {
-                    if (selectedWord == it) {
-                        looksWordsAdapter.removeItem(selectedWord)
-                    }
-                }
-                hairWordsAdapter.currentList.forEach {
-                    if (selectedWord == it) {
-                        hairWordsAdapter.removeItem(selectedWord)
-                    }
-                }
-            }
-        )
+        DropListener {
+        wordsAdapter.addItem(selectedWord)
+        ageWordsAdapter.currentList.forEach {
+        if (selectedWord == it) {
+        ageWordsAdapter.removeItem(selectedWord)
+        }
+        }
+        looksWordsAdapter.currentList.forEach {
+        if (selectedWord == it) {
+        looksWordsAdapter.removeItem(selectedWord)
+        }
+        }
+        hairWordsAdapter.currentList.forEach {
+        if (selectedWord == it) {
+        hairWordsAdapter.removeItem(selectedWord)
+        }
+        }
+        }
+        ) */
 
         /** Age words */
         binding.rvAgeWords.layoutManager = LinearLayoutManager(requireContext(), LinearLayoutManager.VERTICAL, false)
@@ -84,12 +85,14 @@ class MatchingWordsScreen : Fragment(R.layout.screen_match_words) {
 
         binding.rvAgeWords.setOnDragListener(
             DropListener {
-                wordsAdapter.removeItem(selectedWord)
-                looksWordsAdapter.removeItem(selectedWord)
-                hairWordsAdapter.removeItem(selectedWord)
-                ageWordsAdapter.addItem(selectedWord)
-                if (Observer.emptyDataObserver.value == true) {
-                    binding.btnNext.isVisible = true
+                if (wordsAdapter.currentList.contains(selectedWord) && !ageWordsAdapter.currentList.contains(selectedWord)) {
+                    wordsAdapter.removeItem(selectedWord)
+                    looksWordsAdapter.removeItem(selectedWord)
+                    hairWordsAdapter.removeItem(selectedWord)
+                    ageWordsAdapter.addItem(selectedWord)
+                    if (Observer.emptyDataObserver.value == true) {
+                        binding.btnNext.isVisible = true
+                    }
                 }
             }
         )
@@ -100,12 +103,14 @@ class MatchingWordsScreen : Fragment(R.layout.screen_match_words) {
 
         binding.rvLooksWords.setOnDragListener(
             DropListener {
-                wordsAdapter.removeItem(selectedWord)
-                ageWordsAdapter.removeItem(selectedWord)
-                hairWordsAdapter.removeItem(selectedWord)
-                looksWordsAdapter.addItem(selectedWord)
-                if (Observer.emptyDataObserver.value == true) {
-                    binding.btnNext.isVisible = true
+                if (wordsAdapter.currentList.contains(selectedWord) && !looksWordsAdapter.currentList.contains(selectedWord)) {
+                    wordsAdapter.removeItem(selectedWord)
+                    ageWordsAdapter.removeItem(selectedWord)
+                    hairWordsAdapter.removeItem(selectedWord)
+                    looksWordsAdapter.addItem(selectedWord)
+                    if (Observer.emptyDataObserver.value == true) {
+                        binding.btnNext.isVisible = true
+                    }
                 }
             }
         )
@@ -116,12 +121,14 @@ class MatchingWordsScreen : Fragment(R.layout.screen_match_words) {
 
         binding.rvHairWords.setOnDragListener(
             DropListener {
-                wordsAdapter.removeItem(selectedWord)
-                looksWordsAdapter.removeItem(selectedWord)
-                ageWordsAdapter.removeItem(selectedWord)
-                hairWordsAdapter.addItem(selectedWord)
-                if (Observer.emptyDataObserver.value == true) {
-                    binding.btnNext.isVisible = true
+                if (wordsAdapter.currentList.contains(selectedWord) && !hairWordsAdapter.currentList.contains(selectedWord)) {
+                    wordsAdapter.removeItem(selectedWord)
+                    looksWordsAdapter.removeItem(selectedWord)
+                    ageWordsAdapter.removeItem(selectedWord)
+                    hairWordsAdapter.addItem(selectedWord)
+                    if (Observer.emptyDataObserver.value == true) {
+                        binding.btnNext.isVisible = true
+                    }
                 }
             }
         )
