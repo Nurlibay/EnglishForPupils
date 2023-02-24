@@ -2,20 +2,19 @@ package uz.nurlibaydev.englishforpupils.presentation.exercises.matchingwords.ada
 
 import android.content.ClipData
 import android.graphics.Color
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.TextView
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
 import uz.nurlibaydev.englishforpupils.R
+import uz.nurlibaydev.englishforpupils.databinding.ItemSortedWordBinding
 import uz.nurlibaydev.englishforpupils.presentation.exercises.matchingwords.callback.DragListener
 import uz.nurlibaydev.englishforpupils.presentation.exercises.matchingwords.callback.WordsDiffCallback
 
 class SortedWordsAdapter(private val list: List<String>, private val onDragStarted: (String) -> Unit) : ListAdapter<String, SortedWordsAdapter.WordsViewHolder>(WordsDiffCallback()) {
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): WordsViewHolder {
-        val view = LayoutInflater.from(parent.context).inflate(R.layout.item_sorted_word, parent, false)
+        val view = ItemSortedWordBinding.bind(LayoutInflater.from(parent.context).inflate(R.layout.item_sorted_word, parent, false))
         return WordsViewHolder(view)
     }
 
@@ -38,22 +37,16 @@ class SortedWordsAdapter(private val list: List<String>, private val onDragStart
         submitList(list.toSet().toList())
     }
 
-    var changeBg: (view: View) -> Unit = { }
-    fun changeBg(block: (view: View) -> Unit) {
-        changeBg = block
-    }
-
-    inner class WordsViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
-        fun bind(word: String) = itemView.run {
-            itemView.findViewById<TextView>(R.id.tv_word).text = word
-
-            if(list.contains(itemView.findViewById<TextView>(R.id.tv_word).text)){
-                itemView.setBackgroundColor(Color.parseColor("#0BE814"))
+    inner class WordsViewHolder(private val binding: ItemSortedWordBinding) : RecyclerView.ViewHolder(binding.root) {
+        fun bind(word: String) {
+            binding.tvWord.text = word
+            if(list.contains(binding.tvWord.text.toString())){
+                binding.itemCard.setBackgroundColor(Color.parseColor("#0BE814"))
             } else {
-                itemView.setBackgroundColor(Color.parseColor("#F44336"))
+                binding.itemCard.setBackgroundColor(Color.parseColor("#F44336"))
             }
 
-            setOnLongClickListener { view ->
+            binding.itemCard.setOnLongClickListener { view ->
                 // when user is long clicking on a view, drag process will start
                 val data = ClipData.newPlainText("", word)
                 val shadowBuilder = View.DragShadowBuilder(view)
@@ -65,7 +58,7 @@ class SortedWordsAdapter(private val list: List<String>, private val onDragStart
                 onDragStarted(word)
                 true
             }
-            setOnDragListener(DragListener())
+            binding.itemCard.setOnDragListener(DragListener())
         }
     }
 }

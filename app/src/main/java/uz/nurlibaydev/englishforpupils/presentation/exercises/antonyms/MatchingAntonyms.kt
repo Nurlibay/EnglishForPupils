@@ -1,8 +1,6 @@
 package uz.nurlibaydev.englishforpupils.presentation.exercises.antonyms
 
-import android.graphics.Color
 import android.os.Bundle
-import android.util.Log
 import android.view.View
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
@@ -13,6 +11,7 @@ import by.kirich1409.viewbindingdelegate.viewBinding
 import dagger.hilt.android.AndroidEntryPoint
 import uz.nurlibaydev.englishforpupils.R
 import uz.nurlibaydev.englishforpupils.databinding.ScreenMatchAntonymsBinding
+import uz.nurlibaydev.englishforpupils.utils.Observer
 import uz.nurlibaydev.englishforpupils.utils.extensions.onClick
 
 /**
@@ -22,11 +21,14 @@ import uz.nurlibaydev.englishforpupils.utils.extensions.onClick
 @AndroidEntryPoint
 class MatchingAntonyms : Fragment(R.layout.screen_match_antonyms) {
 
+    override fun onResume() {
+        super.onResume()
+        Observer.whichTask.value = 2
+    }
+
     private val binding by viewBinding<ScreenMatchAntonymsBinding>()
-    private val leftWords =
-        mutableListOf("polite", "careful", "funny", "miserable", "friendly", "confident", "naughty", "honest", "hard-working", "patient", "cruel")
-    private val rightWords =
-        mutableListOf("rude", "careless ", "serious", "cheerful", "unfriendly ", "shy", "well-behaved", "dishonest", "lazy", "impatient", "kind")
+    private val leftWords = mutableListOf("polite", "careful", "funny", "miserable", "friendly", "confident", "naughty", "honest", "hard-working", "patient", "cruel")
+    private val rightWords = mutableListOf("rude", "careless ", "serious", "cheerful", "unfriendly ", "shy", "well-behaved", "dishonest", "lazy", "impatient", "kind")
 
     private val itemTouchHelperLeftRV by lazy {
         val simpleItemTouchCallback = object : ItemTouchHelper.SimpleCallback(UP or DOWN or START or END, 0) {
@@ -36,19 +38,19 @@ class MatchingAntonyms : Fragment(R.layout.screen_match_antonyms) {
                 target: RecyclerView.ViewHolder,
             ): Boolean {
                 val adapter = recyclerView.adapter as AntonymsAdapter
-                val from = viewHolder.adapterPosition
-                val to = target.adapterPosition
+                val from = viewHolder.absoluteAdapterPosition
+                val to = target.absoluteAdapterPosition
                 adapter.moveItem(from, to)
                 adapter.notifyItemMoved(from, to)
                 return true
             }
 
             override fun onSwiped(viewHolder: RecyclerView.ViewHolder, direction: Int) {
+                /** to do */
             }
 
             override fun onSelectedChanged(viewHolder: RecyclerView.ViewHolder?, actionState: Int) {
                 super.onSelectedChanged(viewHolder, actionState)
-
                 if (actionState == ACTION_STATE_DRAG) {
                     viewHolder?.itemView?.alpha = 0.5f
                 }
@@ -56,10 +58,10 @@ class MatchingAntonyms : Fragment(R.layout.screen_match_antonyms) {
 
             override fun clearView(recyclerView: RecyclerView, viewHolder: RecyclerView.ViewHolder) {
                 super.clearView(recyclerView, viewHolder)
-
                 viewHolder.itemView.alpha = 1.0f
             }
         }
+
         ItemTouchHelper(simpleItemTouchCallback)
     }
     private val itemTouchHelperRightRV by lazy {
@@ -70,20 +72,19 @@ class MatchingAntonyms : Fragment(R.layout.screen_match_antonyms) {
                 target: RecyclerView.ViewHolder,
             ): Boolean {
                 val adapter = recyclerView.adapter as AntonymsAdapter
-                val from = viewHolder.adapterPosition
-                val to = target.adapterPosition
+                val from = viewHolder.absoluteAdapterPosition
+                val to = target.absoluteAdapterPosition
                 adapter.moveItem(from, to)
                 adapter.notifyItemMoved(from, to)
-                Log.d("TTT", adapter.currentList[0])
                 return true
             }
 
             override fun onSwiped(viewHolder: RecyclerView.ViewHolder, direction: Int) {
+                /** to do */
             }
 
             override fun onSelectedChanged(viewHolder: RecyclerView.ViewHolder?, actionState: Int) {
                 super.onSelectedChanged(viewHolder, actionState)
-
                 if (actionState == ACTION_STATE_DRAG) {
                     viewHolder?.itemView?.alpha = 0.5f
                 }
@@ -91,10 +92,10 @@ class MatchingAntonyms : Fragment(R.layout.screen_match_antonyms) {
 
             override fun clearView(recyclerView: RecyclerView, viewHolder: RecyclerView.ViewHolder) {
                 super.clearView(recyclerView, viewHolder)
-
                 viewHolder.itemView.alpha = 1.0f
             }
         }
+
         ItemTouchHelper(simpleItemTouchCallback)
     }
 
@@ -115,17 +116,5 @@ class MatchingAntonyms : Fragment(R.layout.screen_match_antonyms) {
         rightWords.shuffle()
         adapterRight.submitList(rightWords)
         binding.rvRightWords.adapter = adapterRight
-
-        binding.btnNext.onClick {
-            for (i in 0 until adapterRight.currentList.size) {
-                if (adapterLeft.currentList[i] == adapterRight.currentList[i]) {
-                    adapterLeft.changeBg { view, position ->
-                        if (position == i) {
-                            view.setBackgroundColor(Color.parseColor("#0BE814"))
-                        }
-                    }
-                }
-            }
-        }
     }
 }

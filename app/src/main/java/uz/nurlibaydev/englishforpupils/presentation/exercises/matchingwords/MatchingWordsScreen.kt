@@ -24,6 +24,11 @@ import uz.nurlibaydev.englishforpupils.utils.extensions.onClick
 @AndroidEntryPoint
 class MatchingWordsScreen : Fragment(R.layout.screen_match_words) {
 
+    override fun onResume() {
+        super.onResume()
+        Observer.whichTask.value = 1
+    }
+
     private val binding: ScreenMatchWordsBinding by viewBinding()
     private val words = mutableListOf(
         "bald", "attractive", "blonde", "curly", "dark",
@@ -56,28 +61,6 @@ class MatchingWordsScreen : Fragment(R.layout.screen_match_words) {
         }.apply {
             submitList(words)
         }
-
-        /**
-        binding.rvWords.setOnDragListener(
-        DropListener {
-        wordsAdapter.addItem(selectedWord)
-        ageWordsAdapter.currentList.forEach {
-        if (selectedWord == it) {
-        ageWordsAdapter.removeItem(selectedWord)
-        }
-        }
-        looksWordsAdapter.currentList.forEach {
-        if (selectedWord == it) {
-        looksWordsAdapter.removeItem(selectedWord)
-        }
-        }
-        hairWordsAdapter.currentList.forEach {
-        if (selectedWord == it) {
-        hairWordsAdapter.removeItem(selectedWord)
-        }
-        }
-        }
-        ) */
 
         /** Age words */
         binding.rvAgeWords.layoutManager = LinearLayoutManager(requireContext(), LinearLayoutManager.VERTICAL, false)

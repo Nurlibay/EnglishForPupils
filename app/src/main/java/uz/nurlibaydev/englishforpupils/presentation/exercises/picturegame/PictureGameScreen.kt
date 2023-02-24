@@ -7,6 +7,7 @@ import by.kirich1409.viewbindingdelegate.viewBinding
 import dagger.hilt.android.AndroidEntryPoint
 import uz.nurlibaydev.englishforpupils.R
 import uz.nurlibaydev.englishforpupils.databinding.ScreenPictureGameBinding
+import uz.nurlibaydev.englishforpupils.utils.Observer
 import uz.nurlibaydev.englishforpupils.utils.extensions.onClick
 
 /**
@@ -15,6 +16,11 @@ import uz.nurlibaydev.englishforpupils.utils.extensions.onClick
 
 @AndroidEntryPoint
 class PictureGameScreen : Fragment(R.layout.screen_picture_game) {
+
+    override fun onResume() {
+        super.onResume()
+        Observer.whichTask.value = 5
+    }
 
     private val binding by viewBinding<ScreenPictureGameBinding>()
 

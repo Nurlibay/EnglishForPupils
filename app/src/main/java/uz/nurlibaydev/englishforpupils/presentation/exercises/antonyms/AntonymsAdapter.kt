@@ -28,13 +28,7 @@ class AntonymsAdapter : ListAdapter<String, AntonymsAdapter.MoviesViewHolder>(Wo
                     it(getItem(absoluteAdapterPosition))
                 }
             }
-            changeBg.invoke(binding.item, position)
         }
-    }
-
-    var changeBg: (view: View, position: Int) -> Unit = {_, _ ->}
-    fun changeBg(block: (view: View, position: Int) -> Unit) {
-        changeBg = block
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MoviesViewHolder {
@@ -55,14 +49,10 @@ class AntonymsAdapter : ListAdapter<String, AntonymsAdapter.MoviesViewHolder>(Wo
         } else {
             list.add(to - 1, fromLocation)
         }
-        this.submitList(list)
+        submitList(list)
     }
 
     override fun getItemCount(): Int {
         return currentList.size
-    }
-
-    fun setOnItemClickListener(listener: (String) -> Unit) {
-        onItemClickListener = listener
     }
 }

@@ -9,6 +9,7 @@ import by.kirich1409.viewbindingdelegate.viewBinding
 import dagger.hilt.android.AndroidEntryPoint
 import uz.nurlibaydev.englishforpupils.R
 import uz.nurlibaydev.englishforpupils.databinding.ScreenFillingBinding
+import uz.nurlibaydev.englishforpupils.utils.Observer
 import uz.nurlibaydev.englishforpupils.utils.extensions.onClick
 
 /**
@@ -17,6 +18,11 @@ import uz.nurlibaydev.englishforpupils.utils.extensions.onClick
 
 @AndroidEntryPoint
 class FillingScreen : Fragment(R.layout.screen_filling) {
+
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        Observer.whichTask.value = 3
+    }
 
     private val binding by viewBinding<ScreenFillingBinding>()
 
@@ -64,7 +70,6 @@ class FillingScreen : Fragment(R.layout.screen_filling) {
             tvFirstQuestion.text = wordList[0]
             tvSecondQuestion.text = wordList[1]
             tvThirdQuestion.text = wordList[2]
-
 
         }
     }
