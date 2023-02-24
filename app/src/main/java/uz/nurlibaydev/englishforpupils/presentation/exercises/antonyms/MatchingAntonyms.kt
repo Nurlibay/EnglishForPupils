@@ -1,6 +1,7 @@
 package uz.nurlibaydev.englishforpupils.presentation.exercises.antonyms
 
 import android.os.Bundle
+import android.util.Log
 import android.view.View
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
@@ -27,8 +28,10 @@ class MatchingAntonyms : Fragment(R.layout.screen_match_antonyms) {
     }
 
     private val binding by viewBinding<ScreenMatchAntonymsBinding>()
-    private val leftWords = mutableListOf("polite", "careful", "funny", "miserable", "friendly", "confident", "naughty", "honest", "hard-working", "patient", "cruel")
-    private val rightWords = mutableListOf("rude", "careless ", "serious", "cheerful", "unfriendly ", "shy", "well-behaved", "dishonest", "lazy", "impatient", "kind")
+    private val leftWords =
+        mutableListOf("polite", "careful", "funny", "miserable", "friendly", "confident", "naughty", "honest", "hard-working", "patient", "cruel")
+    private val rightWords =
+        mutableListOf("rude", "careless ", "serious", "cheerful", "unfriendly ", "shy", "well-behaved", "dishonest", "lazy", "impatient", "kind")
 
     private val itemTouchHelperLeftRV by lazy {
         val simpleItemTouchCallback = object : ItemTouchHelper.SimpleCallback(UP or DOWN or START or END, 0) {
