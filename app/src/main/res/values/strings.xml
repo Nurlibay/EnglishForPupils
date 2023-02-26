@@ -11,4 +11,6 @@
     <string name="finish">Finish</string>
     <string name="answer">Answer</string>
     <string name="check">Check</string>
+    <string name="correct">Correct</string>
+    <string name="incorrect">Incorrect</string>
 </resources>

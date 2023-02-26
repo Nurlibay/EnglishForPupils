@@ -4,7 +4,6 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/rv_sorted_words"
         android:layout_width="match_parent"
@@ -14,11 +13,32 @@
         android:minHeight="100dp"
         android:overScrollMode="never"
         android:padding="16dp"
+        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHeight_percent="0.5"
-        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
+
+    <com.google.android.material.textview.MaterialTextView
+        android:id="@+id/tv_state"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/margin_standard"
+        android:textSize="20sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/rv_sorted_words" />
+
+
+    <com.google.android.material.textview.MaterialTextView
+        android:id="@+id/tv_correct_answer"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/margin_standard"
+        android:textSize="20sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tv_state" />
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/rv_words"
@@ -34,7 +54,6 @@
         app:layout_constraintHeight_percent="0.5"
         app:layout_constraintStart_toStartOf="parent" />
 
-
     <com.google.android.material.button.MaterialButton
         android:id="@+id/btn_next"
         android:layout_width="0dp"
@@ -43,8 +62,8 @@
         android:backgroundTint="@color/main_color"
         android:paddingHorizontal="@dimen/margin_middle"
         android:text="@string/check"
-        android:visibility="invisible"
         android:textColor="@color/white"
+        android:visibility="invisible"
         app:cornerRadius="@dimen/margin_middle"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"

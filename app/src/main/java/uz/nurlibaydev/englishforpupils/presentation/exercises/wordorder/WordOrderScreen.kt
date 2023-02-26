@@ -1,5 +1,6 @@
 package uz.nurlibaydev.englishforpupils.presentation.exercises.wordorder
 
+import android.graphics.Color
 import android.os.Bundle
 import android.view.View
 import androidx.core.view.isVisible
@@ -13,7 +14,6 @@ import uz.nurlibaydev.englishforpupils.R
 import uz.nurlibaydev.englishforpupils.databinding.ScreenWordOrderBinding
 import uz.nurlibaydev.englishforpupils.utils.Observer
 import uz.nurlibaydev.englishforpupils.utils.extensions.onClick
-import uz.nurlibaydev.englishforpupils.utils.extensions.showMessage
 
 /**
  *  Created by Nurlibay Koshkinbaev on 18/02/2023 18:48
@@ -28,8 +28,8 @@ class WordOrderScreen : Fragment(R.layout.screen_word_order) {
     }
 
     private val binding by viewBinding<ScreenWordOrderBinding>()
-    private val words = mutableListOf("The", "clash", "bands", "were", "teenagers", "into", "like")
-    private val correctAnswer = mutableListOf("")
+    private val words = mutableListOf("the", "clash", "bands", "were", "teenagers", "into", "like")
+    private val correctAnswer = "teenagers were like into the clash bands"
     private val wordsAdapter by lazy { WordOrderAdapter() }
     private val answerWordsAdapter by lazy { WordOrderAdapter() }
 
@@ -40,9 +40,23 @@ class WordOrderScreen : Fragment(R.layout.screen_word_order) {
                 if (btnNext.text == requireContext().resources.getString(R.string.next)) {
                     findNavController().navigate(WordOrderScreenDirections.actionWordOrderScreenToPictureGameScreen())
                 } else {
+                    btnNext.text = requireContext().resources.getString(R.string.next)
                     var answer = ""
-                    answerWordsAdapter.currentList.forEach {
-                        answer += it
+                    answerWordsAdapter.currentList.forEachIndexed { index, element ->
+                        answer += if (answerWordsAdapter.currentList.size - 1 == index) {
+                            element
+                        } else {
+                            "$element "
+                        }
+                    }
+                    if (correctAnswer == answer) {
+                        tvState.text = getString(R.string.correct)
+                        tvState.setTextColor(Color.parseColor("#0BE814"))
+                    } else {
+                        tvState.text = getString(R.string.incorrect)
+                        tvCorrectAnswer.text = correctAnswer
+                        tvCorrectAnswer.setTextColor(Color.parseColor("#0BE814"))
+                        tvState.setTextColor(Color.parseColor("#F44336"))
                     }
                 }
             }
@@ -54,14 +68,12 @@ class WordOrderScreen : Fragment(R.layout.screen_word_order) {
                 justifyContent = JustifyContent.SPACE_EVENLY
                 alignItems = AlignItems.CENTER
             }
-            binding.rvWords.adapter = wordsAdapter
+            rvWords.adapter = wordsAdapter
             wordsAdapter.setOnItemClickListener {
                 answerWordsAdapter.addItem(it)
                 wordsAdapter.removeItem(it)
-                showMessage(wordsAdapter.currentList.size.toString())
                 if (wordsAdapter.currentList.size == 1) {
                     btnNext.isVisible = true
-                    btnNext.text = requireContext().resources.getString(R.string.next)
                 }
             }
 
@@ -72,12 +84,10 @@ class WordOrderScreen : Fragment(R.layout.screen_word_order) {
                 alignItems = AlignItems.CENTER
             }
             answerWordsAdapter.setOnItemClickListener {
-                wordsAdapter.addItem(it)
-                answerWordsAdapter.removeItem(it)
-            }
-
-            if (btnNext.text == requireContext().resources.getString(R.string.next)) {
-                findNavController().navigate(WordOrderScreenDirections.actionWordOrderScreenToPictureGameScreen())
+                if (wordsAdapter.currentList.isNotEmpty()) {
+                    wordsAdapter.addItem(it)
+                    answerWordsAdapter.removeItem(it)
+                }
             }
         }
     }

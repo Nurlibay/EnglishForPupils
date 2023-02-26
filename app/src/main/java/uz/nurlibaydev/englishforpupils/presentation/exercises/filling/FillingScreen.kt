@@ -29,9 +29,10 @@ class FillingScreen : Fragment(R.layout.screen_filling) {
     private val wordList = mutableListOf(
         "Young man------[wear] smart suits and skinny ties in 1960th",
         "Clothing trends-----[match] the music",
-        "People----[dress] second-hand clothes"
+        "People----[dress] second-hand clothes",
+        "Teens----[be] in love with the look by 1990th"
     )
-    private val answers = mutableListOf("wore", "matched", "called")
+    private val answers = mutableListOf("wore", "matched", "called", "were")
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
@@ -41,7 +42,7 @@ class FillingScreen : Fragment(R.layout.screen_filling) {
                     findNavController().navigate(FillingScreenDirections.actionFillingScreenToWordOrderScreen())
                 } else {
                     btnNext.text = "Next"
-                    if(etFirstQuestion.text.toString() == answers[0]){
+                    if (etFirstQuestion.text.toString() == answers[0]) {
                         tvFirstQuestionState.text = "Correct"
                         tvFirstQuestionState.setTextColor(Color.parseColor("#0BE814"))
                     } else {
@@ -49,7 +50,7 @@ class FillingScreen : Fragment(R.layout.screen_filling) {
                         tvFirstQuestionState.setTextColor(Color.parseColor("#F44336"))
                     }
 
-                    if(etSecondQuestion.text.toString() == answers[1]){
+                    if (etSecondQuestion.text.toString() == answers[1]) {
                         tvSecondQuestionState.text = "Correct"
                         tvSecondQuestionState.setTextColor(Color.parseColor("#0BE814"))
                     } else {
@@ -57,12 +58,20 @@ class FillingScreen : Fragment(R.layout.screen_filling) {
                         tvSecondQuestionState.setTextColor(Color.parseColor("#F44336"))
                     }
 
-                    if(etThirdQuestion.text.toString() == answers[2]){
+                    if (etThirdQuestion.text.toString() == answers[2]) {
                         tvThirdQuestionState.text = "Correct"
                         tvThirdQuestionState.setTextColor(Color.parseColor("#0BE814"))
                     } else {
                         tvThirdQuestionState.text = "Incorrect"
                         tvThirdQuestionState.setTextColor(Color.parseColor("#F44336"))
+                    }
+
+                    if (etFourQuestion.text.toString() == answers[3]) {
+                        tvFourQuestionState.text = "Correct"
+                        tvFourQuestionState.setTextColor(Color.parseColor("#0BE814"))
+                    } else {
+                        tvFourQuestionState.text = "Incorrect"
+                        tvFourQuestionState.setTextColor(Color.parseColor("#F44336"))
                     }
                 }
             }
@@ -70,7 +79,7 @@ class FillingScreen : Fragment(R.layout.screen_filling) {
             tvFirstQuestion.text = wordList[0]
             tvSecondQuestion.text = wordList[1]
             tvThirdQuestion.text = wordList[2]
-
+            tvFourQuestion.text = wordList[3]
         }
     }
 }

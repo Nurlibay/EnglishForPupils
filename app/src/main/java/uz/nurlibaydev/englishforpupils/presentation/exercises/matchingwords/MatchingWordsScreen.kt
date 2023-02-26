@@ -33,93 +33,95 @@ class MatchingWordsScreen : Fragment(R.layout.screen_match_words) {
     private val words = mutableListOf(
         "bald", "attractive", "blonde", "curly", "dark",
         "elderly", "fair", "good-looking", "handsome",
-        "middle-aged", "pretty", "straight", "teenage", "in", "his/her", "twenties"
+        "middle-aged", "pretty", "straight", "teenage", "in twenties"
     )
     private var selectedWord = ""
-    private val correctAgeWords = mutableListOf("elderly", "middle-aged", "teenage", "in", "his/her", "twenties")
+    private val correctAgeWords = mutableListOf("elderly", "middle-aged", "teenage", "in twenties")
     private val correctLooksWords = mutableListOf("attractive", "good-looking", "handsome", "pretty")
     private val correctHairWords = mutableListOf("bald", "blonde", "curly", "dark", "fair", "straight")
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        binding.btnNext.onClick {
-            findNavController().navigate(MatchingWordsScreenDirections.actionMatchingWordsScreenToMatchingAntonyms())
-        }
+        binding.apply {
+            btnNext.onClick {
+                findNavController().navigate(MatchingWordsScreenDirections.actionMatchingWordsScreenToMatchingAntonyms())
+            }
 
-        val ageWordsAdapter = SortedWordsAdapter(correctAgeWords) {
-            selectedWord = it
-        }
-        val looksWordsAdapter = SortedWordsAdapter(correctLooksWords) {
-            selectedWord = it
-        }
-        val hairWordsAdapter = SortedWordsAdapter(correctHairWords) {
-            selectedWord = it
-        }
+            val ageWordsAdapter = SortedWordsAdapter(correctAgeWords) {
+                selectedWord = it
+            }
+            val looksWordsAdapter = SortedWordsAdapter(correctLooksWords) {
+                selectedWord = it
+            }
+            val hairWordsAdapter = SortedWordsAdapter(correctHairWords) {
+                selectedWord = it
+            }
 
-        val wordsAdapter = WordsAdapter {
-            selectedWord = it
-        }.apply {
-            submitList(words)
-        }
+            val wordsAdapter = WordsAdapter {
+                selectedWord = it
+            }.apply {
+                submitList(words)
+            }
 
-        /** Age words */
-        binding.rvAgeWords.layoutManager = LinearLayoutManager(requireContext(), LinearLayoutManager.VERTICAL, false)
-        binding.rvAgeWords.adapter = ageWordsAdapter
+            /** Age words */
+            rvAgeWords.layoutManager = LinearLayoutManager(requireContext(), LinearLayoutManager.VERTICAL, false)
+            rvAgeWords.adapter = ageWordsAdapter
 
-        binding.rvAgeWords.setOnDragListener(
-            DropListener {
-                if (wordsAdapter.currentList.contains(selectedWord) && !ageWordsAdapter.currentList.contains(selectedWord)) {
-                    wordsAdapter.removeItem(selectedWord)
-                    looksWordsAdapter.removeItem(selectedWord)
-                    hairWordsAdapter.removeItem(selectedWord)
-                    ageWordsAdapter.addItem(selectedWord)
-                    if (Observer.emptyDataObserver.value == true) {
-                        binding.btnNext.isVisible = true
+            rvAgeWords.setOnDragListener(
+                DropListener {
+                    if (wordsAdapter.currentList.contains(selectedWord) && !ageWordsAdapter.currentList.contains(selectedWord)) {
+                        wordsAdapter.removeItem(selectedWord)
+                        looksWordsAdapter.removeItem(selectedWord)
+                        hairWordsAdapter.removeItem(selectedWord)
+                        ageWordsAdapter.addItem(selectedWord)
+                        if (Observer.emptyDataObserver.value == true) {
+                            btnNext.isVisible = true
+                        }
                     }
                 }
-            }
-        )
+            )
 
-        /** Looks words */
-        binding.rvLooksWords.layoutManager = LinearLayoutManager(requireContext(), LinearLayoutManager.VERTICAL, false)
-        binding.rvLooksWords.adapter = looksWordsAdapter
+            /** Looks words */
+            rvLooksWords.layoutManager = LinearLayoutManager(requireContext(), LinearLayoutManager.VERTICAL, false)
+            rvLooksWords.adapter = looksWordsAdapter
 
-        binding.rvLooksWords.setOnDragListener(
-            DropListener {
-                if (wordsAdapter.currentList.contains(selectedWord) && !looksWordsAdapter.currentList.contains(selectedWord)) {
-                    wordsAdapter.removeItem(selectedWord)
-                    ageWordsAdapter.removeItem(selectedWord)
-                    hairWordsAdapter.removeItem(selectedWord)
-                    looksWordsAdapter.addItem(selectedWord)
-                    if (Observer.emptyDataObserver.value == true) {
-                        binding.btnNext.isVisible = true
+            rvLooksWords.setOnDragListener(
+                DropListener {
+                    if (wordsAdapter.currentList.contains(selectedWord) && !looksWordsAdapter.currentList.contains(selectedWord)) {
+                        wordsAdapter.removeItem(selectedWord)
+                        ageWordsAdapter.removeItem(selectedWord)
+                        hairWordsAdapter.removeItem(selectedWord)
+                        looksWordsAdapter.addItem(selectedWord)
+                        if (Observer.emptyDataObserver.value == true) {
+                            binding.btnNext.isVisible = true
+                        }
                     }
                 }
-            }
-        )
+            )
 
-        /** Hair words */
-        binding.rvHairWords.layoutManager = LinearLayoutManager(requireContext(), LinearLayoutManager.VERTICAL, false)
-        binding.rvHairWords.adapter = hairWordsAdapter
+            /** Hair words */
+            rvHairWords.layoutManager = LinearLayoutManager(requireContext(), LinearLayoutManager.VERTICAL, false)
+            rvHairWords.adapter = hairWordsAdapter
 
-        binding.rvHairWords.setOnDragListener(
-            DropListener {
-                if (wordsAdapter.currentList.contains(selectedWord) && !hairWordsAdapter.currentList.contains(selectedWord)) {
-                    wordsAdapter.removeItem(selectedWord)
-                    looksWordsAdapter.removeItem(selectedWord)
-                    ageWordsAdapter.removeItem(selectedWord)
-                    hairWordsAdapter.addItem(selectedWord)
-                    if (Observer.emptyDataObserver.value == true) {
-                        binding.btnNext.isVisible = true
+            rvHairWords.setOnDragListener(
+                DropListener {
+                    if (wordsAdapter.currentList.contains(selectedWord) && !hairWordsAdapter.currentList.contains(selectedWord)) {
+                        wordsAdapter.removeItem(selectedWord)
+                        looksWordsAdapter.removeItem(selectedWord)
+                        ageWordsAdapter.removeItem(selectedWord)
+                        hairWordsAdapter.addItem(selectedWord)
+                        if (Observer.emptyDataObserver.value == true) {
+                            binding.btnNext.isVisible = true
+                        }
                     }
                 }
-            }
-        )
+            )
 
-        binding.rvWords.layoutManager = FlexboxLayoutManager(requireContext(), FlexDirection.ROW, FlexWrap.WRAP).apply {
-            justifyContent = JustifyContent.SPACE_EVENLY
-            alignItems = AlignItems.CENTER
+            rvWords.layoutManager = FlexboxLayoutManager(requireContext(), FlexDirection.ROW, FlexWrap.WRAP).apply {
+                justifyContent = JustifyContent.SPACE_EVENLY
+                alignItems = AlignItems.CENTER
+            }
+            rvWords.adapter = wordsAdapter
         }
-        binding.rvWords.adapter = wordsAdapter
     }
 }

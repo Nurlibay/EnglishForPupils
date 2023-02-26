@@ -1,5 +1,6 @@
 package uz.nurlibaydev.englishforpupils.presentation.exercises.antonyms
 
+import android.annotation.SuppressLint
 import android.os.Bundle
 import android.view.View
 import androidx.fragment.app.Fragment
@@ -27,10 +28,8 @@ class MatchingAntonyms : Fragment(R.layout.screen_match_antonyms) {
     }
 
     private val binding by viewBinding<ScreenMatchAntonymsBinding>()
-    private val leftWords =
-        mutableListOf("polite", "careful", "funny", "miserable", "friendly", "confident", "naughty", "honest", "hard-working", "patient", "cruel")
-    private val rightWords =
-        mutableListOf("rude", "careless ", "serious", "cheerful", "unfriendly ", "shy", "well-behaved", "dishonest", "lazy", "impatient", "kind")
+    private val leftWords = mutableListOf("polite", "careful", "funny", "miserable", "friendly", "confident", "naughty", "honest", "hard-working", "patient", "cruel")
+    private val rightWords = mutableListOf("rude", "careless ", "serious", "cheerful", "unfriendly ", "shy", "well-behaved", "dishonest", "lazy", "impatient", "kind")
 
     private val answers: MutableMap<String, String> = mutableMapOf()
 
@@ -41,7 +40,7 @@ class MatchingAntonyms : Fragment(R.layout.screen_match_antonyms) {
         }
     }
 
-    var itemTouchHelperLeft = ItemTouchHelper(object : ItemTouchHelper.SimpleCallback(UP or DOWN or START or END, 0) {
+    private var itemTouchHelperLeft = ItemTouchHelper(object : SimpleCallback(UP or DOWN or START or END, 0) {
         override fun onMove(
             recyclerView: RecyclerView,
             viewHolder: RecyclerView.ViewHolder,
@@ -72,7 +71,7 @@ class MatchingAntonyms : Fragment(R.layout.screen_match_antonyms) {
         }
     })
 
-    var itemTouchHelperRight = ItemTouchHelper(object : ItemTouchHelper.SimpleCallback(UP or DOWN or START or END, 0) {
+    private var itemTouchHelperRight = ItemTouchHelper(object : SimpleCallback(UP or DOWN or START or END, 0) {
         override fun onMove(
             recyclerView: RecyclerView,
             viewHolder: RecyclerView.ViewHolder,
@@ -82,7 +81,6 @@ class MatchingAntonyms : Fragment(R.layout.screen_match_antonyms) {
             val from = viewHolder.absoluteAdapterPosition
             val to = target.absoluteAdapterPosition
             adapter.moveItem(from, to)
-//                adapter.notifyItemMoved(from, to)
             return true
         }
 
@@ -103,35 +101,40 @@ class MatchingAntonyms : Fragment(R.layout.screen_match_antonyms) {
         }
     })
 
+    @SuppressLint("NotifyDataSetChanged")
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        binding.btnNext.onClick {
-            findNavController().navigate(MatchingAntonymsDirections.actionMatchingAntonymsToFillingScreen())
-        }
+        binding.apply {
+            itemTouchHelperLeft.attachToRecyclerView(binding.rvLeftWords)
+            val adapterLeft = AntonymsAdapter()
+            leftWords.shuffle()
+            adapterLeft.list = leftWords
+            rvLeftWords.adapter = adapterLeft
 
-        itemTouchHelperLeft.attachToRecyclerView(binding.rvLeftWords)
-        val adapterLeft = AntonymsAdapter()
-        leftWords.shuffle()
-        adapterLeft.list = leftWords
-        binding.rvLeftWords.adapter = adapterLeft
+            itemTouchHelperRight.attachToRecyclerView(binding.rvRightWords)
+            val adapterRight = AntonymsAdapter()
+            rightWords.shuffle()
+            adapterRight.list = rightWords
+            rvRightWords.adapter = adapterRight
 
-        itemTouchHelperRight.attachToRecyclerView(binding.rvRightWords)
-        val adapterRight = AntonymsAdapter()
-        rightWords.shuffle()
-        adapterRight.list = rightWords
-        binding.rvRightWords.adapter = adapterRight
-
-        binding.btnNext.onClick {
-            val newList = arrayListOf<Boolean>()
-            for (i in 0 until adapterLeft.list.size) {
-                newList.add(answers[adapterLeft.list[i]] == adapterRight.list[i])
+            btnNext.onClick {
+                val newList = arrayListOf<Boolean>()
+                for (i in 0 until adapterLeft.list.size) {
+                    newList.add(answers[adapterLeft.list[i]] == adapterRight.list[i])
+                }
+                itemTouchHelperLeft.attachToRecyclerView(null)
+                itemTouchHelperRight.attachToRecyclerView(null)
+                adapterLeft.answers = newList
+                adapterRight.answers = newList
+                adapterLeft.notifyDataSetChanged()
+                adapterRight.notifyDataSetChanged()
+                btnNext.text = requireContext().getString(R.string.next)
+                if (btnNext.text == requireContext().getString(R.string.next)) {
+                    btnNext.onClick {
+                        findNavController().navigate(MatchingAntonymsDirections.actionMatchingAntonymsToFillingScreen())
+                    }
+                }
             }
-            itemTouchHelperLeft.attachToRecyclerView(null)
-            itemTouchHelperRight.attachToRecyclerView(null)
-            adapterLeft.answers = newList
-            adapterRight.answers = newList
-            adapterLeft.notifyDataSetChanged()
-            adapterRight.notifyDataSetChanged()
         }
     }
 }
