@@ -1,31 +1,39 @@
 package uz.nurlibaydev.englishforpupils.presentation.exercises.antonyms
 
+import android.graphics.Color
 import android.view.LayoutInflater
-import android.view.View
 import android.view.ViewGroup
-import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
 import uz.nurlibaydev.englishforpupils.R
 import uz.nurlibaydev.englishforpupils.databinding.ItemSortedWordBinding
-import uz.nurlibaydev.englishforpupils.presentation.exercises.matchingwords.callback.WordsDiffCallback
 
 /**
  *  Created by Nurlibay Koshkinbaev on 18/02/2023 19:43
  */
 
-class AntonymsAdapter : ListAdapter<String, AntonymsAdapter.MoviesViewHolder>(WordsDiffCallback()) {
+class AntonymsAdapter : RecyclerView.Adapter<AntonymsAdapter.MoviesViewHolder>() {
+
+    var answers = mutableListOf<Boolean>()
+
+    var list = mutableListOf<String>()
+        set(value) {
+            field = value
+        }
 
     inner class MoviesViewHolder(private val binding: ItemSortedWordBinding) : RecyclerView.ViewHolder(binding.root) {
 
         fun bindView(position: Int) {
+            binding.root.setBackgroundColor(Color.parseColor("#ffffff"))
+            if (answers.isNotEmpty()) {
+                binding.root.setBackgroundColor(Color.parseColor(if (answers[position]) "#0BE814" else "#F44336"))
+            }
             binding.apply {
-                val item = getItem(absoluteAdapterPosition)
-                tvWord.text = item
+                tvWord.text = list[position]
             }
 
             binding.root.setOnClickListener {
                 onItemClickListener?.let {
-                    it(getItem(absoluteAdapterPosition))
+
                 }
             }
         }
@@ -41,18 +49,24 @@ class AntonymsAdapter : ListAdapter<String, AntonymsAdapter.MoviesViewHolder>(Wo
     }
 
     fun moveItem(from: Int, to: Int) {
-        val list = currentList.toMutableList()
-        val fromLocation = list[from]
-        list.removeAt(from)
-        if (to < from) {
-            list.add(to + 1, fromLocation)
-        } else {
-            list.add(to - 1, fromLocation)
+        if (answers.isNotEmpty()) {
+            answers = mutableListOf()
         }
-        submitList(list)
+        val newList = list.toMutableList()
+        val fromLocation = list[from]
+        newList.removeAt(from)
+        newList.add(to, fromLocation)
+        list = newList
+        notifyItemMoved(from, to)
+//        if (to < from) {
+//            list.add(to + 1, fromLocation)
+//        } else {
+//            list.add(to - 1, fromLocation)
+//        }
+//        submitList(list)
     }
 
     override fun getItemCount(): Int {
-        return currentList.size
+        return list.size
     }
 }

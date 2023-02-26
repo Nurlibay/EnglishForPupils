@@ -201,7 +201,6 @@
         android:paddingHorizontal="@dimen/margin_middle"
         android:text="@string/next"
         android:textColor="@color/white"
-        android:visibility="invisible"
         app:cornerRadius="@dimen/margin_middle"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
