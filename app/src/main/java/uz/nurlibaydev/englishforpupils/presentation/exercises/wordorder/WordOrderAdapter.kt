@@ -27,13 +27,13 @@ class WordOrderAdapter : ListAdapter<String, WordOrderAdapter.WordsViewHolder>(W
     fun removeItem(selectedWord: String) {
         val list = ArrayList(currentList)
         list.remove(selectedWord)
-        submitList(list)
+        submitList(list.toSet().toList())
     }
 
     fun addItem(selectedWord: String) {
         val list = ArrayList(currentList)
         list.add(selectedWord)
-        submitList(list)
+        submitList(list.toSet().toList())
     }
 
     var itemClicked: (String) -> Unit = {}

@@ -44,32 +44,36 @@
                         android:layout_height="match_parent">
 
                         <RadioButton
+                            android:id="@+id/radio_first_question_1"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:layout_weight="1"
                             android:checked="false"
-                            android:text="lazy" />
+                            android:text="" />
 
                         <RadioButton
+                            android:id="@+id/radio_first_question_2"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:layout_weight="1"
                             android:checked="false"
-                            android:text="old" />
+                            android:text="" />
 
                         <RadioButton
+                            android:id="@+id/radio_first_question_3"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:layout_weight="1"
                             android:checked="false"
-                            android:text="overweight" />
+                            android:text="" />
 
                         <RadioButton
+                            android:id="@+id/radio_first_question_4"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:layout_weight="1"
                             android:checked="false"
-                            android:text="shy" />
+                            android:text="" />
 
                     </RadioGroup>
 
@@ -101,32 +105,36 @@
                         android:layout_height="match_parent">
 
                         <RadioButton
+                            android:id="@+id/radio_second_question_1"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:layout_weight="1"
                             android:checked="false"
-                            android:text="Strict" />
+                            android:text="" />
 
                         <RadioButton
+                            android:id="@+id/radio_second_question_2"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:layout_weight="1"
                             android:checked="false"
-                            android:text="sad" />
+                            android:text="" />
 
                         <RadioButton
+                            android:id="@+id/radio_second_question_3"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:layout_weight="1"
                             android:checked="false"
-                            android:text="friendly" />
+                            android:text="" />
 
                         <RadioButton
+                            android:id="@+id/radio_second_question_4"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:layout_weight="1"
                             android:checked="false"
-                            android:text="kind" />
+                            android:text="" />
 
                     </RadioGroup>
 
@@ -165,32 +173,36 @@
                         android:layout_height="match_parent">
 
                         <RadioButton
+                            android:id="@+id/radio_third_question_1"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:layout_weight="1"
                             android:checked="false"
-                            android:text="serious" />
+                            android:text="" />
 
                         <RadioButton
+                            android:id="@+id/radio_third_question_2"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:layout_weight="1"
                             android:checked="false"
-                            android:text="kind" />
+                            android:text="" />
 
                         <RadioButton
+                            android:id="@+id/radio_third_question_3"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:layout_weight="1"
                             android:checked="false"
-                            android:text="happy" />
+                            android:text="" />
 
                         <RadioButton
+                            android:id="@+id/radio_third_question_4"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:layout_weight="1"
                             android:checked="false"
-                            android:text="patient" />
+                            android:text="" />
 
                     </RadioGroup>
 
@@ -222,32 +234,36 @@
                         android:layout_height="match_parent">
 
                         <RadioButton
+                            android:id="@+id/radio_fourth_question_1"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:layout_weight="1"
                             android:checked="false"
-                            android:text="intelligent" />
+                            android:text="" />
 
                         <RadioButton
+                            android:id="@+id/radio_fourth_question_2"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:layout_weight="1"
                             android:checked="false"
-                            android:text="elderly" />
+                            android:text="" />
 
                         <RadioButton
+                            android:id="@+id/radio_fourth_question_3"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:layout_weight="1"
                             android:checked="false"
-                            android:text="impatient" />
+                            android:text="" />
 
                         <RadioButton
+                            android:id="@+id/radio_fourth_question_4"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:layout_weight="1"
                             android:checked="false"
-                            android:text="introvert" />
+                            android:text="" />
 
                     </RadioGroup>
 
@@ -268,6 +284,7 @@
         android:paddingHorizontal="@dimen/margin_middle"
         android:text="@string/check"
         android:textColor="@color/white"
+        android:visibility="visible"
         app:cornerRadius="@dimen/margin_middle"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"

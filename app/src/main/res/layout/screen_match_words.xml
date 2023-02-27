@@ -30,7 +30,7 @@
                 android:layout_height="match_parent">
 
                 <com.google.android.material.textview.MaterialTextView
-                    android:id="@+id/tv_unit_name"
+                    android:id="@+id/tv_left_column"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="@string/age"
@@ -59,6 +59,7 @@
                 android:layout_height="match_parent">
 
                 <com.google.android.material.textview.MaterialTextView
+                    android:id="@+id/tv_middle_column"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="@string/looks"
@@ -87,6 +88,7 @@
                 android:layout_height="match_parent">
 
                 <com.google.android.material.textview.MaterialTextView
+                    android:id="@+id/tv_right_column"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="@string/hair"
@@ -125,7 +127,7 @@
             app:layout_constraintTop_toBottomOf="@id/lay_example_words">
 
             <androidx.recyclerview.widget.RecyclerView
-                android:id="@+id/rv_age_words"
+                android:id="@+id/rv_left_column"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:background="@drawable/container_shape"
@@ -200,8 +202,8 @@
         android:backgroundTint="@color/main_color"
         android:paddingHorizontal="@dimen/margin_middle"
         android:text="@string/next"
-        android:visibility="invisible"
         android:textColor="@color/white"
+        android:visibility="invisible"
         app:cornerRadius="@dimen/margin_middle"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"

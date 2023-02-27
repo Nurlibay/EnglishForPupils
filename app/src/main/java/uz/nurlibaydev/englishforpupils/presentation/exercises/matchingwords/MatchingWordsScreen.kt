@@ -64,10 +64,10 @@ class MatchingWordsScreen : Fragment(R.layout.screen_match_words) {
             }
 
             /** Age words */
-            rvAgeWords.layoutManager = LinearLayoutManager(requireContext(), LinearLayoutManager.VERTICAL, false)
-            rvAgeWords.adapter = ageWordsAdapter
+            rvLeftColumn.layoutManager = LinearLayoutManager(requireContext(), LinearLayoutManager.VERTICAL, false)
+            rvLeftColumn.adapter = ageWordsAdapter
 
-            rvAgeWords.setOnDragListener(
+            rvLeftColumn.setOnDragListener(
                 DropListener {
                     if (wordsAdapter.currentList.contains(selectedWord) && !ageWordsAdapter.currentList.contains(selectedWord)) {
                         wordsAdapter.removeItem(selectedWord)
