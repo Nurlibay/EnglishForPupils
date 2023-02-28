@@ -8,6 +8,7 @@ import androidx.fragment.app.Fragment
 import by.kirich1409.viewbindingdelegate.viewBinding
 import dagger.hilt.android.AndroidEntryPoint
 import uz.nurlibaydev.englishforpupils.R
+import uz.nurlibaydev.englishforpupils.data.DataList
 import uz.nurlibaydev.englishforpupils.databinding.ScreenPictureGameBinding
 import uz.nurlibaydev.englishforpupils.utils.Observer
 import uz.nurlibaydev.englishforpupils.utils.extensions.onClick
@@ -25,40 +26,25 @@ class PictureGameScreen : Fragment(R.layout.screen_picture_game) {
         Observer.whichTask.value = 5
     }
 
-    private val firstQuestionVariants = HashMap<Int, String>()
-    private val secondQuestionVariants = HashMap<Int, String>()
-    private val thirdQuestionVariants = HashMap<Int, String>()
-    private val fourthQuestionVariants = HashMap<Int, String>()
-    private val answersIndex = mutableListOf(2, 1, 3, 2)
+    private var firstQuestionVariants = HashMap<Int, String>()
+    private var secondQuestionVariants = HashMap<Int, String>()
+    private var thirdQuestionVariants = HashMap<Int, String>()
+    private var fourthQuestionVariants = HashMap<Int, String>()
+    private var answersIndex = mutableListOf<Int>()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        firstQuestionVariants[0] = "old"
-        firstQuestionVariants[1] = "overweight"
-        firstQuestionVariants[2] = "lazy"
-        firstQuestionVariants[3] = "shy"
-
-        secondQuestionVariants[0] = "sad"
-        secondQuestionVariants[1] = "strict"
-        secondQuestionVariants[2] = "friendly"
-        secondQuestionVariants[3] = "kind"
-
-        thirdQuestionVariants[0] = "kind"
-        thirdQuestionVariants[1] = "happy"
-        thirdQuestionVariants[2] = "patient"
-        thirdQuestionVariants[3] = "serious"
-
-        fourthQuestionVariants[0] = "elderly"
-        fourthQuestionVariants[1] = "impatient"
-        fourthQuestionVariants[2] = "intelligent"
-        fourthQuestionVariants[3] = "introvert"
+        firstQuestionVariants = DataList.getPictureScreenQuestions(Observer.whichUnit.value!!)[0]
+        secondQuestionVariants = DataList.getPictureScreenQuestions(Observer.whichUnit.value!!)[1]
+        thirdQuestionVariants = DataList.getPictureScreenQuestions(Observer.whichUnit.value!!)[2]
+        fourthQuestionVariants = DataList.getPictureScreenQuestions(Observer.whichUnit.value!!)[3]
+        answersIndex = DataList.getPictureScreenAnswers(Observer.whichUnit.value!!)
     }
 
     private val binding by viewBinding<ScreenPictureGameBinding>()
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        showMessage(firstQuestionVariants.size.toString())
         binding.apply {
             radioFirstQuestion1.text = firstQuestionVariants[0]
             radioFirstQuestion2.text = firstQuestionVariants[1]

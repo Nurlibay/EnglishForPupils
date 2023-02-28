@@ -6,7 +6,7 @@
     app:startDestination="@id/matchingWordsScreen">
     <fragment
         android:id="@+id/matchingWordsScreen"
-        android:name="uz.nurlibaydev.englishforpupils.presentation.exercises.matchingwords.MatchingWordsScreen"
+        android:name="uz.nurlibaydev.englishforpupils.presentation.exercises.categorizewords.MatchingWordsScreen"
         android:label="MatchingWordsScreen"
         tools:layout="@layout/screen_match_words">
         <action

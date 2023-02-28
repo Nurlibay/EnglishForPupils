@@ -1,4 +1,4 @@
-package uz.nurlibaydev.englishforpupils.presentation.exercises.matchingwords.callback
+package uz.nurlibaydev.englishforpupils.presentation.exercises.categorizewords.callback
 
 import android.view.DragEvent
 import android.view.View

@@ -1,7 +1,6 @@
-package uz.nurlibaydev.englishforpupils.presentation.exercises.matchingwords.adapter
+package uz.nurlibaydev.englishforpupils.presentation.exercises.categorizewords.adapter
 
 import android.content.ClipData
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -9,8 +8,8 @@ import android.widget.TextView
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
 import uz.nurlibaydev.englishforpupils.R
-import uz.nurlibaydev.englishforpupils.presentation.exercises.matchingwords.callback.DragListener
-import uz.nurlibaydev.englishforpupils.presentation.exercises.matchingwords.callback.WordsDiffCallback
+import uz.nurlibaydev.englishforpupils.presentation.exercises.categorizewords.callback.DragListener
+import uz.nurlibaydev.englishforpupils.presentation.exercises.categorizewords.callback.WordsDiffCallback
 import uz.nurlibaydev.englishforpupils.utils.Observer
 
 class WordsAdapter(private val onDragStarted: (String) -> Unit) : ListAdapter<String, WordsAdapter.WordsViewHolder>(WordsDiffCallback()) {

@@ -1,4 +1,4 @@
-package uz.nurlibaydev.englishforpupils.presentation.exercises.matchingwords
+package uz.nurlibaydev.englishforpupils.presentation.exercises.categorizewords
 
 import android.os.Bundle
 import android.view.View
@@ -10,10 +10,11 @@ import by.kirich1409.viewbindingdelegate.viewBinding
 import com.google.android.flexbox.*
 import dagger.hilt.android.AndroidEntryPoint
 import uz.nurlibaydev.englishforpupils.R
+import uz.nurlibaydev.englishforpupils.data.DataList
 import uz.nurlibaydev.englishforpupils.databinding.ScreenMatchWordsBinding
-import uz.nurlibaydev.englishforpupils.presentation.exercises.matchingwords.adapter.SortedWordsAdapter
-import uz.nurlibaydev.englishforpupils.presentation.exercises.matchingwords.adapter.WordsAdapter
-import uz.nurlibaydev.englishforpupils.presentation.exercises.matchingwords.callback.DropListener
+import uz.nurlibaydev.englishforpupils.presentation.exercises.categorizewords.adapter.SortedWordsAdapter
+import uz.nurlibaydev.englishforpupils.presentation.exercises.categorizewords.adapter.WordsAdapter
+import uz.nurlibaydev.englishforpupils.presentation.exercises.categorizewords.callback.DropListener
 import uz.nurlibaydev.englishforpupils.utils.Observer
 import uz.nurlibaydev.englishforpupils.utils.extensions.onClick
 
@@ -30,30 +31,39 @@ class MatchingWordsScreen : Fragment(R.layout.screen_match_words) {
     }
 
     private val binding: ScreenMatchWordsBinding by viewBinding()
-    private val words = mutableListOf(
-        "bald", "attractive", "blonde", "curly", "dark",
-        "elderly", "fair", "good-looking", "handsome",
-        "middle-aged", "pretty", "straight", "teenage", "in twenties"
-    )
+    private var words = mutableListOf<String>()
     private var selectedWord = ""
-    private val correctAgeWords = mutableListOf("elderly", "middle-aged", "teenage", "in twenties")
-    private val correctLooksWords = mutableListOf("attractive", "good-looking", "handsome", "pretty")
-    private val correctHairWords = mutableListOf("bald", "blonde", "curly", "dark", "fair", "straight")
+    private var correctLeftWords = mutableListOf<String>()
+    private var correctMiddleWords = mutableListOf<String>()
+    private var correctRightWords = mutableListOf<String>()
+
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        words = DataList.getMatchingWords(Observer.whichUnit.value!!)
+        correctLeftWords = DataList.getMatchingWordsScreenLeftWords(Observer.whichUnit.value!!)
+        correctMiddleWords = DataList.getMatchingWordsScreenMiddleWords(Observer.whichUnit.value!!)
+        correctRightWords = DataList.getMatchingWordsScreenRightWords(Observer.whichUnit.value!!)
+    }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         binding.apply {
+
+            tvLeftColumn.text = DataList.getMatchingWordScreenThreeWords(Observer.whichUnit.value!!)[0]
+            tvMiddleColumn.text = DataList.getMatchingWordScreenThreeWords(Observer.whichUnit.value!!)[1]
+            tvRightColumn.text = DataList.getMatchingWordScreenThreeWords(Observer.whichUnit.value!!)[2]
+
             btnNext.onClick {
                 findNavController().navigate(MatchingWordsScreenDirections.actionMatchingWordsScreenToMatchingAntonyms())
             }
 
-            val ageWordsAdapter = SortedWordsAdapter(correctAgeWords) {
+            val leftWordsAdapter = SortedWordsAdapter(correctLeftWords) {
                 selectedWord = it
             }
-            val looksWordsAdapter = SortedWordsAdapter(correctLooksWords) {
+            val middleWordsAdapter = SortedWordsAdapter(correctMiddleWords) {
                 selectedWord = it
             }
-            val hairWordsAdapter = SortedWordsAdapter(correctHairWords) {
+            val rightWordsAdapter = SortedWordsAdapter(correctRightWords) {
                 selectedWord = it
             }
 
@@ -63,17 +73,17 @@ class MatchingWordsScreen : Fragment(R.layout.screen_match_words) {
                 submitList(words)
             }
 
-            /** Age words */
+            /** Left words */
             rvLeftColumn.layoutManager = LinearLayoutManager(requireContext(), LinearLayoutManager.VERTICAL, false)
-            rvLeftColumn.adapter = ageWordsAdapter
+            rvLeftColumn.adapter = leftWordsAdapter
 
             rvLeftColumn.setOnDragListener(
                 DropListener {
-                    if (wordsAdapter.currentList.contains(selectedWord) && !ageWordsAdapter.currentList.contains(selectedWord)) {
+                    if (wordsAdapter.currentList.contains(selectedWord) && !leftWordsAdapter.currentList.contains(selectedWord)) {
                         wordsAdapter.removeItem(selectedWord)
-                        looksWordsAdapter.removeItem(selectedWord)
-                        hairWordsAdapter.removeItem(selectedWord)
-                        ageWordsAdapter.addItem(selectedWord)
+                        middleWordsAdapter.removeItem(selectedWord)
+                        rightWordsAdapter.removeItem(selectedWord)
+                        leftWordsAdapter.addItem(selectedWord)
                         if (Observer.emptyDataObserver.value == true) {
                             btnNext.isVisible = true
                         }
@@ -81,17 +91,17 @@ class MatchingWordsScreen : Fragment(R.layout.screen_match_words) {
                 }
             )
 
-            /** Looks words */
+            /** Middle words */
             rvLooksWords.layoutManager = LinearLayoutManager(requireContext(), LinearLayoutManager.VERTICAL, false)
-            rvLooksWords.adapter = looksWordsAdapter
+            rvLooksWords.adapter = middleWordsAdapter
 
             rvLooksWords.setOnDragListener(
                 DropListener {
-                    if (wordsAdapter.currentList.contains(selectedWord) && !looksWordsAdapter.currentList.contains(selectedWord)) {
+                    if (wordsAdapter.currentList.contains(selectedWord) && !middleWordsAdapter.currentList.contains(selectedWord)) {
                         wordsAdapter.removeItem(selectedWord)
-                        ageWordsAdapter.removeItem(selectedWord)
-                        hairWordsAdapter.removeItem(selectedWord)
-                        looksWordsAdapter.addItem(selectedWord)
+                        leftWordsAdapter.removeItem(selectedWord)
+                        rightWordsAdapter.removeItem(selectedWord)
+                        middleWordsAdapter.addItem(selectedWord)
                         if (Observer.emptyDataObserver.value == true) {
                             binding.btnNext.isVisible = true
                         }
@@ -99,17 +109,17 @@ class MatchingWordsScreen : Fragment(R.layout.screen_match_words) {
                 }
             )
 
-            /** Hair words */
+            /** Right words */
             rvHairWords.layoutManager = LinearLayoutManager(requireContext(), LinearLayoutManager.VERTICAL, false)
-            rvHairWords.adapter = hairWordsAdapter
+            rvHairWords.adapter = rightWordsAdapter
 
             rvHairWords.setOnDragListener(
                 DropListener {
-                    if (wordsAdapter.currentList.contains(selectedWord) && !hairWordsAdapter.currentList.contains(selectedWord)) {
+                    if (wordsAdapter.currentList.contains(selectedWord) && !rightWordsAdapter.currentList.contains(selectedWord)) {
                         wordsAdapter.removeItem(selectedWord)
-                        looksWordsAdapter.removeItem(selectedWord)
-                        ageWordsAdapter.removeItem(selectedWord)
-                        hairWordsAdapter.addItem(selectedWord)
+                        middleWordsAdapter.removeItem(selectedWord)
+                        leftWordsAdapter.removeItem(selectedWord)
+                        rightWordsAdapter.addItem(selectedWord)
                         if (Observer.emptyDataObserver.value == true) {
                             binding.btnNext.isVisible = true
                         }

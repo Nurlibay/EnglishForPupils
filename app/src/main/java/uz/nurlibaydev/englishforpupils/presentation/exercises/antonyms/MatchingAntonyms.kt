@@ -11,6 +11,7 @@ import androidx.recyclerview.widget.RecyclerView
 import by.kirich1409.viewbindingdelegate.viewBinding
 import dagger.hilt.android.AndroidEntryPoint
 import uz.nurlibaydev.englishforpupils.R
+import uz.nurlibaydev.englishforpupils.data.DataList
 import uz.nurlibaydev.englishforpupils.databinding.ScreenMatchAntonymsBinding
 import uz.nurlibaydev.englishforpupils.utils.Observer
 import uz.nurlibaydev.englishforpupils.utils.extensions.onClick
@@ -28,13 +29,15 @@ class MatchingAntonyms : Fragment(R.layout.screen_match_antonyms) {
     }
 
     private val binding by viewBinding<ScreenMatchAntonymsBinding>()
-    private val leftWords = mutableListOf("polite", "careful", "funny", "miserable", "friendly", "confident", "naughty", "honest", "hard-working", "patient", "cruel")
-    private val rightWords = mutableListOf("rude", "careless ", "serious", "cheerful", "unfriendly ", "shy", "well-behaved", "dishonest", "lazy", "impatient", "kind")
+    private var leftWords = mutableListOf<String>()
+    private var rightWords = mutableListOf<String>()
 
     private val answers: MutableMap<String, String> = mutableMapOf()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        leftWords = DataList.getAntonymsScreenLeftWord(Observer.whichUnit.value!!)
+        rightWords = DataList.getAntonymsScreenRightWord(Observer.whichUnit.value!!)
         repeat(leftWords.size) {
             answers[leftWords[it]] = rightWords[it]
         }
@@ -50,7 +53,6 @@ class MatchingAntonyms : Fragment(R.layout.screen_match_antonyms) {
             val from = viewHolder.absoluteAdapterPosition
             val to = target.absoluteAdapterPosition
             adapter.moveItem(from, to)
-//                adapter.notifyItemMoved(from, to)
             return true
         }
 

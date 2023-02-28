@@ -7,7 +7,7 @@ import android.widget.TextView
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
 import uz.nurlibaydev.englishforpupils.R
-import uz.nurlibaydev.englishforpupils.presentation.exercises.matchingwords.callback.WordsDiffCallback
+import uz.nurlibaydev.englishforpupils.presentation.exercises.categorizewords.callback.WordsDiffCallback
 
 /**
  *  Created by Nurlibay Koshkinbaev on 18/02/2023 22:48

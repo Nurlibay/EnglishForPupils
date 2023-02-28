@@ -26,6 +26,11 @@ class MainContainer : Fragment(R.layout.container_tasks) {
     private lateinit var navController: NavController
     private val binding by viewBinding<ContainerTasksBinding>()
 
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        Observer.whichUnit.value = navArgs.unitName.last().toString().toInt()
+    }
+
     @SuppressLint("SetTextI18n")
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)

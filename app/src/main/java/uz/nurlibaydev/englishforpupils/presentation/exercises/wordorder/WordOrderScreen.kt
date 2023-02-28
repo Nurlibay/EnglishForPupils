@@ -11,6 +11,7 @@ import by.kirich1409.viewbindingdelegate.viewBinding
 import com.google.android.flexbox.*
 import dagger.hilt.android.AndroidEntryPoint
 import uz.nurlibaydev.englishforpupils.R
+import uz.nurlibaydev.englishforpupils.data.DataList
 import uz.nurlibaydev.englishforpupils.databinding.ScreenWordOrderBinding
 import uz.nurlibaydev.englishforpupils.utils.Observer
 import uz.nurlibaydev.englishforpupils.utils.extensions.onClick
@@ -22,16 +23,22 @@ import uz.nurlibaydev.englishforpupils.utils.extensions.onClick
 @AndroidEntryPoint
 class WordOrderScreen : Fragment(R.layout.screen_word_order) {
 
+    private val binding by viewBinding<ScreenWordOrderBinding>()
+    private var words = mutableListOf<String>()
+    private var correctAnswer = ""
+    private val wordsAdapter by lazy { WordOrderAdapter() }
+    private val answerWordsAdapter by lazy { WordOrderAdapter() }
+
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        words = DataList.getWordOrderWords(Observer.whichUnit.value!!)
+        correctAnswer = DataList.getWordOrderAnswers(Observer.whichUnit.value!!)
+    }
+
     override fun onResume() {
         super.onResume()
         Observer.whichTask.value = 4
     }
-
-    private val binding by viewBinding<ScreenWordOrderBinding>()
-    private val words = mutableListOf("the", "clash", "bands", "were", "teenagers", "into", "like")
-    private val correctAnswer = "teenagers were like into the clash bands"
-    private val wordsAdapter by lazy { WordOrderAdapter() }
-    private val answerWordsAdapter by lazy { WordOrderAdapter() }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)

@@ -1,4 +1,4 @@
-package uz.nurlibaydev.englishforpupils.presentation.exercises.matchingwords.adapter
+package uz.nurlibaydev.englishforpupils.presentation.exercises.categorizewords.adapter
 
 import android.content.ClipData
 import android.graphics.Color
@@ -9,8 +9,8 @@ import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
 import uz.nurlibaydev.englishforpupils.R
 import uz.nurlibaydev.englishforpupils.databinding.ItemSortedWordBinding
-import uz.nurlibaydev.englishforpupils.presentation.exercises.matchingwords.callback.DragListener
-import uz.nurlibaydev.englishforpupils.presentation.exercises.matchingwords.callback.WordsDiffCallback
+import uz.nurlibaydev.englishforpupils.presentation.exercises.categorizewords.callback.DragListener
+import uz.nurlibaydev.englishforpupils.presentation.exercises.categorizewords.callback.WordsDiffCallback
 
 class SortedWordsAdapter(private val list: List<String>, private val onDragStarted: (String) -> Unit) : ListAdapter<String, SortedWordsAdapter.WordsViewHolder>(WordsDiffCallback()) {
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): WordsViewHolder {
