@@ -13,7 +13,28 @@ object DataList {
     fun getMatchingWordScreenThreeWords(unitNumber: Int): MutableList<String> {
         when (unitNumber) {
             1 -> {
-                return mutableListOf("Age", "Looks", "Hair")
+                return mutableListOf("age", "looks", "hair")
+            }
+            2 -> {
+                return mutableListOf("verb", "adverb ", "adjective")
+            }
+            3 -> {
+                return mutableListOf("positive", "comparative", "superlative")
+            }
+            4 -> {
+                return mutableListOf("indoor", "outdoor", "water")
+            }
+            5 -> {
+                return mutableListOf("pronoun", "noun", "adverb")
+            }
+            6 -> {
+                return mutableListOf("countable", "uncountable", "plural")
+            }
+            7 -> {
+                return mutableListOf("have", "do", "make")
+            }
+            8 -> {
+                return mutableListOf("suggesting ideas", "agreeing", "disagreeing")
             }
         }
         return mutableListOf("", "", "")
@@ -28,6 +49,55 @@ object DataList {
                     "middle-aged", "pretty", "straight", "teenage", "in twenties"
                 )
             }
+            2 -> {
+                return mutableListOf(
+                    "badly", "politely", "well", "rudely", "healthily",
+                    "honestly", "lazy", "serious", "trendy",
+                    "careful", "casual", "skinny", "wear", "text", "make", "buy", "dress", "get"
+                )
+            }
+            3 -> {
+                return mutableListOf(
+                    "great", "safe", "good", "far", "untidy",
+                    "clever", "bigger", "easier", "worse",
+                    "better", "harder", "cheaper", "best", "furthest", "longest", "oldest", "hardest", "latest"
+                )
+            }
+            4 -> {
+                return mutableListOf(
+                    "boxing", "table tennis", "gymnastics", "yoga", "bowling squash", "cycling",
+                    "climbing", "diving", "golf", "horse riding", "hiking",
+                    "surfing", "windsurfing", "swimming", "kayaking", "fishing", "water-skiing"
+                )
+            }
+            5 -> {
+                return mutableListOf(
+                    "itself", "herself", "each other", "myself", "yourselves", "himself",
+                    "hacking", "vandal", "hacker", "burglary", "shoplifter", "thief",
+                    "early", "soon", "suddenly", "luckily", "honestly", "well"
+                )
+            }
+            6 -> {
+                return mutableListOf(
+                    "road sign", "rubbish bin", "bus stop", "apartment", "problem", "money",
+                    "time", "petrol", "jam", "information", "electricity", "skyscrapers",
+                    "neighborhoods", "cities", "people", "ideas", "buildings"
+                )
+            }
+            7 -> {
+                return mutableListOf(
+                    "an argument", "a problem", "dinner", "fun", "a bath", "lots in common",
+                    "a favor", "homework", "research", "work", "sport", "business",
+                    "mistake", "noise", "friends", "angry", "choice", "the bed"
+                )
+            }
+            8 -> {
+                return mutableListOf(
+                    "Why don’t we..", "What about…", "How about…", "We could…", "Shall we", "Couldn’t we..",
+                    "That’s a good idea", "Sounds great", "Absolutely", "You’re right", "It’s true", "Exactly",
+                    "I’m not sure", "No way", "I disagree", "Not necessarily", "I’m against", "I don’t agree"
+                )
+            }
         }
         return mutableListOf()
     }
@@ -36,6 +106,27 @@ object DataList {
         when (unitNumber) {
             1 -> {
                 return mutableListOf("elderly", "middle-aged", "teenage", "in twenties")
+            }
+            2 -> {
+                return mutableListOf("wear", "text", "make", "buy", "dress", "get")
+            }
+            3 -> {
+                return mutableListOf("great", "safe", "good", "far", "untidy", "clever")
+            }
+            4 -> {
+                return mutableListOf("boxing", "table tennis", "gymnastics", "yoga", "bowling squash")
+            }
+            5 -> {
+                return mutableListOf("itself", "herself", "each other", "myself", "yourselves", "himself")
+            }
+            6 -> {
+                return mutableListOf("road sign", "rubbish bin", "bus stop", "apartment", "problem")
+            }
+            7 -> {
+                return mutableListOf("an argument", "a problem", "dinner", "fun", "a bath", "lots in common")
+            }
+            8 -> {
+                return mutableListOf("Why don’t we..", "What about…", "How about…", "We could…", "Shall we", "Couldn’t we..")
             }
         }
         return mutableListOf()
@@ -46,6 +137,27 @@ object DataList {
             1 -> {
                 return mutableListOf("attractive", "good-looking", "handsome", "pretty")
             }
+            2 -> {
+                return mutableListOf("badly", "politely", "well", "rudely", "healthily")
+            }
+            3 -> {
+                return mutableListOf("bigger", "easier", "worse", "better", "harder", "cheaper")
+            }
+            4 -> {
+                return mutableListOf("cycling", "climbing", "diving", "golf", "horse riding", "hiking")
+            }
+            5 -> {
+                return mutableListOf("hacking", "vandal", "hacker", "burglary", "shoplifter", "thief")
+            }
+            6 -> {
+                return mutableListOf("money", "time", "petrol", "jam", "information", "electricity")
+            }
+            7 -> {
+                return mutableListOf("a favor", "homework", "research", "work", "sport", "business")
+            }
+            8 -> {
+                return mutableListOf("That’s a good idea", "Sounds great", "Absolutely", "You’re right", "It’s true", "Exactly")
+            }
         }
         return mutableListOf()
     }
@@ -54,6 +166,27 @@ object DataList {
         when (unitNumber) {
             1 -> {
                 return mutableListOf("bald", "blonde", "curly", "dark", "fair", "straight")
+            }
+            2 -> {
+                return mutableListOf("lazy", "serious", "trendy", "careful", "casual", "skinny")
+            }
+            3 -> {
+                return mutableListOf("best", "furthest", "longest", "oldest", "hardest", "latest")
+            }
+            4 -> {
+                return mutableListOf("surfing", "windsurfing", "swimming", "kayaking", "fishing", "water-skiing")
+            }
+            5 -> {
+                return mutableListOf("early", "soon", "suddenly", "luckily", "honestly", "well")
+            }
+            6 -> {
+                return mutableListOf("skyscrapers", "neighborhoods", "cities", "people", "ideas", "buildings")
+            }
+            7 -> {
+                return mutableListOf("mistake", "noise", "friends", "angry", "choice", "the bed")
+            }
+            8 -> {
+                return mutableListOf("I’m not sure", "No way", "I disagree", "Not necessarily", "I’m against", "I don’t agree")
             }
         }
         return mutableListOf()

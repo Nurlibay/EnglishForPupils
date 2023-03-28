@@ -17,7 +17,7 @@
         app:layout_constraintTop_toTopOf="parent">
 
         <com.google.android.material.card.MaterialCardView
-            android:layout_width="wrap_content"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_margin="@dimen/margin_small"
             android:layout_weight="1"
@@ -35,7 +35,6 @@
                     android:layout_height="wrap_content"
                     android:text=""
                     android:textColor="@color/white"
-                    android:textSize="18sp"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
@@ -46,7 +45,7 @@
         </com.google.android.material.card.MaterialCardView>
 
         <com.google.android.material.card.MaterialCardView
-            android:layout_width="wrap_content"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_margin="@dimen/margin_small"
             android:layout_weight="1"
@@ -64,7 +63,6 @@
                     android:layout_height="wrap_content"
                     android:text=""
                     android:textColor="@color/white"
-                    android:textSize="18sp"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
@@ -75,7 +73,7 @@
         </com.google.android.material.card.MaterialCardView>
 
         <com.google.android.material.card.MaterialCardView
-            android:layout_width="wrap_content"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_margin="@dimen/margin_small"
             android:layout_weight="1"
@@ -93,7 +91,6 @@
                     android:layout_height="wrap_content"
                     android:text=""
                     android:textColor="@color/white"
-                    android:textSize="18sp"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
@@ -203,7 +200,7 @@
         android:paddingHorizontal="@dimen/margin_middle"
         android:text="@string/next"
         android:textColor="@color/white"
-        android:visibility="invisible"
+        android:visibility="gone"
         app:cornerRadius="@dimen/margin_middle"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
