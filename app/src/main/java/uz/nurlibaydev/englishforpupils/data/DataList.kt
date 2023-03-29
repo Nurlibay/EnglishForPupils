@@ -36,6 +36,42 @@ object DataList {
             8 -> {
                 return mutableListOf("suggesting ideas", "agreeing", "disagreeing")
             }
+            9 -> {
+                return mutableListOf("Infinitive", "Past Simple", "Past Participle")
+            }
+            10 -> {
+                return mutableListOf("Server’s phrases", "Customer’s phrases", "Answers")
+            }
+            11 -> {
+                return mutableListOf("Body", "Disease", "Verb")
+            }
+            12 -> {
+                return mutableListOf("Birds", "Mammals", "Reptiles")
+            }
+            13 -> {
+                return mutableListOf("Positive", "Negative", "Neutral")
+            }
+            14 -> {
+                return mutableListOf("TV", "Film", "Literature")
+            }
+            15 -> {
+                return mutableListOf("Apps", "Commands", "Nouns")
+            }
+            16 -> {
+                return mutableListOf("Noun", "Verb", "Phrasal verb")
+            }
+            17 -> {
+                return mutableListOf("Artist", "Actor", "Author")
+            }
+            18 -> {
+                return mutableListOf("-er", "-or", "-ist")
+            }
+            19 -> {
+                return mutableListOf("Say", "Tell", "Speak")
+            }
+            20 -> {
+                return mutableListOf("Look", "See", "Watch")
+            }
         }
         return mutableListOf("", "", "")
     }
@@ -58,9 +94,24 @@ object DataList {
             }
             3 -> {
                 return mutableListOf(
-                    "great", "safe", "good", "far", "untidy",
-                    "clever", "bigger", "easier", "worse",
-                    "better", "harder", "cheaper", "best", "furthest", "longest", "oldest", "hardest", "latest"
+                    "great",
+                    "safe",
+                    "good",
+                    "far",
+                    "untidy",
+                    "clever",
+                    "bigger",
+                    "easier",
+                    "worse",
+                    "better",
+                    "harder",
+                    "cheaper",
+                    "best",
+                    "furthest",
+                    "longest",
+                    "oldest",
+                    "hardest",
+                    "latest"
                 )
             }
             4 -> {
@@ -93,9 +144,137 @@ object DataList {
             }
             8 -> {
                 return mutableListOf(
-                    "Why don’t we..", "What about…", "How about…", "We could…", "Shall we", "Couldn’t we..",
-                    "That’s a good idea", "Sounds great", "Absolutely", "You’re right", "It’s true", "Exactly",
-                    "I’m not sure", "No way", "I disagree", "Not necessarily", "I’m against", "I don’t agree"
+                    "Why don’t we..",
+                    "What about…",
+                    "How about…",
+                    "We could…",
+                    "Shall we",
+                    "Couldn’t we..",
+                    "That’s a good idea",
+                    "Sounds great",
+                    "Absolutely",
+                    "You’re right",
+                    "It’s true",
+                    "Exactly",
+                    "I’m not sure",
+                    "No way",
+                    "I disagree",
+                    "Not necessarily",
+                    "I’m against",
+                    "I don’t agree"
+                )
+            }
+            9 -> {
+                return mutableListOf(
+                    "Break", "Begin", "Eat", "Think", "Throw", "Sell",
+                    "Built", "Got", "Began", "Lent", "Told", "Wrote",
+                    "Drawn", "Known", "Rung", "Seen", "Stolen", "Thrown"
+                )
+            }
+            10 -> {
+                return mutableListOf(
+                    "And to drink",
+                    "Here’s your change",
+                    "What can I get you",
+                    "What to eat",
+                    "Eat in or take out",
+                    "Anything else",
+                    "I’d like..",
+                    "Have you got",
+                    "Could I have..",
+                    "I’ll have",
+                    "Can I have",
+                    "I’d like..",
+                    "Of course",
+                    "Sure",
+                    "Ok",
+                    "No,thanks",
+                    "Yes",
+                    "No"
+                )
+            }
+            11 -> {
+                return mutableListOf(
+                    "Cheek", "thumb", "chin", "back", "throat", "forehead",
+                    "Fever", "flu", "cough", "toothache", "cold", "stomachache",
+                    "Break", "catch", "feel", "injure", "damage", "get"
+                )
+            }
+            12 -> {
+                return mutableListOf(
+                    "Eagle", "pigeon", "swallow", "ostrich", "parrot", "sawn",
+                    "Ox", "monkey", "tiger", "polar", "bear", "horse", "puma",
+                    "Crocodile", "tortoise", "lizard", "snake", "varan", "cobra"
+                )
+            }
+            13 -> {
+                return mutableListOf(
+                    "Open-minded", "Grateful", "loyal", "respectful", "organized", "ambitious",
+                    "Arrogant", "boring", "aggressive", "bossy", "cruel", "rude",
+                    "Dreamy", "quite", "casual", "private", "positive", "optimistic"
+                )
+            }
+            14 -> {
+                return mutableListOf(
+                    "Channel BBC", "reality show", "chat show", "the news",
+                    "Horror", "soap opera", "comedy", "drama", "action", "sci-fi",
+                    "Plot", "poetry", "prose", "novel", "composition", "story"
+                )
+            }
+            15 -> {
+                return mutableListOf(
+                    "WordPower", "Newscast", "Themez", "LanguageLab", "GrammarWise", "Duolingo",
+                    "Delete", "share", "download", "upload", "install", "add",
+                    "Password", "virus", "links", "file", "app", "button"
+                )
+            }
+            16 -> {
+                return mutableListOf(
+                    "Tissue", "towel", "bottom", "bottle", "cardboard", "can",
+                    "Rub", "blow", "cover", "stir", "pour", "shake",
+                    "Add up", "blow up", "carry out", "work out", "cut up", "take away"
+                )
+            }
+            17 -> {
+                return mutableListOf(
+                    "Cartoonist", "sculpture", "design", "painting", "art", "studio", "gallery",
+                    "Film", "setting", "audience", "perform", "director", "special", "effect",
+                    "Poem", "writer", "biography", "novel", "publish", "poet"
+                )
+            }
+            18 -> {
+                return mutableListOf(
+                    "Blog", "clean", "goalkeep", "run", "teach", "build",
+                    "Act", "compete", "direct", "visit", "conduct",
+                    "Art", "guitar", "journal", "novel", "reception", "biology"
+                )
+            }
+            19 -> {
+                return mutableListOf(
+                    "A word  nothing",
+                    "yes/no",
+                    "hello",
+                    "sorry",
+                    "thank you",
+                    "A secret",
+                    "joke",
+                    "the truth",
+                    "your name",
+                    "the difference",
+                    "the time",
+                    "At the meeting",
+                    "in public",
+                    "with an accent",
+                    "English",
+                    "like a native",
+                    "at length"
+                )
+            }
+            20 -> {
+                return mutableListOf(
+                    "Carefully", "through", "up", "after", "at", "for",
+                    "You soon", "you later", "the light", "the future", "the problem",
+                    "TV", "DVD", "film", "football", "match"
                 )
             }
         }
@@ -114,19 +293,111 @@ object DataList {
                 return mutableListOf("great", "safe", "good", "far", "untidy", "clever")
             }
             4 -> {
-                return mutableListOf("boxing", "table tennis", "gymnastics", "yoga", "bowling squash")
+                return mutableListOf(
+                    "boxing",
+                    "table tennis",
+                    "gymnastics",
+                    "yoga",
+                    "bowling squash"
+                )
             }
             5 -> {
-                return mutableListOf("itself", "herself", "each other", "myself", "yourselves", "himself")
+                return mutableListOf(
+                    "itself",
+                    "herself",
+                    "each other",
+                    "myself",
+                    "yourselves",
+                    "himself"
+                )
             }
             6 -> {
                 return mutableListOf("road sign", "rubbish bin", "bus stop", "apartment", "problem")
             }
             7 -> {
-                return mutableListOf("an argument", "a problem", "dinner", "fun", "a bath", "lots in common")
+                return mutableListOf(
+                    "an argument",
+                    "a problem",
+                    "dinner",
+                    "fun",
+                    "a bath",
+                    "lots in common"
+                )
             }
             8 -> {
-                return mutableListOf("Why don’t we..", "What about…", "How about…", "We could…", "Shall we", "Couldn’t we..")
+                return mutableListOf(
+                    "Why don’t we..",
+                    "What about…",
+                    "How about…",
+                    "We could…",
+                    "Shall we",
+                    "Couldn’t we.."
+                )
+            }
+            9 -> {
+                return mutableListOf("Break", "Begin", "Eat", "Think", "Throw", "Sell")
+            }
+            10 -> {
+                return mutableListOf(
+                    "And to drink",
+                    "Here’s your change",
+                    "What can I get you",
+                    "What to eat",
+                    "Eat in or take out",
+                    "Anything else"
+                )
+            }
+            11 -> {
+                return mutableListOf("Cheek", "thumb", "chin", "back", "throat", "forehead")
+            }
+            12 -> {
+                return mutableListOf("Eagle", "pigeon", "swallow", "ostrich", "parrot", "sawn")
+            }
+            13 -> {
+                return mutableListOf(
+                    "Open-minded",
+                    "Grateful",
+                    "loyal",
+                    "respectful",
+                    "organized",
+                    "ambitious"
+                )
+            }
+            14 -> {
+                return mutableListOf("Channel BBC", "reality show", "chat show", "the news")
+            }
+            15 -> {
+                return mutableListOf(
+                    "WordPower",
+                    "Newscast",
+                    "Themez",
+                    "LanguageLab",
+                    "GrammarWise",
+                    "Duolingo",
+                )
+            }
+            16 -> {
+                return mutableListOf("Tissue", "towel", "bottom", "bottle", "cardboard", "can")
+            }
+            17 -> {
+                return mutableListOf(
+                    "Cartoonist",
+                    "sculpture",
+                    "design",
+                    "painting",
+                    "art",
+                    "studio",
+                    "gallery"
+                )
+            }
+            18 -> {
+                return mutableListOf("Blog", "clean", "goalkeep", "run", "teach", "build")
+            }
+            19 -> {
+                return mutableListOf("A word  nothing", "yes/no", "hello", "sorry", "thank you")
+            }
+            20 -> {
+                return mutableListOf("Carefully", "through", "up", "after", "at", "for")
             }
         }
         return mutableListOf()
@@ -144,10 +415,24 @@ object DataList {
                 return mutableListOf("bigger", "easier", "worse", "better", "harder", "cheaper")
             }
             4 -> {
-                return mutableListOf("cycling", "climbing", "diving", "golf", "horse riding", "hiking")
+                return mutableListOf(
+                    "cycling",
+                    "climbing",
+                    "diving",
+                    "golf",
+                    "horse riding",
+                    "hiking"
+                )
             }
             5 -> {
-                return mutableListOf("hacking", "vandal", "hacker", "burglary", "shoplifter", "thief")
+                return mutableListOf(
+                    "hacking",
+                    "vandal",
+                    "hacker",
+                    "burglary",
+                    "shoplifter",
+                    "thief"
+                )
             }
             6 -> {
                 return mutableListOf("money", "time", "petrol", "jam", "information", "electricity")
@@ -156,7 +441,78 @@ object DataList {
                 return mutableListOf("a favor", "homework", "research", "work", "sport", "business")
             }
             8 -> {
-                return mutableListOf("That’s a good idea", "Sounds great", "Absolutely", "You’re right", "It’s true", "Exactly")
+                return mutableListOf(
+                    "That’s a good idea",
+                    "Sounds great",
+                    "Absolutely",
+                    "You’re right",
+                    "It’s true",
+                    "Exactly"
+                )
+            }
+            9 -> {
+                return mutableListOf("Built", "Got", "Began", "Lent", "Told", "Wrote")
+            }
+            10 -> {
+                return mutableListOf(
+                    "I’d like..",
+                    "Have you got",
+                    "Could I have..",
+                    "I’ll have",
+                    "Can I have",
+                    "I’d like.."
+                )
+            }
+            11 -> {
+                return mutableListOf("Fever", "flu", "cough", "toothache", "cold", "stomachache")
+            }
+            12 -> {
+                return mutableListOf("Ox", "monkey", "tiger", "polar", "bear", "horse", "puma")
+            }
+            13 -> {
+                return mutableListOf("Arrogant", "boring", "aggressive", "bossy", "cruel", "rude")
+            }
+            14 -> {
+                return mutableListOf("Horror", "soap opera", "comedy", "drama", "action", "sci-fi")
+            }
+            15 -> {
+                return mutableListOf("Delete", "share", "download", "upload", "install", "add")
+            }
+            16 -> {
+                return mutableListOf("Rub", "blow", "cover", "stir", "pour", "shake")
+            }
+            17 -> {
+                return mutableListOf(
+                    "Film",
+                    "setting",
+                    "audience",
+                    "perform",
+                    "director",
+                    "special",
+                    "effect"
+                )
+            }
+            18 -> {
+                return mutableListOf("Act", "compete", "direct", "visit", "conduct")
+            }
+            19 -> {
+                return mutableListOf(
+                    "A secret",
+                    "joke",
+                    "the truth",
+                    "your name",
+                    "the difference",
+                    "the time"
+                )
+            }
+            20 -> {
+                return mutableListOf(
+                    "You soon",
+                    "you later",
+                    "the light",
+                    "the future",
+                    "the problem"
+                )
             }
         }
         return mutableListOf()
@@ -174,19 +530,104 @@ object DataList {
                 return mutableListOf("best", "furthest", "longest", "oldest", "hardest", "latest")
             }
             4 -> {
-                return mutableListOf("surfing", "windsurfing", "swimming", "kayaking", "fishing", "water-skiing")
+                return mutableListOf(
+                    "surfing",
+                    "windsurfing",
+                    "swimming",
+                    "kayaking",
+                    "fishing",
+                    "water-skiing"
+                )
             }
             5 -> {
                 return mutableListOf("early", "soon", "suddenly", "luckily", "honestly", "well")
             }
             6 -> {
-                return mutableListOf("skyscrapers", "neighborhoods", "cities", "people", "ideas", "buildings")
+                return mutableListOf(
+                    "skyscrapers",
+                    "neighborhoods",
+                    "cities",
+                    "people",
+                    "ideas",
+                    "buildings"
+                )
             }
             7 -> {
                 return mutableListOf("mistake", "noise", "friends", "angry", "choice", "the bed")
             }
             8 -> {
-                return mutableListOf("I’m not sure", "No way", "I disagree", "Not necessarily", "I’m against", "I don’t agree")
+                return mutableListOf(
+                    "I’m not sure",
+                    "No way",
+                    "I disagree",
+                    "Not necessarily",
+                    "I’m against",
+                    "I don’t agree"
+                )
+            }
+            9 -> {
+                return mutableListOf("Drawn", "Known", "Rung", "Seen", "Stolen", "Thrown")
+            }
+            10 -> {
+                return mutableListOf(
+                    "Of course",
+                    "Sure",
+                    "Ok",
+                    "No,thanks",
+                    "Yes",
+                    "No"
+                )
+            }
+            11 -> {
+                return mutableListOf("Break", "catch", "feel", "injure", "damage", "get")
+            }
+            12 -> {
+                return mutableListOf("Crocodile", "tortoise", "lizard", "snake", "varan", "cobra")
+            }
+            13 -> {
+                return mutableListOf(
+                    "Dreamy",
+                    "quite",
+                    "casual",
+                    "private",
+                    "positive",
+                    "optimistic"
+                )
+            }
+            14 -> {
+                return mutableListOf("Plot", "poetry", "prose", "novel", "composition", "story")
+            }
+            15 -> {
+                return mutableListOf("Password", "virus", "links", "file", "app", "button")
+            }
+            16 -> {
+                return mutableListOf(
+                    "Add up",
+                    "blow up",
+                    "carry out",
+                    "work out",
+                    "cut up",
+                    "take away"
+                )
+            }
+            17 -> {
+                return mutableListOf("Poem", "writer", "biography", "novel", "publish", "poet")
+            }
+            18 -> {
+                return mutableListOf("Art", "guitar", "journal", "novel", "reception", "biology")
+            }
+            19 -> {
+                return mutableListOf(
+                    "At the meeting",
+                    "in public",
+                    "with an accent",
+                    "English",
+                    "like a native",
+                    "at length"
+                )
+            }
+            20 -> {
+                return mutableListOf("TV", "DVD", "film", "football", "match")
             }
         }
         return mutableListOf()
@@ -210,6 +651,132 @@ object DataList {
                     "cruel"
                 )
             }
+            2 -> {
+                return mutableListOf(
+                    "Comfortable",
+                    "Brand new",
+                    "Formal",
+                    "Loose-fitting",
+                    "Well-dressed",
+                    "Colourful",
+                    "tight-fitting",
+                    "politely",
+                    "heavily",
+                    "badly"
+                )
+            }
+            3 -> {
+                return mutableListOf(
+                    "Huge",
+                    "Unbelievable",
+                    "Awful",
+                    "Funny",
+                    "Normal",
+                    "Past",
+                    "Same",
+                    "Get a job",
+                    "Start school",
+                    "Divorced",
+                )
+            }
+            4 -> {
+                return mutableListOf(
+                    "Healthy",
+                    "Long",
+                    "Correct",
+                    "Strong",
+                    "Open",
+                    "Win",
+                    "Wear",
+                    "Never",
+                    "Dark",
+                    "Everyone"
+                )
+            }
+            5 -> {
+                return mutableListOf(
+                    "Compulsory",
+                    "Loud",
+                    "Legal",
+                    "Fair",
+                    "Online",
+                    "Start",
+                    "Strange",
+                    "Full",
+                    "Late",
+                    "Luckily"
+                )
+            }
+            6 -> {
+                return mutableListOf(
+                    "City",
+                    "Inside",
+                    "Catch",
+                    "Cold",
+                    "Old",
+                    "Dirty",
+                    "Support",
+                    "Positive",
+                    "crime",
+                    "credible"
+                )
+            }
+            7 -> {
+                return mutableListOf(
+                    "Correct",
+                    "Friend",
+                    "Separately",
+                    "Fair",
+                    "Dependent",
+                    "Weekend",
+                    "Somewhere",
+                    "Youth",
+                    "Necessary",
+                    "answer"
+                )
+            }
+            8 -> {
+                return mutableListOf(
+                    "Check in",
+                    "Modern",
+                    "Dress",
+                    "Well-known",
+                    "Specific",
+                    "Verbal",
+                    "Agreement",
+                    "Real",
+                    "Include",
+                    "Before"
+                )
+            }
+            9 -> {
+                return mutableListOf(
+                    "Full price",
+                    "Purchase",
+                    "Problem",
+                    "Regularly",
+                    "Carefully",
+                    "Expensive",
+                    "Except",
+                    "Interesting",
+                    "Beginning",
+                    "Save",
+                )
+            }
+            10 -> {
+                return mutableListOf(
+                    "Sweet",
+                    "Tasty",
+                    "Appear",
+                    "Disgusting",
+                    "light",
+                    " low-quality",
+                    "giant",
+                    " eat in",
+                    "international",
+                    "traditional",
+                )
+            }
         }
         return mutableListOf()
     }
@@ -229,6 +796,132 @@ object DataList {
                     "lazy",
                     "impatient",
                     "kind"
+                )
+            }
+            2 -> {
+                return mutableListOf(
+                    "uncomfortable",
+                    "second-hand",
+                    "casual",
+                    "skinny",
+                    "badly-dresses",
+                    "plain",
+                    "baggy",
+                    "rudely",
+                    "easily",
+                    "well"
+                )
+            }
+            3 -> {
+                return mutableListOf(
+                    "tiny",
+                    "believable",
+                    "wonderful",
+                    "serious",
+                    "abnormal",
+                    "present",
+                    "different",
+                    "be fired",
+                    "leave school",
+                    "get married"
+                )
+            }
+            4 -> {
+                return mutableListOf(
+                    "unhealthy",
+                    "short",
+                    "incorrect",
+                    "weak",
+                    "closed",
+                    "lose",
+                    "take off",
+                    "always",
+                    "light",
+                    "noone",
+                )
+            }
+            5 -> {
+                return mutableListOf(
+                    "optional",
+                    "quiet",
+                    "illegal",
+                    "unfair",
+                    "offline",
+                    "finish",
+                    "ordinary",
+                    "empty",
+                    "early",
+                    "unfortunately"
+                )
+            }
+            6 -> {
+                return mutableListOf(
+                    "suburb",
+                    "outside",
+                    "miss",
+                    "hot",
+                    "young",
+                    "clean",
+                    "discourage",
+                    "negative",
+                    "punishment",
+                    "incredible"
+                )
+            }
+            7 -> {
+                return mutableListOf(
+                    "wrong",
+                    "enemy",
+                    "together",
+                    "unfair",
+                    "independent",
+                    "week day",
+                    "nowhere",
+                    "elderly",
+                    "unnecessary",
+                    "ask",
+                )
+            }
+            8 -> {
+                return mutableListOf(
+                    "check out",
+                    "antique",
+                    "undress",
+                    "unknown",
+                    "non-specific",
+                    "non-verbal",
+                    "disagreement",
+                    "unreal",
+                    "exclude",
+                    "after",
+                )
+            }
+            9 -> {
+                return mutableListOf(
+                    "half price",
+                    "sell",
+                    "solution",
+                    "not often",
+                    "carelessly",
+                    "inexpensive",
+                    "including",
+                    "dull",
+                    "end",
+                    "spent",
+                )
+            }
+            10 -> {
+                return mutableListOf(
+                    "sour",
+                    "tasteless",
+                    "disappear",
+                    "delicious",
+                    "dark",
+                    "high-quality",
+                    "very small",
+                    "take out",
+                    "local",
+                    "modern"
                 )
             }
         }
