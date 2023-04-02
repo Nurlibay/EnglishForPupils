@@ -9,6 +9,7 @@ import by.kirich1409.viewbindingdelegate.viewBinding
 import dagger.hilt.android.AndroidEntryPoint
 import uz.nurlibaydev.englishforpupils.R
 import uz.nurlibaydev.englishforpupils.data.DataList
+import uz.nurlibaydev.englishforpupils.data.PictureData
 import uz.nurlibaydev.englishforpupils.databinding.ScreenPictureGameBinding
 import uz.nurlibaydev.englishforpupils.utils.Observer
 import uz.nurlibaydev.englishforpupils.utils.extensions.onClick
@@ -34,11 +35,11 @@ class PictureGameScreen : Fragment(R.layout.screen_picture_game) {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        firstQuestionVariants = DataList.getPictureScreenQuestions(Observer.whichUnit.value!!)[0]
-        secondQuestionVariants = DataList.getPictureScreenQuestions(Observer.whichUnit.value!!)[1]
-        thirdQuestionVariants = DataList.getPictureScreenQuestions(Observer.whichUnit.value!!)[2]
-        fourthQuestionVariants = DataList.getPictureScreenQuestions(Observer.whichUnit.value!!)[3]
-        answersIndex = DataList.getPictureScreenAnswers(Observer.whichUnit.value!!)
+        firstQuestionVariants = PictureData.getPictureScreenQuestions(Observer.whichUnit.value!!)[0]
+        secondQuestionVariants = PictureData.getPictureScreenQuestions(Observer.whichUnit.value!!)[1]
+        thirdQuestionVariants = PictureData.getPictureScreenQuestions(Observer.whichUnit.value!!)[2]
+        fourthQuestionVariants = PictureData.getPictureScreenQuestions(Observer.whichUnit.value!!)[3]
+        answersIndex = PictureData.getPictureScreenAnswers(Observer.whichUnit.value!!)
     }
 
     private val binding by viewBinding<ScreenPictureGameBinding>()

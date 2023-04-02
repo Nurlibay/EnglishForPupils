@@ -11,6 +11,7 @@ import androidx.recyclerview.widget.RecyclerView
 import by.kirich1409.viewbindingdelegate.viewBinding
 import dagger.hilt.android.AndroidEntryPoint
 import uz.nurlibaydev.englishforpupils.R
+import uz.nurlibaydev.englishforpupils.data.AntonymData
 import uz.nurlibaydev.englishforpupils.data.DataList
 import uz.nurlibaydev.englishforpupils.databinding.ScreenMatchAntonymsBinding
 import uz.nurlibaydev.englishforpupils.utils.Observer
@@ -36,8 +37,8 @@ class MatchingAntonyms : Fragment(R.layout.screen_match_antonyms) {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        leftWords = DataList.getAntonymsScreenLeftWord(Observer.whichUnit.value!!)
-        rightWords = DataList.getAntonymsScreenRightWord(Observer.whichUnit.value!!)
+        leftWords = AntonymData.getAntonymsScreenLeftWord(Observer.whichUnit.value!!)
+        rightWords = AntonymData.getAntonymsScreenRightWord(Observer.whichUnit.value!!)
         repeat(leftWords.size) {
             answers[leftWords[it]] = rightWords[it]
         }

@@ -28,7 +28,7 @@ class MainContainer : Fragment(R.layout.container_tasks) {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        Observer.whichUnit.value = navArgs.unitName.last().toString().toInt()
+        Observer.whichUnit.value = navArgs.unitName.split(" ")[1].toInt()
     }
 
     @SuppressLint("SetTextI18n")
@@ -42,6 +42,13 @@ class MainContainer : Fragment(R.layout.container_tasks) {
                     3 -> unitName.text = "3: Use past Simple"
                     4 -> unitName.text = "4: Collect right sentence"
                     5 -> unitName.text = "5: Find picture meaning"
+                }
+            }
+            Observer.whichUnit.observe(viewLifecycleOwner) { unitNumber ->
+                if (unitNumber == 15) {
+                    unitName.text = "2: Match synonyms"
+                } else {
+                    unitName.text = "2: Match antonyms"
                 }
             }
             btnBack.onClick {
