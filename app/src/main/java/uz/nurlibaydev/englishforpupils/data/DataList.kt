@@ -733,22 +733,34 @@ object DataList {
             1 -> {
                 return mutableListOf("wore", "matched", "called", "were")
             }
+            2 -> {
+                return mutableListOf("aaa", "bbb", "ccc", "ddd")
+            }
+            3 -> {
+                return mutableListOf("wore", "matched", "called", "were")
+            }
+            4 -> {
+                return mutableListOf("wore", "matched", "called", "were")
+            }
+            5 -> {
+                return mutableListOf("wore", "matched", "called", "were")
+            }
+            6 -> {
+                return mutableListOf("wore", "matched", "called", "were")
+            }
+            7 -> {
+                return mutableListOf("wore", "matched", "called", "were")
+            }
+            8 -> {
+                return mutableListOf("wore", "matched", "called", "were")
+            }
+            9 -> {
+                return mutableListOf("wore", "matched", "called", "were")
+            }
+            10 -> {
+                return mutableListOf("wore", "matched", "called", "were")
+            }
         }
         return mutableListOf()
-    }
-
-    /** Word order screen data */
-    fun getWordOrderWords(unitNumber: Int): MutableList<String> {
-        when (unitNumber) {
-            1 -> return mutableListOf("the", "clash", "bands", "were", "teenagers", "into", "like")
-        }
-        return mutableListOf()
-    }
-
-    fun getWordOrderAnswers(unitNumber: Int): String {
-        when (unitNumber) {
-            1 -> return "teenagers were like into the clash bands"
-        }
-        return ""
     }
 }

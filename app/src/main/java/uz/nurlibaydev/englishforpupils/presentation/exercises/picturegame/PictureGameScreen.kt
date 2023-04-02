@@ -8,12 +8,10 @@ import androidx.fragment.app.Fragment
 import by.kirich1409.viewbindingdelegate.viewBinding
 import dagger.hilt.android.AndroidEntryPoint
 import uz.nurlibaydev.englishforpupils.R
-import uz.nurlibaydev.englishforpupils.data.DataList
 import uz.nurlibaydev.englishforpupils.data.PictureData
 import uz.nurlibaydev.englishforpupils.databinding.ScreenPictureGameBinding
 import uz.nurlibaydev.englishforpupils.utils.Observer
 import uz.nurlibaydev.englishforpupils.utils.extensions.onClick
-import uz.nurlibaydev.englishforpupils.utils.extensions.showMessage
 
 /**
  *  Created by Nurlibay Koshkinbaev on 18/02/2023 18:49
@@ -22,15 +20,17 @@ import uz.nurlibaydev.englishforpupils.utils.extensions.showMessage
 @AndroidEntryPoint
 class PictureGameScreen : Fragment(R.layout.screen_picture_game) {
 
+    private val binding by viewBinding<ScreenPictureGameBinding>()
+    private var firstQuestionVariants = HashMap<Int, String>()
+    private var secondQuestionVariants = HashMap<Int, String>()
+    private var thirdQuestionVariants = HashMap<Int, String>()
+    private var fourthQuestionVariants = HashMap<Int, String>()
+
     override fun onResume() {
         super.onResume()
         Observer.whichTask.value = 5
     }
 
-    private var firstQuestionVariants = HashMap<Int, String>()
-    private var secondQuestionVariants = HashMap<Int, String>()
-    private var thirdQuestionVariants = HashMap<Int, String>()
-    private var fourthQuestionVariants = HashMap<Int, String>()
     private var answersIndex = mutableListOf<Int>()
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -42,11 +42,107 @@ class PictureGameScreen : Fragment(R.layout.screen_picture_game) {
         answersIndex = PictureData.getPictureScreenAnswers(Observer.whichUnit.value!!)
     }
 
-    private val binding by viewBinding<ScreenPictureGameBinding>()
-
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         binding.apply {
+                when (Observer.whichUnit.value!!) {
+                    5 -> {
+                        ivFirst.setImageResource(R.drawable.u5p1)
+                        ivSecond.setImageResource(R.drawable.u5p2)
+                        ivThird.setImageResource(R.drawable.u5p3)
+                        ivFourth.setImageResource(R.drawable.u5p4)
+                    }
+                    6 -> {
+                        ivFirst.setImageResource(R.drawable.u6p1)
+                        ivSecond.setImageResource(R.drawable.u6p2)
+                        ivThird.setImageResource(R.drawable.u6p3)
+                        ivFourth.setImageResource(R.drawable.u6p4)
+                    }
+                    7 -> {
+                        ivFirst.setImageResource(R.drawable.u7p1)
+                        ivSecond.setImageResource(R.drawable.u7p2)
+                        ivThird.setImageResource(R.drawable.u7p3)
+                        ivFourth.setImageResource(R.drawable.u7p4)
+                    }
+                    8 -> {
+                        ivFirst.setImageResource(R.drawable.u8p1)
+                        ivSecond.setImageResource(R.drawable.u8p2)
+                        ivThird.setImageResource(R.drawable.u8p3)
+                        ivFourth.setImageResource(R.drawable.u8p4)
+                    }
+                    9 -> {
+                        ivFirst.setImageResource(R.drawable.u9p1)
+                        ivSecond.setImageResource(R.drawable.u9p2)
+                        ivThird.setImageResource(R.drawable.u9p3)
+                        ivFourth.setImageResource(R.drawable.u9p4)
+                    }
+                    10 -> {
+                        ivFirst.setImageResource(R.drawable.u10p1)
+                        ivSecond.setImageResource(R.drawable.u10p2)
+                        ivThird.setImageResource(R.drawable.u10p3)
+                        ivFourth.setImageResource(R.drawable.u10p4)
+                    }
+                    11 -> {
+                        ivFirst.setImageResource(R.drawable.u11p1)
+                        ivSecond.setImageResource(R.drawable.u11p2)
+                        ivThird.setImageResource(R.drawable.u11p3)
+                        ivFourth.setImageResource(R.drawable.u11p4)
+                    }
+                    12 -> {
+                        ivFirst.setImageResource(R.drawable.u12p1)
+                        ivSecond.setImageResource(R.drawable.u12p2)
+                        ivThird.setImageResource(R.drawable.u12p3)
+                        ivFourth.setImageResource(R.drawable.u12p4)
+                    }
+                    13 -> {
+                        ivFirst.setImageResource(R.drawable.u13p1)
+                        ivSecond.setImageResource(R.drawable.u13p2)
+                        ivThird.setImageResource(R.drawable.u13p3)
+                        ivFourth.setImageResource(R.drawable.u13p4)
+                    }
+                    14 -> {
+                        ivFirst.setImageResource(R.drawable.u14p1)
+                        ivSecond.setImageResource(R.drawable.u14p2)
+                        ivThird.setImageResource(R.drawable.u14p3)
+                        ivFourth.setImageResource(R.drawable.u14p4)
+                    }
+                    15 -> {
+                        ivFirst.setImageResource(R.drawable.u15p1)
+                        ivSecond.setImageResource(R.drawable.u15p2)
+                        ivThird.setImageResource(R.drawable.u15p3)
+                        ivFourth.setImageResource(R.drawable.u15p4)
+                    }
+                    16 -> {
+                        ivFirst.setImageResource(R.drawable.u16p1)
+                        ivSecond.setImageResource(R.drawable.u16p2)
+                        ivThird.setImageResource(R.drawable.u16p3)
+                        ivFourth.setImageResource(R.drawable.u16p4)
+                    }
+                    17 -> {
+                        ivFirst.setImageResource(R.drawable.u17p1)
+                        ivSecond.setImageResource(R.drawable.u17p2)
+                        ivThird.setImageResource(R.drawable.u17p3)
+                        ivFourth.setImageResource(R.drawable.u17p4)
+                    }
+                    18 -> {
+                        ivFirst.setImageResource(R.drawable.u18p1)
+                        ivSecond.setImageResource(R.drawable.u18p2)
+                        ivThird.setImageResource(R.drawable.u18p3)
+                        ivFourth.setImageResource(R.drawable.u18p4)
+                    }
+                    19 -> {
+                        ivFirst.setImageResource(R.drawable.u19p1)
+                        ivSecond.setImageResource(R.drawable.u19p2)
+                        ivThird.setImageResource(R.drawable.u19p3)
+                        ivFourth.setImageResource(R.drawable.u19p4)
+                    }
+                    20 -> {
+                        ivFirst.setImageResource(R.drawable.u20p1)
+                        ivSecond.setImageResource(R.drawable.u20p2)
+                        ivThird.setImageResource(R.drawable.u20p3)
+                        ivFourth.setImageResource(R.drawable.u20p4)
+                    }
+                }
             radioFirstQuestion1.text = firstQuestionVariants[0]
             radioFirstQuestion2.text = firstQuestionVariants[1]
             radioFirstQuestion3.text = firstQuestionVariants[2]
