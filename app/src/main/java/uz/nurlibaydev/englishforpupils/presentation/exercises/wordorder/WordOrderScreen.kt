@@ -12,6 +12,7 @@ import com.google.android.flexbox.*
 import dagger.hilt.android.AndroidEntryPoint
 import uz.nurlibaydev.englishforpupils.R
 import uz.nurlibaydev.englishforpupils.data.DataList
+import uz.nurlibaydev.englishforpupils.data.WordOrderData
 import uz.nurlibaydev.englishforpupils.databinding.ScreenWordOrderBinding
 import uz.nurlibaydev.englishforpupils.utils.Observer
 import uz.nurlibaydev.englishforpupils.utils.extensions.onClick
@@ -31,8 +32,8 @@ class WordOrderScreen : Fragment(R.layout.screen_word_order) {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        words = DataList.getWordOrderWords(Observer.whichUnit.value!!)
-        correctAnswer = DataList.getWordOrderAnswers(Observer.whichUnit.value!!)
+        words = WordOrderData.getWordOrderWords(Observer.whichUnit.value!!)
+        correctAnswer = WordOrderData.getWordOrderAnswers(Observer.whichUnit.value!!)
     }
 
     override fun onResume() {
