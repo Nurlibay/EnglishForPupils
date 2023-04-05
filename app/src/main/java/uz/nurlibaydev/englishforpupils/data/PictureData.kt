@@ -470,15 +470,15 @@ object PictureData {
                 secondQuestionVariants[2] = "Pay attention"
                 secondQuestionVariants[3] = "Trick"
 
-                thirdQuestionVariants[0] = "Trick"
-                thirdQuestionVariants[1] = "Encourage"
+                thirdQuestionVariants[0] = "Encourage"
+                thirdQuestionVariants[1] = "Trick"
                 thirdQuestionVariants[2] = "Appear"
                 thirdQuestionVariants[3] = "Catch"
 
-                fourthQuestionVariants[0] = "Estimate"
+                fourthQuestionVariants[0] = "Appear"
                 fourthQuestionVariants[1] = "Trick"
                 fourthQuestionVariants[2] = "Catch"
-                fourthQuestionVariants[3] = "Appear"
+                fourthQuestionVariants[3] = "Estimate"
 
                 questions.add(firstQuestionVariants)
                 questions.add(secondQuestionVariants)

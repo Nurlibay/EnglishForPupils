@@ -724,6 +724,86 @@ object DataList {
                     "He [ break] a cup"
                 )
             }
+            11 -> {
+                return mutableListOf(
+                    "This film is as [Interesting] as the previous one interesting",
+                    "She’s not singing as [loud] as she can loudly",
+                    "I’m [interested] in music than sport. More interested",
+                    "We were [busy] last week than this week. Busier"
+                )
+            }
+            12 -> {
+                return mutableListOf(
+                    "I [have to] wake up early in the morning last term",
+                    "I [can] easily touch my toes when I was young.",
+                    "I [can] hear you. Could you speak more loudly?",
+                    "[Can] you help me with my homework?"
+                )
+            }
+            13 -> {
+                return mutableListOf(
+                    "I’ve [just/yet] heard some news",
+                    "They haven’t finished the task [already/yet]",
+                    "We’ve [never/already] been there twice",
+                    "She’s [never/usually] been late for classes"
+                )
+            }
+            14 -> {
+                return mutableListOf(
+                    "I know a girl ..[ who/whose] mother works as a teacher",
+                    "We went to the restaurant …[ where/which] was very cozy",
+                    "School is a place…[which/where] we get knowledge",
+                    "I always remember the time [which/when] I first saw you"
+                )
+            }
+            15 -> {
+                return mutableListOf(
+                    "Our flowers [ water] every morning",
+                    "English [learn] widely in Uzbekistan",
+                    "Fast food [eat] mostly by youth",
+                    "The Internet [use] 24/7 by youngsters"
+                )
+            }
+            16 -> {
+                return mutableListOf(
+                    "You get water if you [mix] hydrogen and oxygen",
+                    "If I see her, I [tell] her about the film",
+                    "If I go to London, I [see] the Tower of London",
+                    "If you don’t hurry, you [ miss] the plain."
+                )
+            }
+            17 -> {
+                return mutableListOf(
+                    "This painting is very [color]",
+                    "The Sovitsky museum is in [center] part of the city",
+                    "There are a lot of [history] places in Uzbekistan",
+                    "Uzbekistan is a [peace] country"
+                )
+            }
+            18 -> {
+                return mutableListOf(
+                    "If I [be] you I would study a second foreign language",
+                    "He [can] go to the concert if you gave him your ticket.",
+                    "If I [have] a chance I would travel abroad",
+                    "If I had a lot of money, I [give] to charity"
+                )
+            }
+            19 -> {
+                return mutableListOf(
+                    "Could you [say/tell] the time?",
+                    "Can you [tell/say] me your full name?",
+                    "Always [say/tell] Good Morning to your parents",
+                    "Never [tell/say] anyone your secrets"
+                )
+            }
+            20 -> {
+                return mutableListOf(
+                    "The letter [write] with a pen.",
+                    "The Internet [invent] in the 20th century",
+                    "All invitations [send] to my close friends",
+                    "Colorful hand-outs [distribute] to students"
+                )
+            }
         }
         return mutableListOf()
     }
@@ -731,34 +811,64 @@ object DataList {
     fun getFillingAnswers(unitNumber: Int): MutableList<String> {
         when (unitNumber) {
             1 -> {
-                return mutableListOf("wore", "matched", "called", "were")
+                return mutableListOf("writes", "go", "owns", "uses")
             }
             2 -> {
-                return mutableListOf("aaa", "bbb", "ccc", "ddd")
+                return mutableListOf("wore", "matched", "dressed", "were")
             }
             3 -> {
-                return mutableListOf("wore", "matched", "called", "were")
+                return mutableListOf("the cleverest", "boring", "more expensive", "shorter")
             }
             4 -> {
-                return mutableListOf("wore", "matched", "called", "were")
+                return mutableListOf("was watching", "was playing", "were having", "were listening")
             }
             5 -> {
-                return mutableListOf("wore", "matched", "called", "were")
+                return mutableListOf("got", "read", "went", "sent")
             }
             6 -> {
-                return mutableListOf("wore", "matched", "called", "were")
+                return mutableListOf("any", "no", "some", "much")
             }
             7 -> {
-                return mutableListOf("wore", "matched", "called", "were")
+                return mutableListOf("have to", "have to", "must", "have to")
             }
             8 -> {
-                return mutableListOf("wore", "matched", "called", "were")
+                return mutableListOf("is going to", "2 am going to", "is going to", "are going to")
             }
             9 -> {
-                return mutableListOf("wore", "matched", "called", "were")
+                return mutableListOf("has landed", "have win", "have finished", "have become")
             }
             10 -> {
-                return mutableListOf("wore", "matched", "called", "were")
+                return mutableListOf("have seen", "has lost", "have gone", "have finished")
+            }
+            11 -> {
+                return mutableListOf("interesting", "loudly", "more interested", "busier")
+            }
+            12 -> {
+                return mutableListOf("had to", "could", "can’t", "can")
+            }
+            13 -> {
+                return mutableListOf("just", "yet", "already", "never")
+            }
+            14 -> {
+                return mutableListOf("whose", "which", "where", "when")
+            }
+            15 -> {
+                return mutableListOf("are watered", "is learned", "is eaten", "is used")
+            }
+            16 -> {
+                return mutableListOf("mix", "will tell", "will see", "will miss")
+            }
+            17 -> {
+                return mutableListOf("colorful", "central", "historical", "peaceful")
+            }
+            18 -> {
+                return mutableListOf("were", "could", "had", "would give")
+            }
+            19 -> {
+                return mutableListOf("tell", "tell", "say", "tell")
+            }
+            20 -> {
+                return mutableListOf("was written", "was invented", "were sent", "were distributed")
             }
         }
         return mutableListOf()
