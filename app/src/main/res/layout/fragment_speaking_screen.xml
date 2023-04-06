@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".presentation.exercises.speaking.SpeakingScreen">
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/line_hor"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.25" />
+
+    <com.google.android.material.textview.MaterialTextView
+        android:id="@+id/tv_question"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:paddingStart="8dp"
+        android:text="What are your hobbies?"
+        android:textColor="@color/black"
+        android:textSize="18sp"
+        app:layout_constraintTop_toTopOf="@id/line_hor" />
+
+    <androidx.appcompat.widget.LinearLayoutCompat
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_marginHorizontal="16dp"
+        android:layout_marginVertical="48dp"
+        android:orientation="vertical"
+        app:layout_constraintBottom_toTopOf="@id/btn_finish"
+        app:layout_constraintTop_toBottomOf="@id/tv_question">
+
+        <RadioGroup
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <RadioButton
+                android:id="@+id/radio_first_question_1"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:checked="false"
+                android:paddingStart="8dp"
+                android:text="In my free time, I watch movies on YouTube" />
+
+            <RadioButton
+                android:id="@+id/radio_first_question_2"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:checked="false"
+                android:paddingStart="8dp"
+                android:text="I am good at drawing and cooking" />
+
+            <RadioButton
+                android:id="@+id/radio_first_question_3"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:checked="false"
+                android:paddingStart="8dp"
+                android:text="I usually go cycling once a week" />
+
+            <RadioButton
+                android:id="@+id/radio_first_question_4"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:checked="false"
+                android:paddingStart="8dp"
+                android:text="I sometimes prefer being in the park" />
+
+        </RadioGroup>
+
+    </androidx.appcompat.widget.LinearLayoutCompat>
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/btn_finish"
+        android:layout_width="0dp"
+        android:layout_height="54dp"
+        android:layout_margin="@dimen/margin_standard"
+        android:backgroundTint="@color/main_color"
+        android:paddingHorizontal="@dimen/margin_middle"
+        android:text="@string/check"
+        android:textColor="@color/white"
+        app:cornerRadius="@dimen/margin_middle"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

@@ -38,7 +38,7 @@ class WordOrderScreen : Fragment(R.layout.screen_word_order) {
 
     override fun onResume() {
         super.onResume()
-        Observer.whichTask.value = 4
+        Observer.whichTask.value = 2
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
@@ -46,7 +46,7 @@ class WordOrderScreen : Fragment(R.layout.screen_word_order) {
         binding.apply {
             btnNext.onClick {
                 if (btnNext.text == requireContext().resources.getString(R.string.next)) {
-                    findNavController().navigate(WordOrderScreenDirections.actionWordOrderScreenToPictureGameScreen())
+                    findNavController().navigate(WordOrderScreenDirections.actionWordOrderScreenToMatchingAntonyms())
                 } else {
                     btnNext.text = requireContext().resources.getString(R.string.next)
                     var answer = ""

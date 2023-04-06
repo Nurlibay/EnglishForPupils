@@ -27,7 +27,7 @@ class MatchingWordsScreen : Fragment(R.layout.screen_match_words) {
 
     override fun onResume() {
         super.onResume()
-        Observer.whichTask.value = 1
+        Observer.whichTask.value = 4
     }
 
     private val binding: ScreenMatchWordsBinding by viewBinding()
@@ -54,7 +54,7 @@ class MatchingWordsScreen : Fragment(R.layout.screen_match_words) {
             tvRightColumn.text = DataList.getMatchingWordScreenThreeWords(Observer.whichUnit.value!!)[2]
 
             btnNext.onClick {
-                findNavController().navigate(MatchingWordsScreenDirections.actionMatchingWordsScreenToMatchingAntonyms())
+                findNavController().navigate(MatchingWordsScreenDirections.actionMatchingWordsScreenToFillingScreen())
             }
 
             val leftWordsAdapter = SortedWordsAdapter(correctLeftWords) {

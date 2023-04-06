@@ -39,6 +39,90 @@ object PictureData {
 
                 return questions
             }
+            2 -> {
+                firstQuestionVariants[0] = "skinny"
+                firstQuestionVariants[1] = "second-hand"
+                firstQuestionVariants[2] = "baggy"
+                firstQuestionVariants[3] = "formal"
+
+                secondQuestionVariants[0] = "brand new"
+                secondQuestionVariants[1] = "baggy"
+                secondQuestionVariants[2] = "stylish"
+                secondQuestionVariants[3] = "loose-fitting"
+
+                thirdQuestionVariants[0] = "plain colored"
+                thirdQuestionVariants[1] = "baggy"
+                thirdQuestionVariants[2] = "second hand"
+                thirdQuestionVariants[3] = "stylish"
+
+                fourthQuestionVariants[0] = "unfashionable"
+                fourthQuestionVariants[1] = "uncomfortable"
+                fourthQuestionVariants[2] = "baggy"
+                fourthQuestionVariants[3] = "checkered"
+
+                questions.add(firstQuestionVariants)
+                questions.add(secondQuestionVariants)
+                questions.add(thirdQuestionVariants)
+                questions.add(fourthQuestionVariants)
+
+                return questions
+            }
+            3 -> {
+                firstQuestionVariants[0] = "Retire"
+                firstQuestionVariants[1] = "Get a job"
+                firstQuestionVariants[2] = "Get a degree"
+                firstQuestionVariants[3] = "Move home"
+
+                secondQuestionVariants[0] = "Get a driving license"
+                secondQuestionVariants[1] = "Have children"
+                secondQuestionVariants[2] = "Leave home"
+                secondQuestionVariants[3] = "Retire"
+
+                thirdQuestionVariants[0] = "Get married"
+                thirdQuestionVariants[1] = "Vote"
+                thirdQuestionVariants[2] = "Get a degree"
+                thirdQuestionVariants[3] = "Get a driving license"
+
+                fourthQuestionVariants[0] = "Move home"
+                fourthQuestionVariants[1] = "Get married"
+                fourthQuestionVariants[2] = "Get a job"
+                fourthQuestionVariants[3] = "Retire"
+
+                questions.add(firstQuestionVariants)
+                questions.add(secondQuestionVariants)
+                questions.add(thirdQuestionVariants)
+                questions.add(fourthQuestionVariants)
+
+                return questions
+            }
+            4 -> {
+                firstQuestionVariants[0] = "Windsurfing"
+                firstQuestionVariants[1] = "Surfing"
+                firstQuestionVariants[2] = "Water skiing"
+                firstQuestionVariants[3] = "Squash"
+
+                secondQuestionVariants[0] = "Badminton"
+                secondQuestionVariants[1] = "Jogging"
+                secondQuestionVariants[2] = "Squash"
+                secondQuestionVariants[3] = "Chess"
+
+                thirdQuestionVariants[0] = "Squash"
+                thirdQuestionVariants[1] = "Jogging"
+                thirdQuestionVariants[2] = "Skiing"
+                thirdQuestionVariants[3] = "Surfing"
+
+                fourthQuestionVariants[0] = "Surfing"
+                fourthQuestionVariants[1] = "Water skiing"
+                fourthQuestionVariants[2] = "Jogging"
+                fourthQuestionVariants[3] = "Squash"
+
+                questions.add(firstQuestionVariants)
+                questions.add(secondQuestionVariants)
+                questions.add(thirdQuestionVariants)
+                questions.add(fourthQuestionVariants)
+
+                return questions
+            }
             5 -> {
                 firstQuestionVariants[0] = "Vandalism"
                 firstQuestionVariants[1] = "Shoplifting"
@@ -493,6 +577,18 @@ object PictureData {
 
     fun getPictureScreenAnswers(unitNumber: Int): MutableList<Int> {
         when (unitNumber) {
+            1 -> {
+                return mutableListOf(2, 1, 3, 2)
+            }
+            2 -> {
+                return mutableListOf(2, 3, 0, 3)
+            }
+            3 -> {
+                return mutableListOf(0, 2, 1, 2)
+            }
+            4 -> {
+                return mutableListOf(0, 2, 1, 0)
+            }
             5 -> {
                 return mutableListOf(0, 0, 0, 0)
             }

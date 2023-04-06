@@ -27,7 +27,7 @@ class FillingScreen : Fragment(R.layout.screen_filling) {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        Observer.whichTask.value = 3
+        Observer.whichTask.value = 5
         questions = DataList.getFillingQuestions(Observer.whichUnit.value!!)
         answers = DataList.getFillingAnswers(Observer.whichUnit.value!!)
     }
@@ -38,7 +38,7 @@ class FillingScreen : Fragment(R.layout.screen_filling) {
             btnNext.onClick {
                 if(answers.isNotEmpty()){
                     if (btnNext.text == "Next") {
-                        findNavController().navigate(FillingScreenDirections.actionFillingScreenToWordOrderScreen())
+                        findNavController().navigate(FillingScreenDirections.actionFillingScreenToSpeakingScreen())
                     } else {
                         btnNext.text = "Next"
                         if (etFirstQuestion.text.toString() == answers[0]) {

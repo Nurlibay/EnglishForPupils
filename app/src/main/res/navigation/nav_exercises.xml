@@ -3,15 +3,15 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/nav_exercises"
-    app:startDestination="@id/matchingWordsScreen">
+    app:startDestination="@id/pictureGameScreen">
     <fragment
         android:id="@+id/matchingWordsScreen"
         android:name="uz.nurlibaydev.englishforpupils.presentation.exercises.categorizewords.MatchingWordsScreen"
         android:label="MatchingWordsScreen"
         tools:layout="@layout/screen_match_words">
         <action
-            android:id="@+id/action_matchingWordsScreen_to_matchingAntonyms"
-            app:destination="@id/matchingAntonyms" />
+            android:id="@+id/action_matchingWordsScreen_to_fillingScreen"
+            app:destination="@id/fillingScreen" />
     </fragment>
     <fragment
         android:id="@+id/matchingAntonyms"
@@ -19,8 +19,8 @@
         android:label="MatchingAntonyms"
         tools:layout="@layout/screen_match_antonyms">
         <action
-            android:id="@+id/action_matchingAntonyms_to_fillingScreen"
-            app:destination="@id/fillingScreen" />
+            android:id="@+id/action_matchingAntonyms_to_matchingWordsScreen"
+            app:destination="@id/matchingWordsScreen" />
     </fragment>
     <fragment
         android:id="@+id/fillingScreen"
@@ -28,8 +28,8 @@
         android:label="FillingScreen"
         tools:layout="@layout/screen_filling">
         <action
-            android:id="@+id/action_fillingScreen_to_wordOrderScreen"
-            app:destination="@id/wordOrderScreen" />
+            android:id="@+id/action_fillingScreen_to_speakingScreen"
+            app:destination="@id/speakingScreen" />
     </fragment>
     <fragment
         android:id="@+id/wordOrderScreen"
@@ -37,12 +37,21 @@
         android:label="WordOrderScreen"
         tools:layout="@layout/screen_word_order">
         <action
-            android:id="@+id/action_wordOrderScreen_to_pictureGameScreen"
-            app:destination="@id/pictureGameScreen" />
+            android:id="@+id/action_wordOrderScreen_to_matchingAntonyms"
+            app:destination="@id/matchingAntonyms" />
     </fragment>
     <fragment
         android:id="@+id/pictureGameScreen"
         android:name="uz.nurlibaydev.englishforpupils.presentation.exercises.picturegame.PictureGameScreen"
         android:label="PictureGameScreen"
-        tools:layout="@layout/screen_picture_game" />
+        tools:layout="@layout/screen_picture_game" >
+        <action
+            android:id="@+id/action_pictureGameScreen_to_wordOrderScreen"
+            app:destination="@id/wordOrderScreen" />
+    </fragment>
+    <fragment
+        android:id="@+id/speakingScreen"
+        android:name="uz.nurlibaydev.englishforpupils.presentation.exercises.speaking.SpeakingScreen"
+        android:label="fragment_speaking_screen"
+        tools:layout="@layout/fragment_speaking_screen" />
 </navigation>

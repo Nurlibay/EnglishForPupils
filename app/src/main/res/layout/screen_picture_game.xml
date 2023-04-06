@@ -10,7 +10,7 @@
         android:layout_height="0dp"
         android:layout_margin="@dimen/margin_middle"
         android:orientation="vertical"
-        app:layout_constraintBottom_toTopOf="@id/btn_finish"
+        app:layout_constraintBottom_toTopOf="@id/btn_check"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
@@ -276,7 +276,7 @@
     </androidx.appcompat.widget.LinearLayoutCompat>
 
     <com.google.android.material.button.MaterialButton
-        android:id="@+id/btn_finish"
+        android:id="@+id/btn_check"
         android:layout_width="0dp"
         android:layout_height="54dp"
         android:layout_margin="@dimen/margin_standard"

@@ -5,11 +5,13 @@ import android.view.View
 import androidx.core.content.ContextCompat
 import androidx.core.view.isVisible
 import androidx.fragment.app.Fragment
+import androidx.navigation.fragment.findNavController
 import by.kirich1409.viewbindingdelegate.viewBinding
 import dagger.hilt.android.AndroidEntryPoint
 import uz.nurlibaydev.englishforpupils.R
 import uz.nurlibaydev.englishforpupils.data.PictureData
 import uz.nurlibaydev.englishforpupils.databinding.ScreenPictureGameBinding
+import uz.nurlibaydev.englishforpupils.presentation.exercises.antonyms.MatchingAntonymsDirections
 import uz.nurlibaydev.englishforpupils.utils.Observer
 import uz.nurlibaydev.englishforpupils.utils.extensions.onClick
 
@@ -28,7 +30,7 @@ class PictureGameScreen : Fragment(R.layout.screen_picture_game) {
 
     override fun onResume() {
         super.onResume()
-        Observer.whichTask.value = 5
+        Observer.whichTask.value = 1
     }
 
     private var answersIndex = mutableListOf<Int>()
@@ -45,6 +47,9 @@ class PictureGameScreen : Fragment(R.layout.screen_picture_game) {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         binding.apply {
+            btnCheck.setOnClickListener {
+                findNavController().navigate(PictureGameScreenDirections.actionPictureGameScreenToWordOrderScreen())
+            }
                 when (Observer.whichUnit.value!!) {
                     5 -> {
                         ivFirst.setImageResource(R.drawable.u5p1)
@@ -169,12 +174,13 @@ class PictureGameScreen : Fragment(R.layout.screen_picture_game) {
             val fourthQuestionState = radioFourthQuestion1.isChecked || radioFourthQuestion2.isChecked || radioFourthQuestion3.isChecked || radioFourthQuestion4.isChecked
 
             if(firstQuestionState && secondQuestionState && thirdQuestionState && fourthQuestionState){
-                btnFinish.isVisible = true
+                btnCheck.isVisible = true
             }
 
-            btnFinish.onClick {
-
-
+            btnCheck.onClick {
+                if (btnCheck.text == getString(R.string.next)){
+                    findNavController().navigate(PictureGameScreenDirections.actionPictureGameScreenToWordOrderScreen())
+                }else{
                 radioFirstQuestion1.isClickable = false
                 radioFirstQuestion2.isClickable = false
                 radioFirstQuestion3.isClickable = false
@@ -195,7 +201,7 @@ class PictureGameScreen : Fragment(R.layout.screen_picture_game) {
                 radioFourthQuestion3.isClickable = false
                 radioFourthQuestion4.isClickable = false
 
-                btnFinish.text = getString(R.string.finish)
+                btnCheck.text = getString(R.string.next)
                 if (radioFirstQuestion1.isChecked && radioFirstQuestion1.text.toString() == firstQuestionVariants[answersIndex[0]]) {
                     radioFirstQuestion1.setBackgroundColor(ContextCompat.getColor(requireContext(), R.color.green))
                 } else if (radioFirstQuestion2.isChecked && radioFirstQuestion2.text.toString() == firstQuestionVariants[answersIndex[0]]) {
@@ -255,6 +261,7 @@ class PictureGameScreen : Fragment(R.layout.screen_picture_game) {
                     if (radioFourthQuestion2.isChecked) radioFourthQuestion2.setBackgroundColor(ContextCompat.getColor(requireContext(), R.color.red))
                     if (radioFourthQuestion3.isChecked) radioFourthQuestion3.setBackgroundColor(ContextCompat.getColor(requireContext(), R.color.red))
                 }
+            }
             }
         }
     }

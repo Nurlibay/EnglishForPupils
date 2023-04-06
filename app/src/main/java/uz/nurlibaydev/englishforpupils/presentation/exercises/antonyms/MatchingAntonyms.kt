@@ -26,7 +26,7 @@ class MatchingAntonyms : Fragment(R.layout.screen_match_antonyms) {
 
     override fun onResume() {
         super.onResume()
-        Observer.whichTask.value = 2
+        Observer.whichTask.value = 3
     }
 
     private val binding by viewBinding<ScreenMatchAntonymsBinding>()
@@ -134,7 +134,7 @@ class MatchingAntonyms : Fragment(R.layout.screen_match_antonyms) {
                 btnNext.text = requireContext().getString(R.string.next)
                 if (btnNext.text == requireContext().getString(R.string.next)) {
                     btnNext.onClick {
-                        findNavController().navigate(MatchingAntonymsDirections.actionMatchingAntonymsToFillingScreen())
+                        findNavController().navigate(MatchingAntonymsDirections.actionMatchingAntonymsToMatchingWordsScreen())
                     }
                 }
             }
