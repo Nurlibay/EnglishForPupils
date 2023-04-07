@@ -51,7 +51,31 @@ class PictureGameScreen : Fragment(R.layout.screen_picture_game) {
                 findNavController().navigate(PictureGameScreenDirections.actionPictureGameScreenToWordOrderScreen())
             }
                 when (Observer.whichUnit.value!!) {
-                    5 -> {
+                    1 -> {
+                        ivFirst.setImageResource(R.drawable.lazy)
+                        ivSecond.setImageResource(R.drawable.strict)
+                        ivThird.setImageResource(R.drawable.seroius)
+                        ivFourth.setImageResource(R.drawable.intelligent)
+                    }
+                     2 -> {
+                        ivFirst.setImageResource(R.drawable.u2p1)
+                        ivSecond.setImageResource(R.drawable.u2p2)
+                        ivThird.setImageResource(R.drawable.u2p3)
+                        ivFourth.setImageResource(R.drawable.u2p4)
+                    }
+                     3 -> {
+                        ivFirst.setImageResource(R.drawable.u3p1)
+                        ivSecond.setImageResource(R.drawable.u3p2)
+                        ivThird.setImageResource(R.drawable.u3p3)
+                        ivFourth.setImageResource(R.drawable.u3p4)
+                    }
+                     4 -> {
+                        ivFirst.setImageResource(R.drawable.u4p1)
+                        ivSecond.setImageResource(R.drawable.u4p2)
+                        ivThird.setImageResource(R.drawable.u4p3)
+                        ivFourth.setImageResource(R.drawable.u4p4)
+                    }
+                     5 -> {
                         ivFirst.setImageResource(R.drawable.u5p1)
                         ivSecond.setImageResource(R.drawable.u5p2)
                         ivThird.setImageResource(R.drawable.u5p3)
