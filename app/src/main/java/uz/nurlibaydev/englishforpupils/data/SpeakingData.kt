@@ -167,6 +167,146 @@ object SpeakingData {
 
                 return questions
             }
+            11 -> {
+                firstQuestionVariants[0] = "Basketball is helpful"
+                firstQuestionVariants[1] = "Because it is healthy"
+                firstQuestionVariants[2] = "I go to the gym every other day"//
+                firstQuestionVariants[3] = "Weekend is the best time"
+
+                secondQuestionVariants[0] = "I like junk food"
+                secondQuestionVariants[1] = "I always eat home-made food"//
+                secondQuestionVariants[2] = "I eat at the restaurant "
+                secondQuestionVariants[3] = "I like eating out"
+
+            questions.add(firstQuestionVariants)
+            questions.add(secondQuestionVariants)
+            }
+            12 -> {
+                firstQuestionVariants[0] = "I keep them at home"
+                firstQuestionVariants[1] = "I feed them every 2 hours"
+                firstQuestionVariants[2] = "I love pets"
+                firstQuestionVariants[3] = "I have a cat"//
+
+                secondQuestionVariants[0] = "I go there at the weekend"//
+                secondQuestionVariants[1] = "I’m into going to the zoos"
+                secondQuestionVariants[2] = "I feed animals there"
+                secondQuestionVariants[3] = "It is interesting there"
+
+            questions.add(firstQuestionVariants)
+            questions.add(secondQuestionVariants)
+            }
+            13 -> {
+                firstQuestionVariants[0] = "I sleep 7 hours a day"
+                firstQuestionVariants[1] = "I listen to music"//
+                firstQuestionVariants[2] = "Because I study a lot"
+                firstQuestionVariants[3] = "I feel tired very often"
+
+                secondQuestionVariants[0] = "Because it grabs the attention"
+                secondQuestionVariants[1] = "I did it with my brother"
+                secondQuestionVariants[2] = "I use colorful paper"
+                secondQuestionVariants[3] = "Yes, to my sister’s birthday"//
+
+            questions.add(firstQuestionVariants)
+            questions.add(secondQuestionVariants)
+            }
+            14 -> {
+                firstQuestionVariants[0] = "I watch TV every evening"
+                firstQuestionVariants[1] = "I feel entertained "
+                firstQuestionVariants[2] = "I watch movies at home"
+                firstQuestionVariants[3] = "Comedy and Fiction"//
+
+                secondQuestionVariants[0] = "That sounds nice"//
+                secondQuestionVariants[1] = "What time does it start?"
+                secondQuestionVariants[2] = "I go very often"
+                secondQuestionVariants[3] = "Do we need popcorn?"
+
+            questions.add(firstQuestionVariants)
+            questions.add(secondQuestionVariants)
+            }
+            15 -> {
+                firstQuestionVariants[0] = "Yes, to play games"
+                firstQuestionVariants[1] = "Yes, to my study"//
+                firstQuestionVariants[2] = "No, it is boring"
+                firstQuestionVariants[3] = "I use my laptop to chat"
+
+                secondQuestionVariants[0] = "Because it costs a lot"
+                secondQuestionVariants[1] = "Without a doubt yes"//
+                secondQuestionVariants[2] = "Sometimes with my headphones"
+                secondQuestionVariants[3] = "I’m not keen on music"
+
+            questions.add(firstQuestionVariants)
+            questions.add(secondQuestionVariants)
+            }
+            16 -> {
+                firstQuestionVariants[0] = "To make models"
+                firstQuestionVariants[1] = "I have science classes every Friday"
+                firstQuestionVariants[2] = "Yes, it is an interesting subject"//
+                firstQuestionVariants[3] = "It is sometimes dangerous"
+
+                secondQuestionVariants[0] = "Yes, last week"//
+                secondQuestionVariants[1] = "It is sometimes dangerous"
+                secondQuestionVariants[2] = "It takes a lot of effort"
+                secondQuestionVariants[3] = "I do in the science laboratory"
+
+            questions.add(firstQuestionVariants)
+            questions.add(secondQuestionVariants)
+            }
+            17 -> {
+                firstQuestionVariants[0] = "No, it is tiring"
+                firstQuestionVariants[1] = "I paint for 2 hours"
+                firstQuestionVariants[2] = "I write stories in my room"
+                firstQuestionVariants[3] = "Yes, I can sing and dance"//
+
+                secondQuestionVariants[0] = "Yes, especially nature"//
+                secondQuestionVariants[1] = "Yes, it is interesting"
+                secondQuestionVariants[2] = "No, I’m afraid"
+                secondQuestionVariants[3] = "I draw every Monday"
+
+            questions.add(firstQuestionVariants)
+            questions.add(secondQuestionVariants)
+            }
+            18 -> {
+                firstQuestionVariants[0] = "Yes, I have pets"
+                firstQuestionVariants[1] = "No, I’m afraid of animals"//
+                firstQuestionVariants[2] = "I love animals in the zoo"
+                firstQuestionVariants[3] = "Because it is a tiring job"
+
+                secondQuestionVariants[0] = "I love teachers"
+                secondQuestionVariants[1] = "Babysitting is difficult"
+                secondQuestionVariants[2] = "Being a lawyer"//
+                secondQuestionVariants[3] = "There are a lot of professions"
+
+            questions.add(firstQuestionVariants)
+            questions.add(secondQuestionVariants)
+            }
+            19 -> {
+                firstQuestionVariants[0] = "Because they’re informative"
+                firstQuestionVariants[1] = "Ads last several minutes"
+                firstQuestionVariants[2] = "I watch them online"
+                firstQuestionVariants[3] = "Yes, I regularly watch them"//
+
+                secondQuestionVariants[0] = "Yes, they are convenient"//
+                secondQuestionVariants[1] = "I read e-books on the bus"
+                secondQuestionVariants[2] = "I often read e-books"
+                secondQuestionVariants[3] = "Because they ‘re time-saving"
+
+            questions.add(firstQuestionVariants)
+            questions.add(secondQuestionVariants)
+            }
+            20 -> {
+                firstQuestionVariants[0] = "Yes, it is essential"//
+                firstQuestionVariants[1] = "In the art studio"
+                firstQuestionVariants[2] = "Yes, it is difficult"
+                firstQuestionVariants[3] = "While reading books "
+
+                secondQuestionVariants[0] = "I’ve created many games"
+                secondQuestionVariants[1] = "Yes, it is my talent"//
+                secondQuestionVariants[2] = "Yes, it is important"
+                secondQuestionVariants[3] = "No, it is difficult"
+
+            questions.add(firstQuestionVariants)
+            questions.add(secondQuestionVariants)
+            }
 
         }
         return mutableListOf()
@@ -203,6 +343,33 @@ object SpeakingData {
             }
             10 -> {
                 return mutableListOf(0, 0)
+            }
+            11 -> {
+                return mutableListOf(2, 1)
+            }
+            13 -> {
+                return mutableListOf(1, 3)
+            }
+            14 -> {
+                return mutableListOf(3,0)
+            }
+            15 -> {
+                return mutableListOf(1, 1)
+            }
+            16 -> {
+                return mutableListOf(2, 0)
+            }
+            17 -> {
+                return mutableListOf(3, 0)
+            }
+            18 -> {
+                return mutableListOf(1, 2)
+            }
+            19 -> {
+                return mutableListOf(3, 1)
+            }
+            20 -> {
+                return mutableListOf(0, 1)
             }
         }
         return mutableListOf()

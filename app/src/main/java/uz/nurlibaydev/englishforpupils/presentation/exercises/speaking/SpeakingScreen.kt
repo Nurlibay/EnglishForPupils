@@ -84,6 +84,46 @@ class SpeakingScreen : Fragment(R.layout.fragment_speaking_screen) {
                     tvFirstQuestion.text = "Do you like cooking?"
                     tvSecondQuestion.text = "How often do you cook?"
                 }
+                11 -> {
+                    tvFirstQuestion.text = "What do you do to keep fit?"
+                    tvSecondQuestion.text = "Do you have a healthy diet?"
+                }
+                12 -> {
+                    tvFirstQuestion.text = "Do you have a pet?"
+                    tvSecondQuestion.text = "How often do you go to the zoo?"
+                }
+                13 -> {
+                    tvFirstQuestion.text = "What do you do when you’re tired?"
+                    tvSecondQuestion.text = "Have you ever wrapped a present?"
+                }
+                14 -> {
+                    tvFirstQuestion.text = "What film do you watch?"
+                    tvSecondQuestion.text = "Let’s go to the cinema?"
+                }
+                15 -> {
+                    tvFirstQuestion.text = "Do you use email?"
+                    tvSecondQuestion.text = "Can you download music?"
+                }
+                16 -> {
+                    tvFirstQuestion.text = "Do you like science?"
+                    tvSecondQuestion.text = "Have you done any experiments?"
+                }
+                17 -> {
+                    tvFirstQuestion.text = "Do you have any talents?"
+                    tvSecondQuestion.text = "Can you draw?"
+                }
+                18 -> {
+                    tvFirstQuestion.text = "Would you like to be a vet?"
+                    tvSecondQuestion.text = "What is your dream job?"
+                }
+                19 -> {
+                    tvFirstQuestion.text = "Do you watch ads?"
+                    tvSecondQuestion.text = "Do you read e-books?"
+                }
+                20 -> {
+                    tvFirstQuestion.text = "Is it important to use imagination?"
+                    tvSecondQuestion.text = "Are you a creative person?"
+                }
 
             }
             radioFirstQuestion1.text = firstQuestionVariants[0]
