@@ -3,7 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#A3FFFFFF">
+    android:background="#FDBF4A">
 
     <androidx.appcompat.widget.LinearLayoutCompat
         android:id="@+id/lay_example_words"
@@ -21,7 +21,7 @@
             android:layout_height="wrap_content"
             android:layout_margin="@dimen/margin_small"
             android:layout_weight="1"
-            android:backgroundTint="@color/main_color"
+            android:backgroundTint="#0F2E4A"
             app:cardCornerRadius="@dimen/margin_middle"
             app:contentPadding="12dp">
 
@@ -49,7 +49,7 @@
             android:layout_height="wrap_content"
             android:layout_margin="@dimen/margin_small"
             android:layout_weight="1"
-            android:backgroundTint="@color/main_color"
+            android:backgroundTint="#0F2E4A"
             app:cardCornerRadius="@dimen/margin_middle"
             app:contentPadding="12dp">
 
@@ -77,7 +77,7 @@
             android:layout_height="wrap_content"
             android:layout_margin="@dimen/margin_small"
             android:layout_weight="1"
-            android:backgroundTint="@color/main_color"
+            android:backgroundTint="#0F2E4A"
             app:cardCornerRadius="@dimen/margin_middle"
             app:contentPadding="12dp">
 
@@ -196,10 +196,10 @@
         android:layout_width="0dp"
         android:layout_height="54dp"
         android:layout_margin="@dimen/margin_standard"
-        android:backgroundTint="@color/main_color"
+        android:backgroundTint="@color/blue_color"
         android:paddingHorizontal="@dimen/margin_middle"
-        android:text="@string/next"
-        android:textColor="@color/white"
+        android:text="@string/check"
+        android:textColor="#FDBF4A"
         android:visibility="gone"
         app:cornerRadius="@dimen/margin_middle"
         app:layout_constraintBottom_toBottomOf="parent"

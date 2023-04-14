@@ -7,6 +7,7 @@ import androidx.core.content.ContextCompat
 import androidx.core.view.isVisible
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
+import androidx.navigation.fragment.navArgs
 import by.kirich1409.viewbindingdelegate.viewBinding
 import uz.nurlibaydev.englishforpupils.R
 import uz.nurlibaydev.englishforpupils.data.PictureData
@@ -22,6 +23,8 @@ class SpeakingScreen : Fragment(R.layout.fragment_speaking_screen) {
     private val binding by viewBinding<FragmentSpeakingScreenBinding>()
     private var firstQuestionVariants = HashMap<Int, String>()
     private var secondQuestionVariants = HashMap<Int, String>()
+    private var correctAnswers = 0
+    private val args: SpeakingScreenArgs by navArgs()
 
     override fun onResume() {
         super.onResume()
@@ -40,8 +43,12 @@ class SpeakingScreen : Fragment(R.layout.fragment_speaking_screen) {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         binding.apply {
+            correctAnswers = args.correctAnswers
             btnFinish.setOnClickListener {
-                findNavController().navigate(PictureGameScreenDirections.actionPictureGameScreenToWordOrderScreen())
+                findNavController().navigate(PictureGameScreenDirections.actionPictureGameScreenToWordOrderScreen(
+                    correctAnswers
+                )
+                )
             }
             when (Observer.whichUnit.value!!) {
                 1 -> {
@@ -147,7 +154,8 @@ class SpeakingScreen : Fragment(R.layout.fragment_speaking_screen) {
 
             btnFinish.onClick {
                 if (btnFinish.text == getString(R.string.finish)) {
-                    Toast.makeText(requireContext(), "Boldi molodec!!", Toast.LENGTH_SHORT).show()
+                    var percent = (correctAnswers*100)/120
+                    Toast.makeText(requireContext(), "$percent%", Toast.LENGTH_LONG).show()
                 } else {
                     radioFirstQuestion1.isClickable = false
                     radioFirstQuestion2.isClickable = false
@@ -162,12 +170,16 @@ class SpeakingScreen : Fragment(R.layout.fragment_speaking_screen) {
                     btnFinish.text = getString(R.string.finish)
                     if (radioFirstQuestion1.isChecked && radioFirstQuestion1.text.toString() == firstQuestionVariants[answersIndex[0]]) {
                         radioFirstQuestion1.setBackgroundColor(ContextCompat.getColor(requireContext(), R.color.green))
+                        correctAnswers += 10
                     } else if (radioFirstQuestion2.isChecked && radioFirstQuestion2.text.toString() == firstQuestionVariants[answersIndex[0]]) {
                         radioFirstQuestion2.setBackgroundColor(ContextCompat.getColor(requireContext(), R.color.green))
+                        correctAnswers += 10
                     } else if (radioFirstQuestion3.isChecked && radioFirstQuestion3.text.toString() == firstQuestionVariants[answersIndex[0]]) {
                         radioFirstQuestion3.setBackgroundColor(ContextCompat.getColor(requireContext(), R.color.green))
+                        correctAnswers += 10
                     } else if (radioFirstQuestion4.isChecked && radioFirstQuestion4.text.toString() == firstQuestionVariants[answersIndex[0]]) {
                         radioFirstQuestion4.setBackgroundColor(ContextCompat.getColor(requireContext(), R.color.green))
+                        correctAnswers += 10
                     } else {
                         if (radioFirstQuestion1.isChecked) radioFirstQuestion1.setBackgroundColor(ContextCompat.getColor(requireContext(), R.color.red))
                         if (radioFirstQuestion2.isChecked) radioFirstQuestion2.setBackgroundColor(ContextCompat.getColor(requireContext(), R.color.red))
@@ -177,12 +189,16 @@ class SpeakingScreen : Fragment(R.layout.fragment_speaking_screen) {
 
                     if (radioSecondQuestion1.isChecked && radioSecondQuestion1.text.toString() == secondQuestionVariants[answersIndex[1]]) {
                         radioSecondQuestion1.setBackgroundColor(ContextCompat.getColor(requireContext(), R.color.green))
+                        correctAnswers += 10
                     } else if (radioSecondQuestion2.isChecked && radioSecondQuestion2.text.toString() == secondQuestionVariants[answersIndex[1]]) {
                         radioSecondQuestion2.setBackgroundColor(ContextCompat.getColor(requireContext(), R.color.green))
+                        correctAnswers += 10
                     } else if (radioSecondQuestion3.isChecked && radioSecondQuestion3.text.toString() == secondQuestionVariants[answersIndex[1]]) {
                         radioSecondQuestion3.setBackgroundColor(ContextCompat.getColor(requireContext(), R.color.green))
+                        correctAnswers += 10
                     } else if (radioSecondQuestion4.isChecked && radioSecondQuestion4.text.toString() == secondQuestionVariants[answersIndex[1]]) {
                         radioSecondQuestion4.setBackgroundColor(ContextCompat.getColor(requireContext(), R.color.green))
+                        correctAnswers += 10
                     } else {
                         if (radioSecondQuestion1.isChecked) radioSecondQuestion1.setBackgroundColor(ContextCompat.getColor(requireContext(), R.color.red))
                         if (radioSecondQuestion2.isChecked) radioSecondQuestion2.setBackgroundColor(ContextCompat.getColor(requireContext(), R.color.red))

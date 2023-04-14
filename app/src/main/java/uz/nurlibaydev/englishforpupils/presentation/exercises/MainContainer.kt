@@ -37,19 +37,19 @@ class MainContainer : Fragment(R.layout.container_tasks) {
         binding.apply {
             Observer.whichTask.observe(viewLifecycleOwner) {
                 when (it) {
-                    1 -> unitName.text = "1: Find picture meaning"
-                    2 -> unitName.text = "2: Collect right sentence"
-                    3 -> unitName.text = "3: Match antonyms"
-                    4 -> unitName.text = "4: Categorize the words"
-                    5 -> unitName.text = "5: Use past Simple"
-                    6 -> unitName.text = "6: Speaking"
+                    1 -> unitName.text = "1. Find picture meaning"
+                    2 -> unitName.text = "2. Collect right sentence"
+                    3 -> unitName.text = "3. Match antonyms"
+                    4 -> unitName.text = "4. Categorize the words"
+                    5 -> unitName.text = "5. Use past Simple"
+                    6 -> unitName.text = "6. Speaking"
                 }
             }
             Observer.whichUnit.observe(viewLifecycleOwner) { unitNumber ->
                 if (unitNumber == 15) {
-                    unitName.text = "3: Match synonyms"
+                    unitName.text = "3. Match synonyms"
                 } else {
-                    unitName.text = "3: Match antonyms"
+                    unitName.text = "3. Match antonyms"
                 }
             }
             btnBack.onClick {

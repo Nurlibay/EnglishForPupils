@@ -5,6 +5,7 @@ import android.view.View
 import androidx.core.view.isVisible
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
+import androidx.navigation.fragment.navArgs
 import androidx.recyclerview.widget.LinearLayoutManager
 import by.kirich1409.viewbindingdelegate.viewBinding
 import com.google.android.flexbox.*
@@ -36,6 +37,8 @@ class MatchingWordsScreen : Fragment(R.layout.screen_match_words) {
     private var correctLeftWords = mutableListOf<String>()
     private var correctMiddleWords = mutableListOf<String>()
     private var correctRightWords = mutableListOf<String>()
+    private var correctAnswers = 0
+    private val args: MatchingWordsScreenArgs by navArgs()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -48,13 +51,14 @@ class MatchingWordsScreen : Fragment(R.layout.screen_match_words) {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         binding.apply {
-
+            correctAnswers = args.correctAnswers
             tvLeftColumn.text = DataList.getMatchingWordScreenThreeWords(Observer.whichUnit.value!!)[0]
             tvMiddleColumn.text = DataList.getMatchingWordScreenThreeWords(Observer.whichUnit.value!!)[1]
             tvRightColumn.text = DataList.getMatchingWordScreenThreeWords(Observer.whichUnit.value!!)[2]
 
             btnNext.onClick {
-                findNavController().navigate(MatchingWordsScreenDirections.actionMatchingWordsScreenToFillingScreen())
+                val action = MatchingWordsScreenDirections.actionMatchingWordsScreenToFillingScreen(correctAnswers)
+                findNavController().navigate(action)
             }
 
             val leftWordsAdapter = SortedWordsAdapter(correctLeftWords) {
@@ -84,6 +88,7 @@ class MatchingWordsScreen : Fragment(R.layout.screen_match_words) {
                         middleWordsAdapter.removeItem(selectedWord)
                         rightWordsAdapter.removeItem(selectedWord)
                         leftWordsAdapter.addItem(selectedWord)
+                        correctAnswers++
                         if (Observer.emptyDataObserver.value == true) {
                             btnNext.isVisible = true
                         }
@@ -102,6 +107,7 @@ class MatchingWordsScreen : Fragment(R.layout.screen_match_words) {
                         leftWordsAdapter.removeItem(selectedWord)
                         rightWordsAdapter.removeItem(selectedWord)
                         middleWordsAdapter.addItem(selectedWord)
+                        correctAnswers++
                         if (Observer.emptyDataObserver.value == true) {
                             binding.btnNext.isVisible = true
                         }
@@ -120,6 +126,7 @@ class MatchingWordsScreen : Fragment(R.layout.screen_match_words) {
                         middleWordsAdapter.removeItem(selectedWord)
                         leftWordsAdapter.removeItem(selectedWord)
                         rightWordsAdapter.addItem(selectedWord)
+                        correctAnswers++
                         if (Observer.emptyDataObserver.value == true) {
                             binding.btnNext.isVisible = true
                         }

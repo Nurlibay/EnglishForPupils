@@ -27,6 +27,7 @@ class PictureGameScreen : Fragment(R.layout.screen_picture_game) {
     private var secondQuestionVariants = HashMap<Int, String>()
     private var thirdQuestionVariants = HashMap<Int, String>()
     private var fourthQuestionVariants = HashMap<Int, String>()
+    private var correctAnswers = 0
 
     override fun onResume() {
         super.onResume()
@@ -47,9 +48,6 @@ class PictureGameScreen : Fragment(R.layout.screen_picture_game) {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         binding.apply {
-            btnCheck.setOnClickListener {
-                findNavController().navigate(PictureGameScreenDirections.actionPictureGameScreenToWordOrderScreen())
-            }
                 when (Observer.whichUnit.value!!) {
                     1 -> {
                         ivFirst.setImageResource(R.drawable.lazy)
@@ -203,7 +201,8 @@ class PictureGameScreen : Fragment(R.layout.screen_picture_game) {
 
             btnCheck.onClick {
                 if (btnCheck.text == getString(R.string.next)){
-                    findNavController().navigate(PictureGameScreenDirections.actionPictureGameScreenToWordOrderScreen())
+                    val action = PictureGameScreenDirections.actionPictureGameScreenToWordOrderScreen(correctAnswers)
+                    findNavController().navigate(action)
                 }else{
                 radioFirstQuestion1.isClickable = false
                 radioFirstQuestion2.isClickable = false
@@ -228,12 +227,16 @@ class PictureGameScreen : Fragment(R.layout.screen_picture_game) {
                 btnCheck.text = getString(R.string.next)
                 if (radioFirstQuestion1.isChecked && radioFirstQuestion1.text.toString() == firstQuestionVariants[answersIndex[0]]) {
                     radioFirstQuestion1.setBackgroundColor(ContextCompat.getColor(requireContext(), R.color.green))
+                    correctAnswers =+5
                 } else if (radioFirstQuestion2.isChecked && radioFirstQuestion2.text.toString() == firstQuestionVariants[answersIndex[0]]) {
                     radioFirstQuestion2.setBackgroundColor(ContextCompat.getColor(requireContext(), R.color.green))
+                    correctAnswers =+5
                 } else if (radioFirstQuestion3.isChecked && radioFirstQuestion3.text.toString() == firstQuestionVariants[answersIndex[0]]) {
                     radioFirstQuestion3.setBackgroundColor(ContextCompat.getColor(requireContext(), R.color.green))
+                    correctAnswers =+5
                 } else if (radioFirstQuestion4.isChecked && radioFirstQuestion4.text.toString() == firstQuestionVariants[answersIndex[0]]) {
                     radioFirstQuestion4.setBackgroundColor(ContextCompat.getColor(requireContext(), R.color.green))
+                    correctAnswers =+5
                 } else {
                     if (radioFirstQuestion1.isChecked) radioFirstQuestion1.setBackgroundColor(ContextCompat.getColor(requireContext(), R.color.red))
                     if (radioFirstQuestion2.isChecked) radioFirstQuestion2.setBackgroundColor(ContextCompat.getColor(requireContext(), R.color.red))
@@ -243,12 +246,16 @@ class PictureGameScreen : Fragment(R.layout.screen_picture_game) {
 
                 if (radioSecondQuestion1.isChecked && radioSecondQuestion1.text.toString() == secondQuestionVariants[answersIndex[1]]) {
                     radioSecondQuestion1.setBackgroundColor(ContextCompat.getColor(requireContext(), R.color.green))
+                    correctAnswers =+5
                 } else if (radioSecondQuestion2.isChecked && radioSecondQuestion2.text.toString() == secondQuestionVariants[answersIndex[1]]) {
                     radioSecondQuestion2.setBackgroundColor(ContextCompat.getColor(requireContext(), R.color.green))
+                    correctAnswers =+5
                 } else if (radioSecondQuestion3.isChecked && radioSecondQuestion3.text.toString() == secondQuestionVariants[answersIndex[1]]) {
                     radioSecondQuestion3.setBackgroundColor(ContextCompat.getColor(requireContext(), R.color.green))
+                    correctAnswers =+5
                 } else if (radioSecondQuestion4.isChecked && radioSecondQuestion4.text.toString() == secondQuestionVariants[answersIndex[1]]) {
                     radioSecondQuestion4.setBackgroundColor(ContextCompat.getColor(requireContext(), R.color.green))
+                    correctAnswers =+5
                 } else {
                     if (radioSecondQuestion1.isChecked) radioSecondQuestion1.setBackgroundColor(ContextCompat.getColor(requireContext(), R.color.red))
                     if (radioSecondQuestion2.isChecked) radioSecondQuestion2.setBackgroundColor(ContextCompat.getColor(requireContext(), R.color.red))
@@ -258,12 +265,16 @@ class PictureGameScreen : Fragment(R.layout.screen_picture_game) {
 
                 if (radioThirdQuestion1.isChecked && radioThirdQuestion1.text.toString() == thirdQuestionVariants[answersIndex[2]]) {
                     radioThirdQuestion1.setBackgroundColor(ContextCompat.getColor(requireContext(), R.color.green))
+                    correctAnswers =+5
                 } else if (radioThirdQuestion2.isChecked && radioThirdQuestion2.text.toString() == thirdQuestionVariants[answersIndex[2]]) {
                     radioThirdQuestion2.setBackgroundColor(ContextCompat.getColor(requireContext(), R.color.green))
+                    correctAnswers =+5
                 } else if (radioThirdQuestion3.isChecked && radioThirdQuestion3.text.toString() == thirdQuestionVariants[answersIndex[2]]) {
                     radioThirdQuestion3.setBackgroundColor(ContextCompat.getColor(requireContext(), R.color.green))
+                    correctAnswers =+5
                 } else if (radioThirdQuestion4.isChecked && radioThirdQuestion4.text.toString() == thirdQuestionVariants[answersIndex[2]]) {
                     radioThirdQuestion4.setBackgroundColor(ContextCompat.getColor(requireContext(), R.color.green))
+                    correctAnswers =+5
                 } else {
                     if (radioThirdQuestion1.isChecked) radioThirdQuestion1.setBackgroundColor(ContextCompat.getColor(requireContext(), R.color.red))
                     if (radioThirdQuestion2.isChecked) radioThirdQuestion2.setBackgroundColor(ContextCompat.getColor(requireContext(), R.color.red))
@@ -273,12 +284,16 @@ class PictureGameScreen : Fragment(R.layout.screen_picture_game) {
 
                 if (radioFourthQuestion1.isChecked && radioFourthQuestion1.text.toString() == fourthQuestionVariants[answersIndex[3]]) {
                     radioFourthQuestion1.setBackgroundColor(ContextCompat.getColor(requireContext(), R.color.green))
+                    correctAnswers =+5
                 } else if (radioFourthQuestion2.isChecked && radioFourthQuestion2.text.toString() == fourthQuestionVariants[answersIndex[3]]) {
                     radioFourthQuestion2.setBackgroundColor(ContextCompat.getColor(requireContext(), R.color.green))
+                    correctAnswers =+5
                 } else if (radioFourthQuestion3.isChecked && radioFourthQuestion3.text.toString() == fourthQuestionVariants[answersIndex[3]]) {
                     radioFourthQuestion3.setBackgroundColor(ContextCompat.getColor(requireContext(), R.color.green))
+                    correctAnswers =+5
                 } else if (radioFourthQuestion4.isChecked && radioFourthQuestion4.text.toString() == fourthQuestionVariants[answersIndex[3]]) {
                     radioFourthQuestion4.setBackgroundColor(ContextCompat.getColor(requireContext(), R.color.green))
+                    correctAnswers =+5
                 } else {
                     if (radioFourthQuestion1.isChecked) radioFourthQuestion1.setBackgroundColor(ContextCompat.getColor(requireContext(), R.color.red))
                     if (radioFourthQuestion2.isChecked) radioFourthQuestion2.setBackgroundColor(ContextCompat.getColor(requireContext(), R.color.red))

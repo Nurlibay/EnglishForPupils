@@ -7,6 +7,7 @@ import androidx.recyclerview.widget.RecyclerView
 import uz.nurlibaydev.englishforpupils.R
 import uz.nurlibaydev.englishforpupils.databinding.ItemUnitBinding
 import uz.nurlibaydev.englishforpupils.presentation.exercises.categorizewords.callback.WordsDiffCallback
+import uz.nurlibaydev.englishforpupils.utils.Observer
 import uz.nurlibaydev.englishforpupils.utils.extensions.onClick
 
 /**
@@ -20,6 +21,13 @@ class UnitAdapter : ListAdapter<String, UnitAdapter.UnitViewHolder>(WordsDiffCal
             val item = getItem(absoluteAdapterPosition)
             binding.apply {
                 tvUnitName.text = item
+//                when(Observer.whichUnit.value!!){
+//                    1 -> ivUnit.setImageResource(R.drawable.one)
+//                    2 -> ivUnit.setImageResource(R.drawable.two)
+//                    3 -> ivUnit.setImageResource(R.drawable.three)
+//                    4 -> ivUnit.setImageResource(R.drawable.four)
+//                    5 -> ivUnit.setImageResource(R.drawable.five)
+//                }
                 root.onClick {
                     itemClick.invoke(item)
                 }

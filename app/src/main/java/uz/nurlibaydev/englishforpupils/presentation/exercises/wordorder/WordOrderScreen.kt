@@ -6,12 +6,12 @@ import android.view.View
 import androidx.core.view.isVisible
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
+import androidx.navigation.fragment.navArgs
 import androidx.recyclerview.widget.LinearLayoutManager
 import by.kirich1409.viewbindingdelegate.viewBinding
 import com.google.android.flexbox.*
 import dagger.hilt.android.AndroidEntryPoint
 import uz.nurlibaydev.englishforpupils.R
-import uz.nurlibaydev.englishforpupils.data.DataList
 import uz.nurlibaydev.englishforpupils.data.WordOrderData
 import uz.nurlibaydev.englishforpupils.databinding.ScreenWordOrderBinding
 import uz.nurlibaydev.englishforpupils.utils.Observer
@@ -29,6 +29,8 @@ class WordOrderScreen : Fragment(R.layout.screen_word_order) {
     private var correctAnswer = ""
     private val wordsAdapter by lazy { WordOrderAdapter() }
     private val answerWordsAdapter by lazy { WordOrderAdapter() }
+    private var correctAnswers = 0
+    private val args: WordOrderScreenArgs by navArgs()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -44,9 +46,11 @@ class WordOrderScreen : Fragment(R.layout.screen_word_order) {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         binding.apply {
+            correctAnswers = args.correctAnswers
             btnNext.onClick {
                 if (btnNext.text == requireContext().resources.getString(R.string.next)) {
-                    findNavController().navigate(WordOrderScreenDirections.actionWordOrderScreenToMatchingAntonyms())
+                    val action = WordOrderScreenDirections.actionWordOrderScreenToMatchingAntonyms(correctAnswers)
+                    findNavController().navigate(action)
                 } else {
                     btnNext.text = requireContext().resources.getString(R.string.next)
                     var answer = ""
@@ -60,6 +64,7 @@ class WordOrderScreen : Fragment(R.layout.screen_word_order) {
                     if (correctAnswer == answer) {
                         tvState.text = getString(R.string.correct)
                         tvState.setTextColor(Color.parseColor("#0BE814"))
+                        correctAnswers +=20
                     } else {
                         tvState.text = getString(R.string.incorrect)
                         tvCorrectAnswer.text = correctAnswer

@@ -5,6 +5,7 @@ import android.os.Bundle
 import android.view.View
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
+import androidx.navigation.fragment.navArgs
 import androidx.recyclerview.widget.ItemTouchHelper
 import androidx.recyclerview.widget.ItemTouchHelper.*
 import androidx.recyclerview.widget.RecyclerView
@@ -32,8 +33,9 @@ class MatchingAntonyms : Fragment(R.layout.screen_match_antonyms) {
     private val binding by viewBinding<ScreenMatchAntonymsBinding>()
     private var leftWords = mutableListOf<String>()
     private var rightWords = mutableListOf<String>()
-
     private val answers: MutableMap<String, String> = mutableMapOf()
+    private val args: MatchingAntonymsArgs by navArgs()
+    private var correctAnswers = 0
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -108,6 +110,7 @@ class MatchingAntonyms : Fragment(R.layout.screen_match_antonyms) {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         binding.apply {
+            correctAnswers = args.correctAnswers
             itemTouchHelperLeft.attachToRecyclerView(binding.rvLeftWords)
             val adapterLeft = AntonymsAdapter()
             leftWords.shuffle()
@@ -134,7 +137,8 @@ class MatchingAntonyms : Fragment(R.layout.screen_match_antonyms) {
                 btnNext.text = requireContext().getString(R.string.next)
                 if (btnNext.text == requireContext().getString(R.string.next)) {
                     btnNext.onClick {
-                        findNavController().navigate(MatchingAntonymsDirections.actionMatchingAntonymsToMatchingWordsScreen())
+                        val action = MatchingAntonymsDirections.actionMatchingAntonymsToMatchingWordsScreen(correctAnswers+20)
+                        findNavController().navigate(action)
                     }
                 }
             }

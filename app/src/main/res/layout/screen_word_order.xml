@@ -2,6 +2,7 @@
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
+    android:background="#FDBF4A"
     android:layout_height="match_parent">
 
     <androidx.recyclerview.widget.RecyclerView
@@ -34,8 +35,9 @@
         android:id="@+id/tv_correct_answer"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_margin="@dimen/margin_standard"
-        android:textSize="20sp"
+        android:layout_marginHorizontal="@dimen/margin_standard"
+        android:textSize="28sp"
+        android:layout_marginTop="36dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/tv_state" />
@@ -59,10 +61,10 @@
         android:layout_width="0dp"
         android:layout_height="54dp"
         android:layout_margin="@dimen/margin_standard"
-        android:backgroundTint="@color/main_color"
+        android:backgroundTint="@color/blue_color"
         android:paddingHorizontal="@dimen/margin_middle"
         android:text="@string/check"
-        android:textColor="@color/white"
+        android:textColor="#FDBF4A"
         android:visibility="invisible"
         app:cornerRadius="@dimen/margin_middle"
         app:layout_constraintBottom_toBottomOf="parent"

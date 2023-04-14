@@ -12,6 +12,9 @@
         <action
             android:id="@+id/action_matchingWordsScreen_to_fillingScreen"
             app:destination="@id/fillingScreen" />
+        <argument
+            android:name="correctAnswers"
+            app:argType="integer" />
     </fragment>
     <fragment
         android:id="@+id/matchingAntonyms"
@@ -21,6 +24,9 @@
         <action
             android:id="@+id/action_matchingAntonyms_to_matchingWordsScreen"
             app:destination="@id/matchingWordsScreen" />
+        <argument
+            android:name="correctAnswers"
+            app:argType="integer" />
     </fragment>
     <fragment
         android:id="@+id/fillingScreen"
@@ -30,6 +36,9 @@
         <action
             android:id="@+id/action_fillingScreen_to_speakingScreen"
             app:destination="@id/speakingScreen" />
+        <argument
+            android:name="correctAnswers"
+            app:argType="integer" />
     </fragment>
     <fragment
         android:id="@+id/wordOrderScreen"
@@ -39,6 +48,9 @@
         <action
             android:id="@+id/action_wordOrderScreen_to_matchingAntonyms"
             app:destination="@id/matchingAntonyms" />
+        <argument
+            android:name="correctAnswers"
+            app:argType="integer" />
     </fragment>
     <fragment
         android:id="@+id/pictureGameScreen"
@@ -53,5 +65,9 @@
         android:id="@+id/speakingScreen"
         android:name="uz.nurlibaydev.englishforpupils.presentation.exercises.speaking.SpeakingScreen"
         android:label="fragment_speaking_screen"
-        tools:layout="@layout/fragment_speaking_screen" />
+        tools:layout="@layout/fragment_speaking_screen" >
+        <argument
+            android:name="correctAnswers"
+            app:argType="integer" />
+    </fragment>
 </navigation>

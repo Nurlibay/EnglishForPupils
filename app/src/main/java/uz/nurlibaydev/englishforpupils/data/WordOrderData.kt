@@ -4,7 +4,7 @@ object WordOrderData {
     /** Word order screen data */
     fun getWordOrderWords(unitNumber: Int): MutableList<String> {
         when (unitNumber) {
-            1 -> return mutableListOf("are","just","enough","Weekends","not","long")
+            1 -> return mutableListOf("are","just","enough","Weekends","not")
             2 -> return mutableListOf("life", "busy", "now", "too", "Teenage", "is")
             3 -> return mutableListOf("going", "is", "How", "it")
             4 -> return mutableListOf("is", "computer", "into", "games", "He")
