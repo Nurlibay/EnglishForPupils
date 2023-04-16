@@ -37,6 +37,7 @@
         android:layout_height="wrap_content"
         android:layout_marginHorizontal="@dimen/margin_standard"
         android:textSize="28sp"
+        android:textColor="@color/blue_color"
         android:layout_marginTop="36dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"

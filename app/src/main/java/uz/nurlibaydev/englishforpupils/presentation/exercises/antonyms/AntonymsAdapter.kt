@@ -20,12 +20,16 @@ class AntonymsAdapter : RecyclerView.Adapter<AntonymsAdapter.MoviesViewHolder>()
             field = value
         }
 
-    inner class MoviesViewHolder(private val binding: ItemSortedWordBinding) : RecyclerView.ViewHolder(binding.root) {
+    inner class MoviesViewHolder(private val binding: ItemSortedWordBinding) :
+        RecyclerView.ViewHolder(binding.root) {
 
         fun bindView(position: Int) {
             binding.root.setBackgroundColor(Color.parseColor("#ffffff"))
             if (answers.isNotEmpty()) {
-                binding.root.setBackgroundColor(Color.parseColor(if (answers[position]) "#0BE814" else "#F44336"))
+                binding.root.apply {
+                    radius = 16F
+                    setBackgroundColor(Color.parseColor(if (answers[position]) "#0BE814" else "#F44336"))
+                }
             }
             binding.apply {
                 tvWord.text = list[position]
@@ -40,7 +44,12 @@ class AntonymsAdapter : RecyclerView.Adapter<AntonymsAdapter.MoviesViewHolder>()
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MoviesViewHolder {
-        return MoviesViewHolder(ItemSortedWordBinding.bind(LayoutInflater.from(parent.context).inflate(R.layout.item_sorted_word, parent, false)))
+        return MoviesViewHolder(
+            ItemSortedWordBinding.bind(
+                LayoutInflater.from(parent.context)
+                    .inflate(R.layout.item_sorted_word, parent, false)
+            )
+        )
     }
 
     private var onItemClickListener: ((String) -> Unit)? = null

@@ -155,7 +155,8 @@ class SpeakingScreen : Fragment(R.layout.fragment_speaking_screen) {
             btnFinish.onClick {
                 if (btnFinish.text == getString(R.string.finish)) {
                     var percent = (correctAnswers*100)/120
-                    Toast.makeText(requireContext(), "$percent%", Toast.LENGTH_LONG).show()
+                    val action = SpeakingScreenDirections.actionSpeakingScreenToResultScreen(percent)
+                    findNavController().navigate(action)
                 } else {
                     radioFirstQuestion1.isClickable = false
                     radioFirstQuestion2.isClickable = false

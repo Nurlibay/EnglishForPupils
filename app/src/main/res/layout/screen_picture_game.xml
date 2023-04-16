@@ -337,7 +337,6 @@
         android:paddingHorizontal="@dimen/margin_middle"
         android:text="@string/check"
         android:textColor="#FDBF4A"
-        android:visibility="visible"
         app:cornerRadius="@dimen/margin_middle"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"

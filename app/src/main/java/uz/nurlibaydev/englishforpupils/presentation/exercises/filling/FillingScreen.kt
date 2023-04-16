@@ -46,39 +46,31 @@ class FillingScreen : Fragment(R.layout.screen_filling) {
                     } else {
                         btnNext.text = "Next"
                         if (etFirstQuestion.text.toString() == answers[0]) {
-                            tvFirstQuestionState.text = "Correct"
-                            tvFirstQuestionState.setTextColor(Color.parseColor("#0BE814"))
+                            ivFirstQuestionState.setImageResource(R.drawable.check)
                             correctAnswers +=5
                         } else {
-                            tvFirstQuestionState.text = "Incorrect"
-                            tvFirstQuestionState.setTextColor(Color.parseColor("#F44336"))
+                            ivFirstQuestionState.setImageResource(R.drawable.incorrect)
                         }
 
                         if (etSecondQuestion.text.toString() == answers[1]) {
-                            tvSecondQuestionState.text = "Correct"
-                            tvSecondQuestionState.setTextColor(Color.parseColor("#0BE814"))
+                            ivSecondQuestionState.setImageResource(R.drawable.check)
                             correctAnswers +=5
                         } else {
-                            tvSecondQuestionState.text = "Incorrect"
-                            tvSecondQuestionState.setTextColor(Color.parseColor("#F44336"))
+                            ivSecondQuestionState.setImageResource(R.drawable.incorrect)
                         }
 
                         if (etThirdQuestion.text.toString() == answers[2]) {
-                            tvThirdQuestionState.text = "Correct"
-                            tvThirdQuestionState.setTextColor(Color.parseColor("#0BE814"))
+                            ivThirdQuestionState.setImageResource(R.drawable.check)
                             correctAnswers +=5
                         } else {
-                            tvThirdQuestionState.text = "Incorrect"
-                            tvThirdQuestionState.setTextColor(Color.parseColor("#F44336"))
+                            ivThirdQuestionState.setImageResource(R.drawable.incorrect)
                         }
 
                         if (etFourQuestion.text.toString() == answers[3]) {
-                            tvFourQuestionState.text = "Correct"
-                            tvFourQuestionState.setTextColor(Color.parseColor("#0BE814"))
+                            ivFourQuestionState.setImageResource(R.drawable.check)
                             correctAnswers +=5
                         } else {
-                            tvFourQuestionState.text = "Incorrect"
-                            tvFourQuestionState.setTextColor(Color.parseColor("#F44336"))
+                            ivFourQuestionState.setImageResource(R.drawable.incorrect)
                         }
                     }
                 }

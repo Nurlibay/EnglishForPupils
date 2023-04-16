@@ -69,5 +69,17 @@
         <argument
             android:name="correctAnswers"
             app:argType="integer" />
+        <action
+            android:id="@+id/action_speakingScreen_to_resultScreen"
+            app:destination="@id/resultScreen" />
+    </fragment>
+    <fragment
+        android:id="@+id/resultScreen"
+        android:name="uz.nurlibaydev.englishforpupils.presentation.exercises.results.ResultScreen"
+        android:label="fragment_result_screen"
+        tools:layout="@layout/fragment_result_screen" >
+        <argument
+            android:name="percent"
+            app:argType="integer" />
     </fragment>
 </navigation>

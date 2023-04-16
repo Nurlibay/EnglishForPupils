@@ -2,8 +2,8 @@
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
-    android:background="#FDBF4A"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:background="#FDBF4A">
 
     <androidx.appcompat.widget.LinearLayoutCompat
         android:layout_width="0dp"
@@ -13,7 +13,8 @@
         app:layout_constraintBottom_toTopOf="@id/btn_next"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="1.0">
 
         <androidx.appcompat.widget.LinearLayoutCompat
             android:layout_width="match_parent"
@@ -26,7 +27,7 @@
                 android:layout_height="wrap_content"
                 android:text=""
                 android:textColor="@color/black"
-                android:textSize="18sp" />
+                android:textSize="20sp" />
 
             <androidx.appcompat.widget.LinearLayoutCompat
                 android:layout_width="match_parent"
@@ -39,11 +40,11 @@
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="2"
-                    android:background="@color/white"
+                    android:background="#FDBF4A"
                     android:hint="Answer"
                     android:padding="0dp"
                     android:textColorHint="@color/black"
-                    app:boxStrokeColor="@color/black"
+                    app:boxStrokeColor="@color/blue_color"
                     app:hintTextColor="@color/blue_color">
 
                     <com.google.android.material.textfield.TextInputEditText
@@ -52,19 +53,18 @@
                         android:layout_height="wrap_content"
                         android:inputType="text"
                         android:singleLine="true"
-                        android:textColor="#FDBF4A"
+                        android:textColor="@color/blue_color"
                         android:textCursorDrawable="@null" />
 
                 </com.google.android.material.textfield.TextInputLayout>
 
-                <com.google.android.material.textview.MaterialTextView
-                    android:id="@+id/tv_first_question_state"
+                <androidx.appcompat.widget.AppCompatImageView
+                    android:id="@+id/iv_first_question_state"
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
-                    android:layout_weight="3"
-                    android:gravity="center"
-                    android:text=""
-                    android:textSize="18sp" />
+                    android:layout_weight="1.5"
+                    android:padding="8dp"
+                    android:gravity="center" />
 
             </androidx.appcompat.widget.LinearLayoutCompat>
 
@@ -80,9 +80,8 @@
                 android:id="@+id/tv_second_question"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text=""
                 android:textColor="@color/black"
-                android:textSize="18sp" />
+                android:textSize="20sp" />
 
             <androidx.appcompat.widget.LinearLayoutCompat
                 android:layout_width="match_parent"
@@ -95,11 +94,11 @@
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="2"
-                    android:background="@color/white"
+                    android:background="#FDBF4A"
                     android:hint="Answer"
                     android:padding="0dp"
                     android:textColorHint="@color/black"
-                    app:boxStrokeColor="@color/black"
+                    app:boxStrokeColor="@color/blue_color"
                     app:hintTextColor="@color/blue_color">
 
                     <com.google.android.material.textfield.TextInputEditText
@@ -108,18 +107,18 @@
                         android:layout_height="wrap_content"
                         android:inputType="text"
                         android:singleLine="true"
+                        android:textColor="@color/blue_color"
                         android:textCursorDrawable="@null" />
 
                 </com.google.android.material.textfield.TextInputLayout>
 
-                <com.google.android.material.textview.MaterialTextView
-                    android:id="@+id/tv_second_question_state"
+                <androidx.appcompat.widget.AppCompatImageView
+                    android:id="@+id/iv_second_question_state"
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
-                    android:layout_weight="3"
-                    android:gravity="center"
-                    android:text=""
-                    android:textSize="18sp" />
+                    android:padding="8dp"
+                    android:layout_weight="1.5"
+                    android:gravity="center" />
 
             </androidx.appcompat.widget.LinearLayoutCompat>
 
@@ -137,11 +136,12 @@
                 android:layout_height="wrap_content"
                 android:text=""
                 android:textColor="@color/black"
-                android:textSize="18sp" />
+                android:textSize="20sp" />
 
             <androidx.appcompat.widget.LinearLayoutCompat
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content">
+                android:layout_height="wrap_content"
+                android:layout_marginVertical="8dp">
 
                 <com.google.android.material.textfield.TextInputLayout
                     style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
@@ -149,11 +149,11 @@
                     android:layout_height="wrap_content"
                     android:layout_marginVertical="@dimen/margin_middle"
                     android:layout_weight="2"
-                    android:background="@color/white"
+                    android:background="#FDBF4A"
                     android:hint="Answer"
                     android:padding="0dp"
                     android:textColorHint="@color/black"
-                    app:boxStrokeColor="@color/black"
+                    app:boxStrokeColor="@color/blue_color"
                     app:hintTextColor="@color/blue_color">
 
                     <com.google.android.material.textfield.TextInputEditText
@@ -162,18 +162,18 @@
                         android:layout_height="wrap_content"
                         android:inputType="text"
                         android:singleLine="true"
+                        android:textColor="@color/blue_color"
                         android:textCursorDrawable="@null" />
 
                 </com.google.android.material.textfield.TextInputLayout>
 
-                <com.google.android.material.textview.MaterialTextView
-                    android:id="@+id/tv_third_question_state"
+                <androidx.appcompat.widget.AppCompatImageView
+                    android:id="@+id/iv_third_question_state"
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
-                    android:layout_weight="3"
-                    android:gravity="center"
-                    android:text=""
-                    android:textSize="18sp" />
+                     android:padding="16dp"
+                    android:layout_weight="1.5"
+                    android:gravity="center" />
 
             </androidx.appcompat.widget.LinearLayoutCompat>
 
@@ -191,11 +191,12 @@
                 android:layout_height="wrap_content"
                 android:text=""
                 android:textColor="@color/black"
-                android:textSize="18sp" />
+                android:textSize="20sp" />
 
             <androidx.appcompat.widget.LinearLayoutCompat
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content">
+                android:layout_height="wrap_content"
+                android:layout_marginVertical="8dp">
 
                 <com.google.android.material.textfield.TextInputLayout
                     style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
@@ -203,11 +204,10 @@
                     android:layout_height="wrap_content"
                     android:layout_marginVertical="@dimen/margin_middle"
                     android:layout_weight="2"
-                    android:background="@color/white"
                     android:hint="Answer"
                     android:padding="0dp"
                     android:textColorHint="@color/black"
-                    app:boxStrokeColor="@color/black"
+                    app:boxStrokeColor="@color/blue_color"
                     app:hintTextColor="@color/blue_color">
 
                     <com.google.android.material.textfield.TextInputEditText
@@ -216,18 +216,18 @@
                         android:layout_height="wrap_content"
                         android:inputType="text"
                         android:singleLine="true"
+                        android:textColor="@color/blue_color"
                         android:textCursorDrawable="@null" />
 
                 </com.google.android.material.textfield.TextInputLayout>
 
-                <com.google.android.material.textview.MaterialTextView
-                    android:id="@+id/tv_four_question_state"
+                <androidx.appcompat.widget.AppCompatImageView
+                    android:id="@+id/iv_four_question_state"
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
-                    android:layout_weight="3"
-                    android:gravity="center"
-                    android:text=""
-                    android:textSize="18sp" />
+                    android:padding="16dp"
+                     android:layout_weight="1.5"
+                    android:gravity="center" />
 
             </androidx.appcompat.widget.LinearLayoutCompat>
 

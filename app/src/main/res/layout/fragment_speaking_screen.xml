@@ -3,28 +3,29 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:background="#FDBF4A"
     android:layout_height="match_parent"
+    android:background="#FDBF4A"
     tools:context=".presentation.exercises.speaking.SpeakingScreen">
 
     <com.google.android.material.textview.MaterialTextView
         android:id="@+id/tv_first_question"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="24dp"
+        android:layout_marginBottom="16dp"
         android:paddingStart="8dp"
         android:text="What are your hobbies?"
         android:textColor="@color/black"
         android:textSize="18sp"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintBottom_toTopOf="@id/ll_first_question" />
 
     <androidx.appcompat.widget.LinearLayoutCompat
+        android:id="@+id/ll_first_question"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginHorizontal="16dp"
-        android:layout_marginTop="16dp"
+        android:layout_marginBottom="36dp"
         android:orientation="vertical"
-        app:layout_constraintTop_toBottomOf="@id/tv_first_question">
+        app:layout_constraintBottom_toBottomOf="@id/line_hor">
 
         <RadioGroup
             android:layout_width="match_parent"
@@ -35,6 +36,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
+                android:buttonTint="@color/blue_color"
                 android:checked="false"
                 android:paddingStart="8dp"
                 android:text="In my free time, I watch movies on YouTube" />
@@ -44,6 +46,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
+                android:buttonTint="@color/blue_color"
                 android:checked="false"
                 android:paddingStart="8dp"
                 android:text="I am good at drawing and cooking" />
@@ -53,6 +56,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
+                android:buttonTint="@color/blue_color"
                 android:checked="false"
                 android:paddingStart="8dp"
                 android:text="I usually go cycling once a week" />
@@ -62,6 +66,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
+                android:buttonTint="@color/blue_color"
                 android:checked="false"
                 android:paddingStart="8dp"
                 android:text="I sometimes prefer being in the park" />
@@ -105,6 +110,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
+                android:buttonTint="@color/blue_color"
                 android:checked="false"
                 android:paddingStart="8dp"
                 android:text="In my free time, I watch movies on YouTube" />
@@ -114,6 +120,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
+                android:buttonTint="@color/blue_color"
                 android:checked="false"
                 android:paddingStart="8dp"
                 android:text="I am good at drawing and cooking" />
@@ -123,6 +130,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
+                android:buttonTint="@color/blue_color"
                 android:checked="false"
                 android:paddingStart="8dp"
                 android:text="I usually go cycling once a week" />
@@ -132,6 +140,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
+                android:buttonTint="@color/blue_color"
                 android:checked="false"
                 android:paddingStart="8dp"
                 android:text="I sometimes prefer being in the park" />

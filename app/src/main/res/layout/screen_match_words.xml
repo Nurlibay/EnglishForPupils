@@ -130,6 +130,7 @@
                 android:background="@drawable/container_shape"
                 android:minHeight="280dp"
                 android:overScrollMode="never"
+                android:padding="2dp"
                 app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager" />
 
         </com.google.android.material.card.MaterialCardView>
@@ -151,7 +152,8 @@
                 android:layout_height="wrap_content"
                 android:background="@drawable/container_shape"
                 android:minHeight="280dp"
-                android:overScrollMode="never" />
+                android:overScrollMode="never"
+                android:padding="2dp" />
 
         </com.google.android.material.card.MaterialCardView>
 
@@ -169,9 +171,10 @@
                 android:id="@+id/rv_hair_words"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:background="@drawable/container_shape"
                 android:minHeight="280dp"
-                android:overScrollMode="never" />
+                android:overScrollMode="never"
+                android:background="@drawable/container_shape"
+                android:padding="4dp" />
 
         </com.google.android.material.card.MaterialCardView>
 
