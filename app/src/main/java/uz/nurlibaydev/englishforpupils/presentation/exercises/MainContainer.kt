@@ -43,6 +43,10 @@ class MainContainer : Fragment(R.layout.container_tasks) {
                     4 -> unitName.text = "4. Categorize the words"
                     5 -> unitName.text = "5. Use past Simple"
                     6 -> unitName.text = "6. Speaking"
+                    7 -> {
+                        unitName.text = "Result"
+                        btnBack.setImageResource(R.drawable.home)
+                    }
                 }
             }
             Observer.whichUnit.observe(viewLifecycleOwner) { unitNumber ->

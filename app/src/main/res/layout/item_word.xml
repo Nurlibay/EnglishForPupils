@@ -20,7 +20,7 @@
         <com.google.android.material.textview.MaterialTextView
             android:id="@+id/tv_word"
             android:layout_width="wrap_content"
-            android:textSize="24sp"
+            android:textSize="16dp"
             android:layout_height="wrap_content"
             android:textColor="@color/black"
             app:layout_constraintBottom_toBottomOf="parent"

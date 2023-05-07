@@ -63,12 +63,12 @@ class WordOrderScreen : Fragment(R.layout.screen_word_order) {
                     }
                     if (correctAnswer == answer) {
                         tvState.text = getString(R.string.correct)
-                        tvState.setTextColor(Color.parseColor("#0BE814"))
+                        tvState.setTextColor(Color.parseColor("#0F2E4A"))
                         correctAnswers +=20
                     } else {
                         tvState.text = getString(R.string.incorrect)
                         tvCorrectAnswer.text = correctAnswer
-                        tvCorrectAnswer.setTextColor(Color.parseColor("#0BE814"))
+                        tvCorrectAnswer.setTextColor(Color.parseColor("#0F2E4A"))
                         tvState.setTextColor(Color.parseColor("#F44336"))
                     }
                 }

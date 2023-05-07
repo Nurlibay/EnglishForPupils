@@ -33,7 +33,7 @@
                     android:id="@+id/tv_left_column"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text=""
+                    android:textSize="16dp"
                     android:textColor="@color/white"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
@@ -51,7 +51,7 @@
             android:layout_weight="1"
             android:backgroundTint="#0F2E4A"
             app:cardCornerRadius="@dimen/margin_middle"
-            app:contentPadding="12dp">
+            app:contentPadding="10dp">
 
             <androidx.constraintlayout.widget.ConstraintLayout
                 android:layout_width="match_parent"
@@ -61,7 +61,6 @@
                     android:id="@+id/tv_middle_column"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text=""
                     android:textColor="@color/white"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
@@ -130,7 +129,9 @@
                 android:background="@drawable/container_shape"
                 android:minHeight="280dp"
                 android:overScrollMode="never"
-                android:padding="2dp"
+                android:paddingHorizontal="2dp"
+                android:paddingTop="2dp"
+                android:paddingBottom="20dp"
                 app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager" />
 
         </com.google.android.material.card.MaterialCardView>
@@ -153,7 +154,9 @@
                 android:background="@drawable/container_shape"
                 android:minHeight="280dp"
                 android:overScrollMode="never"
-                android:padding="2dp" />
+                android:paddingHorizontal="2dp"
+                android:paddingTop="2dp"
+                android:paddingBottom="20dp" />
 
         </com.google.android.material.card.MaterialCardView>
 
@@ -174,11 +177,20 @@
                 android:minHeight="280dp"
                 android:overScrollMode="never"
                 android:background="@drawable/container_shape"
-                android:padding="4dp" />
+                android:paddingHorizontal="2dp"
+                android:paddingTop="2dp"
+                android:paddingBottom="20dp" />
 
         </com.google.android.material.card.MaterialCardView>
 
     </androidx.appcompat.widget.LinearLayoutCompat>
+
+    <androidx.constraintlayout.widget.Guideline
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="horizontal"
+        android:id="@+id/guide_line"
+        app:layout_constraintGuide_percent="0.6"/>
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/rv_words"
@@ -190,9 +202,7 @@
         android:padding="16dp"
         app:layout_constraintBottom_toTopOf="@id/btn_next"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHeight_percent="0.5"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/container_words" />
+        app:layout_constraintStart_toStartOf="parent" />
 
     <com.google.android.material.button.MaterialButton
         android:id="@+id/btn_next"
@@ -201,9 +211,8 @@
         android:layout_margin="@dimen/margin_standard"
         android:backgroundTint="@color/blue_color"
         android:paddingHorizontal="@dimen/margin_middle"
-        android:text="@string/check"
+        android:text="@string/next"
         android:textColor="#FDBF4A"
-        android:visibility="gone"
         app:cornerRadius="@dimen/margin_middle"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"

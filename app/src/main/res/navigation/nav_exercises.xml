@@ -11,7 +11,9 @@
         tools:layout="@layout/screen_match_words">
         <action
             android:id="@+id/action_matchingWordsScreen_to_fillingScreen"
-            app:destination="@id/fillingScreen" />
+            app:destination="@id/fillingScreen"
+            app:popUpToInclusive="true"
+            app:launchSingleTop="true"/>
         <argument
             android:name="correctAnswers"
             app:argType="integer" />
@@ -23,7 +25,9 @@
         tools:layout="@layout/screen_match_antonyms">
         <action
             android:id="@+id/action_matchingAntonyms_to_matchingWordsScreen"
-            app:destination="@id/matchingWordsScreen" />
+            app:destination="@id/matchingWordsScreen"
+            app:popUpToInclusive="true"
+            app:launchSingleTop="true"/>
         <argument
             android:name="correctAnswers"
             app:argType="integer" />
@@ -35,7 +39,9 @@
         tools:layout="@layout/screen_filling">
         <action
             android:id="@+id/action_fillingScreen_to_speakingScreen"
-            app:destination="@id/speakingScreen" />
+            app:destination="@id/speakingScreen"
+            app:popUpToInclusive="true"
+            app:launchSingleTop="true"/>
         <argument
             android:name="correctAnswers"
             app:argType="integer" />
@@ -47,7 +53,9 @@
         tools:layout="@layout/screen_word_order">
         <action
             android:id="@+id/action_wordOrderScreen_to_matchingAntonyms"
-            app:destination="@id/matchingAntonyms" />
+            app:destination="@id/matchingAntonyms"
+            app:popUpToInclusive="true"
+            app:launchSingleTop="true"/>
         <argument
             android:name="correctAnswers"
             app:argType="integer" />
@@ -59,7 +67,9 @@
         tools:layout="@layout/screen_picture_game" >
         <action
             android:id="@+id/action_pictureGameScreen_to_wordOrderScreen"
-            app:destination="@id/wordOrderScreen" />
+            app:destination="@id/wordOrderScreen"
+            app:popUpToInclusive="true"
+            app:launchSingleTop="true"/>
     </fragment>
     <fragment
         android:id="@+id/speakingScreen"
@@ -71,7 +81,9 @@
             app:argType="integer" />
         <action
             android:id="@+id/action_speakingScreen_to_resultScreen"
-            app:destination="@id/resultScreen" />
+            app:destination="@id/resultScreen"
+            app:popUpToInclusive="true"
+            app:launchSingleTop="true"/>
     </fragment>
     <fragment
         android:id="@+id/resultScreen"
